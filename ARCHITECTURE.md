@@ -204,8 +204,6 @@ Deduplication is done on primary keys (e.g., `product_id`, `transaction_id`), ke
 
 ## Referential Integrity
 
-Foreign key validation checks that referenced records exist in the parent table. Processing order ensures parent tables are processed first:
-
 Processing order ensures parent tables are processed first:
 
 1.  `vendors` (no deps)
