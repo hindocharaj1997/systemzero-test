@@ -341,6 +341,20 @@ class SilverProcessor:
                         def _normalize_date(val):
                             if val is None or val == "":
                                 return val
+                            
+                            # Try parsing as Unix timestamp
+                            try:
+                                # excessive years (e.g. 1611183600) are likely timestamps
+                                # check if purely numeric
+                                if str(val).replace('.', '', 1).isdigit():
+                                    ts = float(val)
+                                    # Simple sanity check: is it a reasonable seconds timestamp?
+                                    # 1970-01-01 = 0, 2100-01-01 = 4102444800
+                                    if 0 <= ts <= 4102444800:
+                                        return datetime.fromtimestamp(ts).strftime("%Y-%m-%d")
+                            except (ValueError, TypeError):
+                                pass
+
                             try:
                                 parsed = date_parser.parse(str(val), dayfirst=False, fuzzy=False)
                                 return parsed.strftime("%Y-%m-%d")
