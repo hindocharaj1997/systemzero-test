@@ -1,6 +1,6 @@
 # Data Quality Report
 
-**Generated:** 2026-02-10 22:25:34
+**Generated:** 2026-02-10 22:33:11
 
 **Pipeline:** Medallion Architecture (Polars → DuckDB)
 
@@ -28,22 +28,22 @@
 |--------|-------|-------|-------------|---------|----------|-----------|
 | vendors | 10 | 10 | 0 | 0 | 0 | 100.0% |
 | products | 505 | 481 | 19 | 5 | 1 | 95.2% |
-| customers | 1,003 | 788 | 212 | 3 | 0 | 78.6% |
-| transactions | 5,010 | 3,748 | 1252 | 10 | 1252 | 74.8% |
+| customers | 1,003 | 999 | 1 | 3 | 0 | 99.6% |
+| transactions | 5,010 | 4,740 | 260 | 10 | 260 | 94.6% |
 | invoices | 805 | 784 | 16 | 5 | 16 | 97.4% |
-| reviews | 30 | 17 | 13 | 0 | 11 | 56.7% |
-| support_tickets | 20 | 12 | 8 | 0 | 7 | 60.0% |
-| call_transcripts | 10 | 6 | 4 | 0 | 4 | 60.0% |
-| **Total** | **7,393** | **5,846** | **1524** | **23** | **1291** | **79.1%** |
+| reviews | 30 | 21 | 9 | 0 | 7 | 70.0% |
+| support_tickets | 20 | 14 | 6 | 0 | 5 | 70.0% |
+| call_transcripts | 10 | 7 | 3 | 0 | 3 | 70.0% |
+| **Total** | **7,393** | **7,056** | **314** | **23** | **292** | **95.4%** |
 
 ### Validation Error Breakdown
 
 | Error Type | Count |
 |------------|-------|
-| referential_integrity | 1291 |
-| value_error | 214 |
+| referential_integrity | 292 |
 | greater_than_equal | 16 |
 | float_parsing | 2 |
+| value_error | 2 |
 | less_than_equal | 1 |
 | int_parsing | 1 |
 
@@ -74,11 +74,11 @@
 | Source | Orphaned Records | Details |
 |--------|-----------------|---------|
 | products | 1 | Invalid foreign key references |
-| transactions | 1252 | Invalid foreign key references |
+| transactions | 260 | Invalid foreign key references |
 | invoices | 16 | Invalid foreign key references |
-| reviews | 11 | Invalid foreign key references |
-| support_tickets | 7 | Invalid foreign key references |
-| call_transcripts | 4 | Invalid foreign key references |
+| reviews | 7 | Invalid foreign key references |
+| support_tickets | 5 | Invalid foreign key references |
+| call_transcripts | 3 | Invalid foreign key references |
 
 ---
 
@@ -86,7 +86,7 @@
 
 | Feature Table | Rows | Features |
 |---------------|------|----------|
-| customer_features | 788 | 20 |
+| customer_features | 999 | 20 |
 | product_features | 481 | 18 |
 | vendor_features | 10 | 16 |
 | invoice_features | 784 | 15 |
@@ -120,10 +120,10 @@ Based on the README's known issues list:
 
 ## Quarantine Files
 
-- `call_transcripts_quarantine.json`: 4 records
-- `customers_quarantine.json`: 212 records
+- `call_transcripts_quarantine.json`: 3 records
+- `customers_quarantine.json`: 1 records
 - `invoices_quarantine.json`: 16 records
 - `products_quarantine.json`: 19 records
-- `reviews_quarantine.json`: 13 records
-- `support_tickets_quarantine.json`: 8 records
-- `transactions_quarantine.json`: 1252 records
+- `reviews_quarantine.json`: 9 records
+- `support_tickets_quarantine.json`: 6 records
+- `transactions_quarantine.json`: 260 records

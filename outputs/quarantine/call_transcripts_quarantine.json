@@ -1,78 +1,6 @@
 [
   {
-    "row_index": 3,
-    "record": {
-      "call_id": "CALL-000005",
-      "ticket_id": "TKT-000011",
-      "customer_id": "CUS-00000045",
-      "agent_id": "AGT-007",
-      "agent_name": "David Park",
-      "call_start": "2025-03-22",
-      "call_end": "2025-03-22",
-      "duration_seconds": "1102",
-      "call_type": "inbound",
-      "phone_number": "15550145",
-      "queue_wait_seconds": "23",
-      "hold_time_seconds": "60",
-      "transfers": "0",
-      "language": "en-us",
-      "sentiment_overall": "neutral",
-      "resolution_achieved": "True",
-      "utterances": "[{\"timestamp\": \"00:00:02\", \"speaker\": \"agent\", \"text\": \"TechStore support, David speaking. How can I help you today?\"}, {\"timestamp\": \"00:00:07\", \"speaker\": \"customer\", \"text\": \"Hi David, I'd like to return a pair of headphones. They're just not comfortable for me.\"}, {\"timestamp\": \"00:00:14\", \"speaker\": \"agent\", \"text\": \"I'm sorry the headphones didn't work out for you. I can definitely help with that. Do you have your order number handy?\"}, {\"timestamp\": \"00:00:21\", \"speaker\": \"customer\", \"text\": \"Yes, it's ORD-2025-87654.\"}, {\"timestamp\": \"00:00:27\", \"speaker\": \"agent\", \"text\": \"Thank you. Let me pull that up.\"}, {\"timestamp\": \"00:00:32\", \"speaker\": \"system\", \"text\": \"[Brief typing pause]\"}, {\"timestamp\": \"00:00:40\", \"speaker\": \"agent\", \"text\": \"I see you purchased the Noise-Canceling Headset about 12 days ago. Is the product in its original condition with all the packaging?\"}, {\"timestamp\": \"00:00:50\", \"speaker\": \"customer\", \"text\": \"Yes, I only used them a few times. Everything is there - the case, cables, all of it.\"}, {\"timestamp\": \"00:00:58\", \"speaker\": \"agent\", \"text\": \"Perfect, that's well within our 30-day return window. Just to make sure I understand - they're physically working fine, just not comfortable for you?\"}, {\"timestamp\": \"00:01:08\", \"speaker\": \"customer\", \"text\": \"Right. The sound quality is great, but they press too hard on my ears. After about an hour, it starts to hurt.\"}, {\"timestamp\": \"00:01:17\", \"speaker\": \"agent\", \"text\": \"I understand completely. Comfort is really personal when it comes to headphones. I can process a return for you, or if you're interested, I could suggest an alternative model that might be more comfortable?\"}, {\"timestamp\": \"00:01:30\", \"speaker\": \"customer\", \"text\": \"Actually, yes, I'd be interested in hearing about alternatives. I really did like the noise cancellation.\"}, {\"timestamp\": \"00:01:38\", \"speaker\": \"agent\", \"text\": \"Great! We have the EarPods Pro that have the same excellent noise cancellation, but they're earbuds instead of over-ear, so no pressure on the ears at all. Or there's the ComfortMax Headphones which have extra cushioning and a looser fit.\"}, {\"timestamp\": \"00:01:55\", \"speaker\": \"customer\", \"text\": \"The EarPods Pro sound interesting. Are they similar in price?\"}, {\"timestamp\": \"00:02:00\", \"speaker\": \"agent\", \"text\": \"They're actually $30 less than what you paid for the Noise-Canceling Headset, so you'd get that difference refunded back to you.\"}, {\"timestamp\": \"00:02:10\", \"speaker\": \"customer\", \"text\": \"Oh nice! Yeah, let's do an exchange for those then.\"}, {\"timestamp\": \"00:02:15\", \"speaker\": \"agent\", \"text\": \"Perfect choice! Let me set that up for you. I'll email you a prepaid return label for the headset. Once we receive it, we'll ship out the EarPods Pro and refund the $30 difference to your original payment method.\"}, {\"timestamp\": \"00:02:30\", \"speaker\": \"customer\", \"text\": \"Sounds great. How long will all that take?\"}, {\"timestamp\": \"00:02:34\", \"speaker\": \"agent\", \"text\": \"You'll receive the return label within an hour. Once we receive the return - usually takes 3-5 days after you ship it - we'll process everything within 24 hours. So you should have your new EarPods Pro within about 10 days total.\"}, {\"timestamp\": \"00:02:50\", \"speaker\": \"customer\", \"text\": \"Perfect. Thank you so much for the help and the recommendation!\"}, {\"timestamp\": \"00:02:55\", \"speaker\": \"agent\", \"text\": \"My pleasure! I hope the EarPods Pro work out better for you. Is there anything else I can help with today?\"}, {\"timestamp\": \"00:03:02\", \"speaker\": \"customer\", \"text\": \"No, that's everything. Thanks David!\"}, {\"timestamp\": \"00:03:05\", \"speaker\": \"agent\", \"text\": \"You're welcome! Have a great day!\"}]",
-      "keywords_detected": "[\"return\", \"uncomfortable\", \"exchange\", \"headphones\", \"alternative\"]",
-      "action_items": "[\"Process exchange\", \"Send return label\", \"Ship EarPods Pro\", \"Refund difference\"]",
-      "quality_score": "94",
-      "_source_file": "call_transcripts.json",
-      "_loaded_at": "2026-02-10T22:25:28.068809"
-    },
-    "errors": [
-      {
-        "field": "ticket_id",
-        "value": "TKT-000011",
-        "target": "support_ticket",
-        "type": "referential_integrity",
-        "msg": "No matching support_ticket record for ticket_id=TKT-000011"
-      }
-    ]
-  },
-  {
-    "row_index": 5,
-    "record": {
-      "call_id": "CALL-000010",
-      "ticket_id": "TKT-000019",
-      "customer_id": "CUS-00000555",
-      "agent_id": "AGT-006",
-      "agent_name": "Maria Santos",
-      "call_start": "2025-03-26",
-      "call_end": "2025-03-26",
-      "duration_seconds": "2144",
-      "call_type": "outbound",
-      "phone_number": "15550555",
-      "queue_wait_seconds": "0",
-      "hold_time_seconds": "300",
-      "transfers": "0",
-      "language": "en-us",
-      "sentiment_overall": "dissatisfied_to_satisfied",
-      "resolution_achieved": "True",
-      "utterances": "[{\"timestamp\": \"00:00:02\", \"speaker\": \"agent\", \"text\": \"Hello, may I speak with Mr. or Ms. Thompson?\"}, {\"timestamp\": \"00:00:07\", \"speaker\": \"customer\", \"text\": \"This is Ms. Thompson.\"}, {\"timestamp\": \"00:00:10\", \"speaker\": \"agent\", \"text\": \"Hi Ms. Thompson, this is Maria from TechStore Customer Resolutions. I'm calling regarding the email you sent us about the UltraSound Earbuds. Do you have a few minutes to discuss?\"}, {\"timestamp\": \"00:00:23\", \"speaker\": \"customer\", \"text\": \"Oh, yes. I was pretty upset about that.\"}, {\"timestamp\": \"00:00:27\", \"speaker\": \"agent\", \"text\": \"I completely understand, and I want to sincerely apologize. I've reviewed your case thoroughly and I can see why you were frustrated.\"}, {\"timestamp\": \"00:00:36\", \"speaker\": \"customer\", \"text\": \"The website said 24-hour battery life! I'm getting maybe 4 hours.\"}, {\"timestamp\": \"00:00:42\", \"speaker\": \"agent\", \"text\": \"You're absolutely right to be concerned. I looked into this, and I need to be transparent with you. The '24-hour battery life' actually refers to the total usage when you include the charging case - that's 6 hours from the earbuds themselves, plus 18 hours from the case.\"}, {\"timestamp\": \"00:01:02\", \"speaker\": \"customer\", \"text\": \"That's... pretty misleading.\"}, {\"timestamp\": \"00:01:05\", \"speaker\": \"agent\", \"text\": \"I agree, and I've already flagged this with our marketing team. We should make that much clearer on the product page. But here's the other thing - you mentioned you're only getting 4 hours per charge, not 6?\"}, {\"timestamp\": \"00:01:20\", \"speaker\": \"customer\", \"text\": \"Right. Maybe 4 hours on a good day.\"}, {\"timestamp\": \"00:01:24\", \"speaker\": \"agent\", \"text\": \"That's below spec even for the earbuds alone, which tells me you may have received a defective unit. That's not acceptable either.\"}, {\"timestamp\": \"00:01:34\", \"speaker\": \"customer\", \"text\": \"So what are you going to do about it?\"}, {\"timestamp\": \"00:01:37\", \"speaker\": \"agent\", \"text\": \"I'd like to offer you a few options. First, I can send you a replacement pair that should give you the proper 6-hour battery life from the earbuds. Second, if you'd prefer, I can process a full refund.\"}, {\"timestamp\": \"00:01:52\", \"speaker\": \"customer\", \"text\": \"What's the third option?\"}, {\"timestamp\": \"00:01:55\", \"speaker\": \"agent\", \"text\": \"The third option is that I send you our upgraded model, the UltraSound Pro, which has true 8-hour battery life in the earbuds alone - no misleading advertising, I promise. Normally it's $50 more, but I can send it to you at no additional cost as an apology for this experience.\"}, {\"timestamp\": \"00:02:15\", \"speaker\": \"customer\", \"text\": \"Hmm... and what about compensation for my trouble?\"}, {\"timestamp\": \"00:02:20\", \"speaker\": \"agent\", \"text\": \"Whichever option you choose, I'm also adding a $25 store credit to your account. I know it doesn't make up for the frustration, but I hope it shows we take this seriously.\"}, {\"timestamp\": \"00:02:33\", \"speaker\": \"customer\", \"text\": \"Okay... I appreciate that. Let me think...\"}, {\"timestamp\": \"00:02:40\", \"speaker\": \"system\", \"text\": \"[Brief pause]\"}, {\"timestamp\": \"00:02:48\", \"speaker\": \"customer\", \"text\": \"I'll take the replacement. The regular ones, not the upgrade. The sound quality was actually good, I just need them to last longer.\"}, {\"timestamp\": \"00:02:58\", \"speaker\": \"agent\", \"text\": \"Absolutely, I understand. I'll ship out a new pair today with express delivery. You should have them within 2 days.\"}, {\"timestamp\": \"00:03:08\", \"speaker\": \"customer\", \"text\": \"And I don't need to return the defective ones?\"}, {\"timestamp\": \"00:03:12\", \"speaker\": \"agent\", \"text\": \"You can if you'd like to, but it's not required. You can keep them, recycle them, or donate them - whatever you prefer.\"}, {\"timestamp\": \"00:03:22\", \"speaker\": \"customer\", \"text\": \"Okay. Thank you, Maria. I appreciate you calling me back about this.\"}, {\"timestamp\": \"00:03:28\", \"speaker\": \"agent\", \"text\": \"It's my pleasure. We really do value you as a customer, and I'm sorry this product didn't meet your expectations. Is there anything else I can help you with?\"}, {\"timestamp\": \"00:03:38\", \"speaker\": \"customer\", \"text\": \"No, I think we're good. Thanks again.\"}, {\"timestamp\": \"00:03:41\", \"speaker\": \"agent\", \"text\": \"Thank you for your patience, Ms. Thompson. Have a wonderful day!\"}]",
-      "keywords_detected": "[\"complaint\", \"battery life\", \"advertising\", \"replacement\", \"compensation\"]",
-      "action_items": "[\"Ship replacement earbuds\", \"Add $25 store credit\", \"Flag marketing for website update\"]",
-      "quality_score": "95",
-      "_source_file": "call_transcripts.json",
-      "_loaded_at": "2026-02-10T22:25:28.068809"
-    },
-    "errors": [
-      {
-        "field": "ticket_id",
-        "value": "TKT-000019",
-        "target": "support_ticket",
-        "type": "referential_integrity",
-        "msg": "No matching support_ticket record for ticket_id=TKT-000019"
-      }
-    ]
-  },
-  {
-    "row_index": 8,
+    "row_index": 1,
     "record": {
       "call_id": "CALL-000009",
       "ticket_id": null,
@@ -95,7 +23,7 @@
       "action_items": "[]",
       "quality_score": "91",
       "_source_file": "call_transcripts.json",
-      "_loaded_at": "2026-02-10T22:25:28.068809"
+      "_loaded_at": "2026-02-10T22:33:04.850936"
     },
     "errors": [
       {
@@ -108,45 +36,74 @@
     ]
   },
   {
-    "row_index": 9,
+    "row_index": 4,
     "record": {
-      "call_id": "CALL-000007",
-      "ticket_id": "TKT-000004",
-      "customer_id": "CUS-00000042",
-      "agent_id": "AGT-007",
-      "agent_name": "David Park",
-      "call_start": "2025-03-18",
-      "call_end": "2025-03-18",
-      "duration_seconds": "1031",
-      "call_type": "inbound",
-      "phone_number": "15550142",
-      "queue_wait_seconds": "34",
-      "hold_time_seconds": "45",
+      "call_id": "CALL-000010",
+      "ticket_id": "TKT-000019",
+      "customer_id": "CUS-00000555",
+      "agent_id": "AGT-006",
+      "agent_name": "Maria Santos",
+      "call_start": "2025-03-26",
+      "call_end": "2025-03-26",
+      "duration_seconds": "2144",
+      "call_type": "outbound",
+      "phone_number": "15550555",
+      "queue_wait_seconds": "0",
+      "hold_time_seconds": "300",
       "transfers": "0",
       "language": "en-us",
-      "sentiment_overall": "positive",
+      "sentiment_overall": "dissatisfied_to_satisfied",
       "resolution_achieved": "True",
-      "utterances": "[{\"timestamp\": \"00:00:02\", \"speaker\": \"agent\", \"text\": \"TechStore support, this is David. How may I assist you?\"}, {\"timestamp\": \"00:00:07\", \"speaker\": \"customer\", \"text\": \"Hi, I need to return a product. It's not what I expected.\"}, {\"timestamp\": \"00:00:12\", \"speaker\": \"agent\", \"text\": \"Of course, I can help with that. May I have your order number?\"}, {\"timestamp\": \"00:00:17\", \"speaker\": \"customer\", \"text\": \"Sure, it's ORD-2025-82567.\"}, {\"timestamp\": \"00:00:23\", \"speaker\": \"agent\", \"text\": \"Thank you. Let me look that up for you.\"}, {\"timestamp\": \"00:00:30\", \"speaker\": \"system\", \"text\": \"[Brief pause - 15 seconds]\"}, {\"timestamp\": \"00:00:48\", \"speaker\": \"agent\", \"text\": \"I see you ordered the Ultra Travel Guide on March 15th. May I ask what wasn't as expected?\"}, {\"timestamp\": \"00:00:57\", \"speaker\": \"customer\", \"text\": \"Well, the book arrived in German. But I definitely ordered the English version.\"}, {\"timestamp\": \"00:01:04\", \"speaker\": \"agent\", \"text\": \"Oh no, I apologize for that. Let me check your order details... You're absolutely right, your order shows the English edition but it looks like we shipped the German one by mistake.\"}, {\"timestamp\": \"00:01:18\", \"speaker\": \"customer\", \"text\": \"Yeah, I thought so. I mean, my German isn't great, so...\"}, {\"timestamp\": \"00:01:24\", \"speaker\": \"agent\", \"text\": \"Ha! I understand completely. Here's what I'm going to do - I'll send you the correct English version right away at no additional cost. And you know what? You don't even need to return the German one.\"}, {\"timestamp\": \"00:01:38\", \"speaker\": \"customer\", \"text\": \"Wait, really? I can keep it?\"}, {\"timestamp\": \"00:01:41\", \"speaker\": \"agent\", \"text\": \"Absolutely. It was our mistake, and the cost of return shipping wouldn't make sense for a book. Consider it a gift - maybe you'll be inspired to brush up on your German!\"}, {\"timestamp\": \"00:01:53\", \"speaker\": \"customer\", \"text\": \"Ha! That's very generous. Thank you so much!\"}, {\"timestamp\": \"00:01:57\", \"speaker\": \"agent\", \"text\": \"You're welcome! The English version should arrive within 3-4 business days. Is the shipping address still 456 Oak Lane?\"}, {\"timestamp\": \"00:02:07\", \"speaker\": \"customer\", \"text\": \"Yes, that's correct.\"}, {\"timestamp\": \"00:02:10\", \"speaker\": \"agent\", \"text\": \"Perfect. You'll receive a shipping confirmation email shortly. Is there anything else I can help you with?\"}, {\"timestamp\": \"00:02:17\", \"speaker\": \"customer\", \"text\": \"No, that's everything. You've been really helpful, David.\"}, {\"timestamp\": \"00:02:21\", \"speaker\": \"agent\", \"text\": \"My pleasure! I hope you enjoy the book - I hear the travel guide is excellent. Have a great trip!\"}, {\"timestamp\": \"00:02:28\", \"speaker\": \"customer\", \"text\": \"Thanks! Bye!\"}, {\"timestamp\": \"00:02:30\", \"speaker\": \"agent\", \"text\": \"Goodbye!\"}]",
-      "keywords_detected": "[\"return\", \"wrong item\", \"German\", \"English\", \"book\"]",
-      "action_items": "[\"Ship correct English version\", \"No return required\"]",
-      "quality_score": "97",
+      "utterances": "[{\"timestamp\": \"00:00:02\", \"speaker\": \"agent\", \"text\": \"Hello, may I speak with Mr. or Ms. Thompson?\"}, {\"timestamp\": \"00:00:07\", \"speaker\": \"customer\", \"text\": \"This is Ms. Thompson.\"}, {\"timestamp\": \"00:00:10\", \"speaker\": \"agent\", \"text\": \"Hi Ms. Thompson, this is Maria from TechStore Customer Resolutions. I'm calling regarding the email you sent us about the UltraSound Earbuds. Do you have a few minutes to discuss?\"}, {\"timestamp\": \"00:00:23\", \"speaker\": \"customer\", \"text\": \"Oh, yes. I was pretty upset about that.\"}, {\"timestamp\": \"00:00:27\", \"speaker\": \"agent\", \"text\": \"I completely understand, and I want to sincerely apologize. I've reviewed your case thoroughly and I can see why you were frustrated.\"}, {\"timestamp\": \"00:00:36\", \"speaker\": \"customer\", \"text\": \"The website said 24-hour battery life! I'm getting maybe 4 hours.\"}, {\"timestamp\": \"00:00:42\", \"speaker\": \"agent\", \"text\": \"You're absolutely right to be concerned. I looked into this, and I need to be transparent with you. The '24-hour battery life' actually refers to the total usage when you include the charging case - that's 6 hours from the earbuds themselves, plus 18 hours from the case.\"}, {\"timestamp\": \"00:01:02\", \"speaker\": \"customer\", \"text\": \"That's... pretty misleading.\"}, {\"timestamp\": \"00:01:05\", \"speaker\": \"agent\", \"text\": \"I agree, and I've already flagged this with our marketing team. We should make that much clearer on the product page. But here's the other thing - you mentioned you're only getting 4 hours per charge, not 6?\"}, {\"timestamp\": \"00:01:20\", \"speaker\": \"customer\", \"text\": \"Right. Maybe 4 hours on a good day.\"}, {\"timestamp\": \"00:01:24\", \"speaker\": \"agent\", \"text\": \"That's below spec even for the earbuds alone, which tells me you may have received a defective unit. That's not acceptable either.\"}, {\"timestamp\": \"00:01:34\", \"speaker\": \"customer\", \"text\": \"So what are you going to do about it?\"}, {\"timestamp\": \"00:01:37\", \"speaker\": \"agent\", \"text\": \"I'd like to offer you a few options. First, I can send you a replacement pair that should give you the proper 6-hour battery life from the earbuds. Second, if you'd prefer, I can process a full refund.\"}, {\"timestamp\": \"00:01:52\", \"speaker\": \"customer\", \"text\": \"What's the third option?\"}, {\"timestamp\": \"00:01:55\", \"speaker\": \"agent\", \"text\": \"The third option is that I send you our upgraded model, the UltraSound Pro, which has true 8-hour battery life in the earbuds alone - no misleading advertising, I promise. Normally it's $50 more, but I can send it to you at no additional cost as an apology for this experience.\"}, {\"timestamp\": \"00:02:15\", \"speaker\": \"customer\", \"text\": \"Hmm... and what about compensation for my trouble?\"}, {\"timestamp\": \"00:02:20\", \"speaker\": \"agent\", \"text\": \"Whichever option you choose, I'm also adding a $25 store credit to your account. I know it doesn't make up for the frustration, but I hope it shows we take this seriously.\"}, {\"timestamp\": \"00:02:33\", \"speaker\": \"customer\", \"text\": \"Okay... I appreciate that. Let me think...\"}, {\"timestamp\": \"00:02:40\", \"speaker\": \"system\", \"text\": \"[Brief pause]\"}, {\"timestamp\": \"00:02:48\", \"speaker\": \"customer\", \"text\": \"I'll take the replacement. The regular ones, not the upgrade. The sound quality was actually good, I just need them to last longer.\"}, {\"timestamp\": \"00:02:58\", \"speaker\": \"agent\", \"text\": \"Absolutely, I understand. I'll ship out a new pair today with express delivery. You should have them within 2 days.\"}, {\"timestamp\": \"00:03:08\", \"speaker\": \"customer\", \"text\": \"And I don't need to return the defective ones?\"}, {\"timestamp\": \"00:03:12\", \"speaker\": \"agent\", \"text\": \"You can if you'd like to, but it's not required. You can keep them, recycle them, or donate them - whatever you prefer.\"}, {\"timestamp\": \"00:03:22\", \"speaker\": \"customer\", \"text\": \"Okay. Thank you, Maria. I appreciate you calling me back about this.\"}, {\"timestamp\": \"00:03:28\", \"speaker\": \"agent\", \"text\": \"It's my pleasure. We really do value you as a customer, and I'm sorry this product didn't meet your expectations. Is there anything else I can help you with?\"}, {\"timestamp\": \"00:03:38\", \"speaker\": \"customer\", \"text\": \"No, I think we're good. Thanks again.\"}, {\"timestamp\": \"00:03:41\", \"speaker\": \"agent\", \"text\": \"Thank you for your patience, Ms. Thompson. Have a wonderful day!\"}]",
+      "keywords_detected": "[\"complaint\", \"battery life\", \"advertising\", \"replacement\", \"compensation\"]",
+      "action_items": "[\"Ship replacement earbuds\", \"Add $25 store credit\", \"Flag marketing for website update\"]",
+      "quality_score": "95",
       "_source_file": "call_transcripts.json",
-      "_loaded_at": "2026-02-10T22:25:28.068809"
+      "_loaded_at": "2026-02-10T22:33:04.850936"
     },
     "errors": [
       {
         "field": "ticket_id",
-        "value": "TKT-000004",
+        "value": "TKT-000019",
         "target": "support_ticket",
         "type": "referential_integrity",
-        "msg": "No matching support_ticket record for ticket_id=TKT-000004"
-      },
+        "msg": "No matching support_ticket record for ticket_id=TKT-000019"
+      }
+    ]
+  },
+  {
+    "row_index": 6,
+    "record": {
+      "call_id": "CALL-000005",
+      "ticket_id": "TKT-000011",
+      "customer_id": "CUS-00000045",
+      "agent_id": "AGT-007",
+      "agent_name": "David Park",
+      "call_start": "2025-03-22",
+      "call_end": "2025-03-22",
+      "duration_seconds": "1102",
+      "call_type": "inbound",
+      "phone_number": "15550145",
+      "queue_wait_seconds": "23",
+      "hold_time_seconds": "60",
+      "transfers": "0",
+      "language": "en-us",
+      "sentiment_overall": "neutral",
+      "resolution_achieved": "True",
+      "utterances": "[{\"timestamp\": \"00:00:02\", \"speaker\": \"agent\", \"text\": \"TechStore support, David speaking. How can I help you today?\"}, {\"timestamp\": \"00:00:07\", \"speaker\": \"customer\", \"text\": \"Hi David, I'd like to return a pair of headphones. They're just not comfortable for me.\"}, {\"timestamp\": \"00:00:14\", \"speaker\": \"agent\", \"text\": \"I'm sorry the headphones didn't work out for you. I can definitely help with that. Do you have your order number handy?\"}, {\"timestamp\": \"00:00:21\", \"speaker\": \"customer\", \"text\": \"Yes, it's ORD-2025-87654.\"}, {\"timestamp\": \"00:00:27\", \"speaker\": \"agent\", \"text\": \"Thank you. Let me pull that up.\"}, {\"timestamp\": \"00:00:32\", \"speaker\": \"system\", \"text\": \"[Brief typing pause]\"}, {\"timestamp\": \"00:00:40\", \"speaker\": \"agent\", \"text\": \"I see you purchased the Noise-Canceling Headset about 12 days ago. Is the product in its original condition with all the packaging?\"}, {\"timestamp\": \"00:00:50\", \"speaker\": \"customer\", \"text\": \"Yes, I only used them a few times. Everything is there - the case, cables, all of it.\"}, {\"timestamp\": \"00:00:58\", \"speaker\": \"agent\", \"text\": \"Perfect, that's well within our 30-day return window. Just to make sure I understand - they're physically working fine, just not comfortable for you?\"}, {\"timestamp\": \"00:01:08\", \"speaker\": \"customer\", \"text\": \"Right. The sound quality is great, but they press too hard on my ears. After about an hour, it starts to hurt.\"}, {\"timestamp\": \"00:01:17\", \"speaker\": \"agent\", \"text\": \"I understand completely. Comfort is really personal when it comes to headphones. I can process a return for you, or if you're interested, I could suggest an alternative model that might be more comfortable?\"}, {\"timestamp\": \"00:01:30\", \"speaker\": \"customer\", \"text\": \"Actually, yes, I'd be interested in hearing about alternatives. I really did like the noise cancellation.\"}, {\"timestamp\": \"00:01:38\", \"speaker\": \"agent\", \"text\": \"Great! We have the EarPods Pro that have the same excellent noise cancellation, but they're earbuds instead of over-ear, so no pressure on the ears at all. Or there's the ComfortMax Headphones which have extra cushioning and a looser fit.\"}, {\"timestamp\": \"00:01:55\", \"speaker\": \"customer\", \"text\": \"The EarPods Pro sound interesting. Are they similar in price?\"}, {\"timestamp\": \"00:02:00\", \"speaker\": \"agent\", \"text\": \"They're actually $30 less than what you paid for the Noise-Canceling Headset, so you'd get that difference refunded back to you.\"}, {\"timestamp\": \"00:02:10\", \"speaker\": \"customer\", \"text\": \"Oh nice! Yeah, let's do an exchange for those then.\"}, {\"timestamp\": \"00:02:15\", \"speaker\": \"agent\", \"text\": \"Perfect choice! Let me set that up for you. I'll email you a prepaid return label for the headset. Once we receive it, we'll ship out the EarPods Pro and refund the $30 difference to your original payment method.\"}, {\"timestamp\": \"00:02:30\", \"speaker\": \"customer\", \"text\": \"Sounds great. How long will all that take?\"}, {\"timestamp\": \"00:02:34\", \"speaker\": \"agent\", \"text\": \"You'll receive the return label within an hour. Once we receive the return - usually takes 3-5 days after you ship it - we'll process everything within 24 hours. So you should have your new EarPods Pro within about 10 days total.\"}, {\"timestamp\": \"00:02:50\", \"speaker\": \"customer\", \"text\": \"Perfect. Thank you so much for the help and the recommendation!\"}, {\"timestamp\": \"00:02:55\", \"speaker\": \"agent\", \"text\": \"My pleasure! I hope the EarPods Pro work out better for you. Is there anything else I can help with today?\"}, {\"timestamp\": \"00:03:02\", \"speaker\": \"customer\", \"text\": \"No, that's everything. Thanks David!\"}, {\"timestamp\": \"00:03:05\", \"speaker\": \"agent\", \"text\": \"You're welcome! Have a great day!\"}]",
+      "keywords_detected": "[\"return\", \"uncomfortable\", \"exchange\", \"headphones\", \"alternative\"]",
+      "action_items": "[\"Process exchange\", \"Send return label\", \"Ship EarPods Pro\", \"Refund difference\"]",
+      "quality_score": "94",
+      "_source_file": "call_transcripts.json",
+      "_loaded_at": "2026-02-10T22:33:04.850936"
+    },
+    "errors": [
       {
-        "field": "customer_id",
-        "value": "CUS-00000042",
-        "target": "customer",
+        "field": "ticket_id",
+        "value": "TKT-000011",
+        "target": "support_ticket",
         "type": "referential_integrity",
-        "msg": "No matching customer record for customer_id=CUS-00000042"
+        "msg": "No matching support_ticket record for ticket_id=TKT-000011"
       }
     ]
   }

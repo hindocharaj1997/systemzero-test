@@ -1,326 +1,6 @@
 [
   {
-    "row_index": 1,
-    "record": {
-      "review_id": "REV-000016",
-      "product_id": "PRD-INVALID",
-      "customer_id": "CUS-00000567",
-      "rating": "5",
-      "title": "Exceeded expectations",
-      "review_text": "Ordered this on a whim and it turned out to be one of my best purchases. Quality is outstanding and it looks even better in person than in the photos. Fast shipping too!",
-      "helpful_votes": "31",
-      "verified_purchase": "True",
-      "review_date": "2025-03-18",
-      "sentiment": "positive",
-      "images": "[]",
-      "response_responder": null,
-      "response_response_text": null,
-      "response_response_date": null,
-      "response": null,
-      "_source_file": "product_reviews.json",
-      "_loaded_at": "2026-02-10T22:25:28.068809"
-    },
-    "errors": [
-      {
-        "field": "product_id",
-        "value": "PRD-INVALID",
-        "target": "product",
-        "type": "referential_integrity",
-        "msg": "No matching product record for product_id=PRD-INVALID"
-      },
-      {
-        "field": "customer_id",
-        "value": "CUS-00000567",
-        "target": "customer",
-        "type": "referential_integrity",
-        "msg": "No matching customer record for customer_id=CUS-00000567"
-      }
-    ]
-  },
-  {
     "row_index": 2,
-    "record": {
-      "review_id": "REV-000027",
-      "product_id": "PRD-000008",
-      "customer_id": "CUS-00000777",
-      "rating": "3",
-      "title": "Good chair, difficult assembly",
-      "review_text": "The chair itself is comfortable and well-built. BUT the assembly was a nightmare. Instructions were confusing, some screws were mislabeled, and it took 3 hours instead of the advertised 45 minutes. Had to watch YouTube videos to figure it out. Chair is great once assembled though.",
-      "helpful_votes": "156",
-      "verified_purchase": "True",
-      "review_date": "2025-02-22",
-      "sentiment": "neutral",
-      "images": "[]",
-      "response_responder": "TechStore Team",
-      "response_response_text": "Thank you for this feedback. We've heard similar comments and are working with the manufacturer to improve the instructions. We now also offer professional assembly for $49 - wish we could have offered that to you!",
-      "response_response_date": "2025-02-23",
-      "response": null,
-      "_source_file": "product_reviews.json",
-      "_loaded_at": "2026-02-10T22:25:28.068809"
-    },
-    "errors": [
-      {
-        "field": "product_id",
-        "value": "PRD-000008",
-        "target": "product",
-        "type": "referential_integrity",
-        "msg": "No matching product record for product_id=PRD-000008"
-      },
-      {
-        "field": "customer_id",
-        "value": "CUS-00000777",
-        "target": "customer",
-        "type": "referential_integrity",
-        "msg": "No matching customer record for customer_id=CUS-00000777"
-      }
-    ]
-  },
-  {
-    "row_index": 4,
-    "record": {
-      "review_id": "REV-000007",
-      "product_id": "PRD-000007",
-      "customer_id": "CUS-00000567",
-      "rating": "5",
-      "title": "Changed my work life",
-      "review_text": "I was skeptical about standing desks but decided to try one after back pain from sitting all day. This desk is rock solid - no wobble even at max height. The motor is quiet and smooth. After 2 months, my back pain is gone and I have more energy throughout the day. Best work investment I've made!",
-      "helpful_votes": "203",
-      "verified_purchase": "True",
-      "review_date": "2025-02-28",
-      "sentiment": "positive",
-      "images": "[\"desk_before.jpg\", \"desk_after.jpg\", \"setup_complete.jpg\"]",
-      "response_responder": "TechStore Wellness",
-      "response_response_text": "What an amazing transformation! We're so happy to hear about your improved health and energy. Thank you for sharing your story - it inspires us to keep offering products that make a real difference!",
-      "response_response_date": "2025-03-01",
-      "response": null,
-      "_source_file": "product_reviews.json",
-      "_loaded_at": "2026-02-10T22:25:28.068809"
-    },
-    "errors": [
-      {
-        "field": "customer_id",
-        "value": "CUS-00000567",
-        "target": "customer",
-        "type": "referential_integrity",
-        "msg": "No matching customer record for customer_id=CUS-00000567"
-      }
-    ]
-  },
-  {
-    "row_index": 6,
-    "record": {
-      "review_id": "REV-000020",
-      "product_id": "PRD-000011",
-      "customer_id": "CUS-00000901",
-      "rating": "4",
-      "title": "Warm and cozy",
-      "review_text": "Beautiful sweater - the wool is soft and doesn't itch. Keeps me warm without overheating. The fit is a little boxy but that's the style I guess. Hand wash only which is a bit annoying but expected for wool.",
-      "helpful_votes": "56",
-      "verified_purchase": "True",
-      "review_date": "2025-02-18",
-      "sentiment": "positive",
-      "images": "[\"sweater_fit.jpg\"]",
-      "response_responder": null,
-      "response_response_text": null,
-      "response_response_date": null,
-      "response": null,
-      "_source_file": "product_reviews.json",
-      "_loaded_at": "2026-02-10T22:25:28.068809"
-    },
-    "errors": [
-      {
-        "field": "customer_id",
-        "value": "CUS-00000901",
-        "target": "customer",
-        "type": "referential_integrity",
-        "msg": "No matching customer record for customer_id=CUS-00000901"
-      }
-    ]
-  },
-  {
-    "row_index": 14,
-    "record": {
-      "review_id": "REV-000018",
-      "product_id": "PRD-000015",
-      "customer_id": "CUS-00000789",
-      "rating": "5",
-      "title": "Finally found the perfect sports bra",
-      "review_text": "After trying at least 10 different sports bras, this one is THE ONE. High impact support without feeling like you're being squeezed to death. The moisture-wicking is incredible - stayed dry during a hot yoga session. The straps don't dig in. Already ordered two more!",
-      "helpful_votes": "445",
-      "verified_purchase": "True",
-      "review_date": "2025-01-30",
-      "sentiment": "positive",
-      "images": "[]",
-      "response_responder": null,
-      "response_response_text": null,
-      "response_response_date": null,
-      "response": null,
-      "_source_file": "product_reviews.json",
-      "_loaded_at": "2026-02-10T22:25:28.068809"
-    },
-    "errors": [
-      {
-        "field": "customer_id",
-        "value": "CUS-00000789",
-        "target": "customer",
-        "type": "referential_integrity",
-        "msg": "No matching customer record for customer_id=CUS-00000789"
-      }
-    ]
-  },
-  {
-    "row_index": 16,
-    "record": {
-      "review_id": "REV-000022",
-      "product_id": "PRD-000004",
-      "customer_id": "CUS-00000222",
-      "rating": "-1",
-      "title": "DONT BUY!!!",
-      "review_text": "SCAM! The monitor arrived BROKEN. Screen was cracked. Box looked fine so it was packaged broken. AVOID!!! Customer service was unhelpful. Still waiting for refund after 3 WEEKS!!!",
-      "helpful_votes": "12",
-      "verified_purchase": "False",
-      "review_date": "2025-03-22",
-      "sentiment": "negative",
-      "images": "[\"broken_screen.jpg\"]",
-      "response_responder": "TechStore Manager",
-      "response_response_text": "We take this very seriously. Our records show your refund was processed on March 10th. Please check with your bank. If you still don't see it, call us at 1-800-TECHSTOR and ask for a manager directly. We want to resolve this.",
-      "response_response_date": "2025-03-22",
-      "response": null,
-      "_source_file": "product_reviews.json",
-      "_loaded_at": "2026-02-10T22:25:28.068809"
-    },
-    "errors": [
-      {
-        "field": "rating",
-        "type": "greater_than_equal",
-        "msg": "Input should be greater than or equal to 1"
-      }
-    ]
-  },
-  {
-    "row_index": 17,
-    "record": {
-      "review_id": "REV-000001",
-      "product_id": "PRD-000001",
-      "customer_id": "CUS-00000045",
-      "rating": "5",
-      "title": "Amazing sound quality!",
-      "review_text": "I've been using this bluetooth speaker for a month now and I'm blown away by the sound quality. The bass is deep and the highs are crystal clear. Battery life is exactly as advertised - I get a solid 10 hours on a single charge. Highly recommend!",
-      "helpful_votes": "45",
-      "verified_purchase": "True",
-      "review_date": "2025-02-15",
-      "sentiment": "positive",
-      "images": "[\"img_001.jpg\", \"img_002.jpg\"]",
-      "response_responder": "TechStore Team",
-      "response_response_text": "Thank you for your wonderful review! We're thrilled you're enjoying the sound quality. Rock on! \ud83c\udfb5",
-      "response_response_date": "2025-02-16",
-      "response": null,
-      "_source_file": "product_reviews.json",
-      "_loaded_at": "2026-02-10T22:25:28.068809"
-    },
-    "errors": [
-      {
-        "field": "product_id",
-        "value": "PRD-000001",
-        "target": "product",
-        "type": "referential_integrity",
-        "msg": "No matching product record for product_id=PRD-000001"
-      }
-    ]
-  },
-  {
-    "row_index": 18,
-    "record": {
-      "review_id": "REV-000011",
-      "product_id": "PRD-000003",
-      "customer_id": "CUS-00000901",
-      "rating": "4",
-      "title": "Perfect for my runs",
-      "review_text": "These running shorts are lightweight and comfortable. The hidden pocket fits my phone perfectly and doesn't bounce. Good moisture wicking too. Only wish they came in more colors.",
-      "helpful_votes": "28",
-      "verified_purchase": "True",
-      "review_date": "2025-02-10",
-      "sentiment": "positive",
-      "images": "[]",
-      "response_responder": null,
-      "response_response_text": null,
-      "response_response_date": null,
-      "response": null,
-      "_source_file": "product_reviews.json",
-      "_loaded_at": "2026-02-10T22:25:28.068809"
-    },
-    "errors": [
-      {
-        "field": "customer_id",
-        "value": "CUS-00000901",
-        "target": "customer",
-        "type": "referential_integrity",
-        "msg": "No matching customer record for customer_id=CUS-00000901"
-      }
-    ]
-  },
-  {
-    "row_index": 21,
-    "record": {
-      "review_id": "",
-      "product_id": "PRD-000007",
-      "customer_id": "CUS-00000111",
-      "rating": "5",
-      "title": "Worth the investment",
-      "review_text": "This standing desk is built like a tank. Super stable, quiet motor, and the cable management is thoughtful. Been using it daily for 3 months with zero issues. If you're on the fence, just do it. Your body will thank you.",
-      "helpful_votes": "167",
-      "verified_purchase": "True",
-      "review_date": "2025-03-20",
-      "sentiment": "positive",
-      "images": "[]",
-      "response_responder": null,
-      "response_response_text": null,
-      "response_response_date": null,
-      "response": null,
-      "_source_file": "product_reviews.json",
-      "_loaded_at": "2026-02-10T22:25:28.068809"
-    },
-    "errors": [
-      {
-        "field": "review_id",
-        "type": "value_error",
-        "msg": "Value error, review_id cannot be empty"
-      }
-    ]
-  },
-  {
-    "row_index": 23,
-    "record": {
-      "review_id": "REV-000002",
-      "product_id": "PRD-000001",
-      "customer_id": "CUS-00000089",
-      "rating": "4",
-      "title": "Good but not great",
-      "review_text": "The speaker sounds good for the price point. My only complaint is that the Bluetooth range isn't as good as my old speaker - starts cutting out past 20 feet. Otherwise, build quality feels solid and it looks nice on my desk.",
-      "helpful_votes": "23",
-      "verified_purchase": "True",
-      "review_date": "2025-02-20",
-      "sentiment": "positive",
-      "images": "[]",
-      "response_responder": null,
-      "response_response_text": null,
-      "response_response_date": null,
-      "response": null,
-      "_source_file": "product_reviews.json",
-      "_loaded_at": "2026-02-10T22:25:28.068809"
-    },
-    "errors": [
-      {
-        "field": "product_id",
-        "value": "PRD-000001",
-        "target": "product",
-        "type": "referential_integrity",
-        "msg": "No matching product record for product_id=PRD-000001"
-      }
-    ]
-  },
-  {
-    "row_index": 25,
     "record": {
       "review_id": "REV-000025",
       "product_id": "PRD-000001",
@@ -338,7 +18,7 @@
       "response_response_date": null,
       "response": null,
       "_source_file": "product_reviews.json",
-      "_loaded_at": "2026-02-10T22:25:28.068809"
+      "_loaded_at": "2026-02-10T22:33:04.850936"
     },
     "errors": [
       {
@@ -351,7 +31,7 @@
     ]
   },
   {
-    "row_index": 26,
+    "row_index": 9,
     "record": {
       "review_id": "REV-000009",
       "product_id": "PRD-000008",
@@ -369,7 +49,7 @@
       "response_response_date": null,
       "response": null,
       "_source_file": "product_reviews.json",
-      "_loaded_at": "2026-02-10T22:25:28.068809"
+      "_loaded_at": "2026-02-10T22:33:04.850936"
     },
     "errors": [
       {
@@ -378,18 +58,73 @@
         "target": "product",
         "type": "referential_integrity",
         "msg": "No matching product record for product_id=PRD-000008"
-      },
-      {
-        "field": "customer_id",
-        "value": "CUS-00000789",
-        "target": "customer",
-        "type": "referential_integrity",
-        "msg": "No matching customer record for customer_id=CUS-00000789"
       }
     ]
   },
   {
-    "row_index": 27,
+    "row_index": 12,
+    "record": {
+      "review_id": "REV-000016",
+      "product_id": "PRD-INVALID",
+      "customer_id": "CUS-00000567",
+      "rating": "5",
+      "title": "Exceeded expectations",
+      "review_text": "Ordered this on a whim and it turned out to be one of my best purchases. Quality is outstanding and it looks even better in person than in the photos. Fast shipping too!",
+      "helpful_votes": "31",
+      "verified_purchase": "True",
+      "review_date": "2025-03-18",
+      "sentiment": "positive",
+      "images": "[]",
+      "response_responder": null,
+      "response_response_text": null,
+      "response_response_date": null,
+      "response": null,
+      "_source_file": "product_reviews.json",
+      "_loaded_at": "2026-02-10T22:33:04.850936"
+    },
+    "errors": [
+      {
+        "field": "product_id",
+        "value": "PRD-INVALID",
+        "target": "product",
+        "type": "referential_integrity",
+        "msg": "No matching product record for product_id=PRD-INVALID"
+      }
+    ]
+  },
+  {
+    "row_index": 16,
+    "record": {
+      "review_id": "REV-000001",
+      "product_id": "PRD-000001",
+      "customer_id": "CUS-00000045",
+      "rating": "5",
+      "title": "Amazing sound quality!",
+      "review_text": "I've been using this bluetooth speaker for a month now and I'm blown away by the sound quality. The bass is deep and the highs are crystal clear. Battery life is exactly as advertised - I get a solid 10 hours on a single charge. Highly recommend!",
+      "helpful_votes": "45",
+      "verified_purchase": "True",
+      "review_date": "2025-02-15",
+      "sentiment": "positive",
+      "images": "[\"img_001.jpg\", \"img_002.jpg\"]",
+      "response_responder": "TechStore Team",
+      "response_response_text": "Thank you for your wonderful review! We're thrilled you're enjoying the sound quality. Rock on! \ud83c\udfb5",
+      "response_response_date": "2025-02-16",
+      "response": null,
+      "_source_file": "product_reviews.json",
+      "_loaded_at": "2026-02-10T22:33:04.850936"
+    },
+    "errors": [
+      {
+        "field": "product_id",
+        "value": "PRD-000001",
+        "target": "product",
+        "type": "referential_integrity",
+        "msg": "No matching product record for product_id=PRD-000001"
+      }
+    ]
+  },
+  {
+    "row_index": 18,
     "record": {
       "review_id": "REV-000003",
       "product_id": "PRD-000001",
@@ -407,7 +142,127 @@
       "response_response_date": "2025-02-26",
       "response": null,
       "_source_file": "product_reviews.json",
-      "_loaded_at": "2026-02-10T22:25:28.068809"
+      "_loaded_at": "2026-02-10T22:33:04.850936"
+    },
+    "errors": [
+      {
+        "field": "product_id",
+        "value": "PRD-000001",
+        "target": "product",
+        "type": "referential_integrity",
+        "msg": "No matching product record for product_id=PRD-000001"
+      }
+    ]
+  },
+  {
+    "row_index": 22,
+    "record": {
+      "review_id": "REV-000027",
+      "product_id": "PRD-000008",
+      "customer_id": "CUS-00000777",
+      "rating": "3",
+      "title": "Good chair, difficult assembly",
+      "review_text": "The chair itself is comfortable and well-built. BUT the assembly was a nightmare. Instructions were confusing, some screws were mislabeled, and it took 3 hours instead of the advertised 45 minutes. Had to watch YouTube videos to figure it out. Chair is great once assembled though.",
+      "helpful_votes": "156",
+      "verified_purchase": "True",
+      "review_date": "2025-02-22",
+      "sentiment": "neutral",
+      "images": "[]",
+      "response_responder": "TechStore Team",
+      "response_response_text": "Thank you for this feedback. We've heard similar comments and are working with the manufacturer to improve the instructions. We now also offer professional assembly for $49 - wish we could have offered that to you!",
+      "response_response_date": "2025-02-23",
+      "response": null,
+      "_source_file": "product_reviews.json",
+      "_loaded_at": "2026-02-10T22:33:04.850936"
+    },
+    "errors": [
+      {
+        "field": "product_id",
+        "value": "PRD-000008",
+        "target": "product",
+        "type": "referential_integrity",
+        "msg": "No matching product record for product_id=PRD-000008"
+      }
+    ]
+  },
+  {
+    "row_index": 23,
+    "record": {
+      "review_id": "",
+      "product_id": "PRD-000007",
+      "customer_id": "CUS-00000111",
+      "rating": "5",
+      "title": "Worth the investment",
+      "review_text": "This standing desk is built like a tank. Super stable, quiet motor, and the cable management is thoughtful. Been using it daily for 3 months with zero issues. If you're on the fence, just do it. Your body will thank you.",
+      "helpful_votes": "167",
+      "verified_purchase": "True",
+      "review_date": "2025-03-20",
+      "sentiment": "positive",
+      "images": "[]",
+      "response_responder": null,
+      "response_response_text": null,
+      "response_response_date": null,
+      "response": null,
+      "_source_file": "product_reviews.json",
+      "_loaded_at": "2026-02-10T22:33:04.850936"
+    },
+    "errors": [
+      {
+        "field": "review_id",
+        "type": "value_error",
+        "msg": "Value error, review_id cannot be empty"
+      }
+    ]
+  },
+  {
+    "row_index": 24,
+    "record": {
+      "review_id": "REV-000022",
+      "product_id": "PRD-000004",
+      "customer_id": "CUS-00000222",
+      "rating": "-1",
+      "title": "DONT BUY!!!",
+      "review_text": "SCAM! The monitor arrived BROKEN. Screen was cracked. Box looked fine so it was packaged broken. AVOID!!! Customer service was unhelpful. Still waiting for refund after 3 WEEKS!!!",
+      "helpful_votes": "12",
+      "verified_purchase": "False",
+      "review_date": "2025-03-22",
+      "sentiment": "negative",
+      "images": "[\"broken_screen.jpg\"]",
+      "response_responder": "TechStore Manager",
+      "response_response_text": "We take this very seriously. Our records show your refund was processed on March 10th. Please check with your bank. If you still don't see it, call us at 1-800-TECHSTOR and ask for a manager directly. We want to resolve this.",
+      "response_response_date": "2025-03-22",
+      "response": null,
+      "_source_file": "product_reviews.json",
+      "_loaded_at": "2026-02-10T22:33:04.850936"
+    },
+    "errors": [
+      {
+        "field": "rating",
+        "type": "greater_than_equal",
+        "msg": "Input should be greater than or equal to 1"
+      }
+    ]
+  },
+  {
+    "row_index": 26,
+    "record": {
+      "review_id": "REV-000002",
+      "product_id": "PRD-000001",
+      "customer_id": "CUS-00000089",
+      "rating": "4",
+      "title": "Good but not great",
+      "review_text": "The speaker sounds good for the price point. My only complaint is that the Bluetooth range isn't as good as my old speaker - starts cutting out past 20 feet. Otherwise, build quality feels solid and it looks nice on my desk.",
+      "helpful_votes": "23",
+      "verified_purchase": "True",
+      "review_date": "2025-02-20",
+      "sentiment": "positive",
+      "images": "[]",
+      "response_responder": null,
+      "response_response_text": null,
+      "response_response_date": null,
+      "response": null,
+      "_source_file": "product_reviews.json",
+      "_loaded_at": "2026-02-10T22:33:04.850936"
     },
     "errors": [
       {
