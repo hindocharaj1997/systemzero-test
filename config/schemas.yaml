@@ -69,9 +69,6 @@ schemas:
       metadata_created_at:
         type: datetime
         clean: date_iso
-      metadata_created_at:
-        type: datetime
-        clean: date_iso
       metadata_updated_at:
         type: datetime
         clean: date_iso
@@ -508,9 +505,6 @@ schemas:
         type: float
         min: 0
         max: 100
-      resolution_achieved:
-        type: boolean
-        clean: boolean_normalize
       resolution_achieved:
         type: boolean
         clean: boolean_normalize
