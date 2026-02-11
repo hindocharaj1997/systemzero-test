@@ -398,7 +398,8 @@ class SilverProcessor:
         # only invoices that passed Silver validation
         bronze_path = self.bronze_dir / "invoices.csv"
         silver_path = self.output_dir / "invoices.csv"
-        
+        products_path = self.output_dir / "products.csv"
+
         if not bronze_path.exists() or not silver_path.exists():
             return
         
@@ -411,7 +412,14 @@ class SilverProcessor:
         
         # Only process line items for validated (Silver) invoice IDs
         valid_invoice_ids = set(silver_df["invoice_id"].to_list())
-        
+        valid_product_ids: Set[str] = set()
+        if products_path.exists():
+            products_df = pl.read_csv(products_path, infer_schema_length=None)
+            if "product_id" in products_df.columns:
+                valid_product_ids = set(
+                    str(v) for v in products_df["product_id"].to_list() if v is not None
+                )
+
         all_line_items = []
         quarantined = []
         
@@ -440,7 +448,32 @@ class SilverProcessor:
                     # Validate through Pydantic schema
                     try:
                         validated = InvoiceLineItemSchema(**item)
-                        all_line_items.append(validated.model_dump())
+                        validated_item = validated.model_dump()
+
+                        # Referential integrity for line items: product_id must
+                        # exist in Silver products when provided.
+                        product_id = validated_item.get("product_id")
+                        if (
+                            product_id is not None
+                            and str(product_id) != ""
+                            and valid_product_ids
+                            and str(product_id) not in valid_product_ids
+                        ):
+                            quarantined.append({
+                                "row_index": idx,
+                                "record": validated_item,
+                                "errors": [{
+                                    "field": "product_id",
+                                    "type": "referential_integrity",
+                                    "msg": (
+                                        "No matching product record for "
+                                        f"product_id={product_id}"
+                                    ),
+                                }],
+                            })
+                            continue
+
+                        all_line_items.append(validated_item)
                     except ValidationError as e:
                         quarantined.append({
                             "row_index": idx,
@@ -466,5 +499,4 @@ class SilverProcessor:
         
         if quarantined:
             self._save_quarantine("invoice_line_items", quarantined)
-
 
