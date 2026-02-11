@@ -109,7 +109,8 @@ These represent genuinely corrupted, impossible, or invalid data:
 
 | Issue | Source | Rationale | How Handled |
 |-------|--------|-----------|-------------|
-| **Duplicate SKUs** | Products | Same product entered twice — data integrity violation | **Deduplication** on `product_id`, keep first occurrence |
+| **Duplicate SKUs (Records)** | Products | Same product entered twice (same ID, same SKU) | **Deduplication** on `product_id` |
+| **SKU Collisions** | Products | Distinct products share same SKU. See [Deep Dive](docs/product_sku_collision_analysis.md) | **Kept.** Deduplicating by SKU would delete valid active products. Flagged in Quality Report. |
 | **Negative prices** | Products | A product cannot cost < $0 — pricing data corruption | **Quarantined.** Pydantic: `price >= 0` |
 | **Invalid vendor references** | Products | `VND-INVALID` — no matching vendor exists | **Quarantined.** FK validation against vendor table |
 | **Invalid customer/product refs** | Transactions | Orphaned FK — references non-existent entities | **Quarantined.** FK validation via dependency-ordered processing |
@@ -210,3 +211,14 @@ The optional Graph layer loads Silver data into SurrealDB as a property graph:
 - **Integration test**: End-to-end pipeline run with real data
 - **Fixtures**: Shared test data in `conftest.py`
 - **Framework**: `pytest` with coverage reporting
+
+## Documentation Index
+
+| Document | Description |
+|----------|-------------|
+| [README.md](./README.md) | Project entry point, requirements, and setup instructions. |
+| [ARCHITECTURE.md](./ARCHITECTURE.md) | High-level system design, technology choices, and data quality strategy. |
+| [docs/GRAPH_DESIGN.md](./docs/GRAPH_DESIGN.md) | **Detailed Reference**: Graph schema (nodes/edges), design decisions, and query patterns. |
+| [docs/product_sku_collision_analysis.md](./docs/product_sku_collision_analysis.md) | **Deep Dive**: Analysis of product SKU duplication findings. |
+| [docs/feature_definitions.md](./docs/feature_definitions.md) | **Reference**: Definitions and formulas for all Gold layer features. |
+| [outputs/quality_report.md](./outputs/quality_report.md) | **Generated Report**: Latest data quality metrics and validation results. |

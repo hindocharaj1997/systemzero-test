@@ -20,37 +20,56 @@ Graph traversal enables queries that are cumbersome in relational SQL, such as:
 
 ## Schema Design
 
-### Node Tables (6)
+## Detailed Schema Reference
 
-| Table | Source | ID Format | Rationale |
-|-------|--------|-----------|-----------|
-| `vendor` | Silver vendors.csv | `vendor:VND-001` | Core business entity |
-| `product` | Silver products.csv | `product:PRD-001` | Core business entity |
-| `customer` | Silver customers.csv | `customer:CUS-001` | Core business entity |
-| `category` | Derived from products | `category:Electronics` | Enables category-based traversal |
-| `region` | Derived from vendors | `region:North_America` | Enables geographic queries |
-| `invoice` | Silver invoices.csv | `invoice:INV-xxx` | Financial entity |
-| `support_ticket` | Silver support_tickets.csv | `support_ticket:TKT-xxx` | Issue tracking |
-| `call_transcript` | Silver call_transcripts.csv | `call_transcript:CALL-xxx` | Voice interaction data |
-| `agent` | Derived from tickets/calls | `agent:AGT-001` | Support staff entity |
+### Node Tables (9)
 
-### Edge Tables (8)
+All node tables are defined as `SCHEMAFULL`.
 
-| Edge | Direction | Edge Properties | Rationale |
-|------|-----------|-----------------|-----------|
-| `supplies` | vendor → product | — | From FK in products |
-| `belongs_to` | product → category | — | Derived from category column |
-| `purchased` | customer → product | quantity, total_amount, date, status | Transaction data on edge |
-| `located_in` | customer → region | — | Geographic association |
-| `based_in` | vendor → region | — | From vendor region column |
-| `billed` | vendor → invoice | — | From FK in invoices |
-| `invoice_item` | invoice → product | line_number, qty, cost, total | Line item data on edge |
-| `reviewed` | customer → product | rating, sentiment, verified | Review data on edge |
-| `raised` | customer → support_ticket | — | Customer initiates support |
-| `about` | support_ticket → product | — | Ticket relates to specific product |
-| `handled_by` | support_ticket → agent | — | Agent responsible for ticket |
-| `includes_transcript`| support_ticket → call_transcript | — | Voice evidence for ticket |
-| `conducted_by` | call_transcript → agent | — | Agent on the call |
+| Node | Fields | ID Format | Description |
+|------|--------|-----------|-------------|
+| **`vendor`** | `vendor_name` (str)<br>`country` (str)<br>`region` (str)<br>`reliability_score` (float)<br>`status` (str) | `vendor:VND-001` | Supplier entities. |
+| **`product`** | `product_name` (str)<br>`sku` (str)<br>`category` (str)<br>`price` (float)<br>`cost` (float)<br>`stock_quantity` (int)<br>`rating` (float)<br>`is_active` (bool) | `product:PRD-001` | Items for sale. |
+| **`customer`** | `full_name` (str)<br>`email` (str)<br>`phone` (str)<br>`segment` (str)<br>`total_spend` (float)<br>`registration_date` (date)<br>`is_active` (bool) | `customer:CUS-001` | Registered users. |
+| **`category`** | `name` (str) | `category:Electronics` | Derived from product categories. |
+| **`region`** | `name` (str) | `region:North_America` | Derived from vendor/customer regions. |
+| **`invoice`** | `invoice_date` (date)<br>`due_date` (date)<br>`total_amount` (float)<br>`payment_status` (str)<br>`payment_terms` (str) | `invoice:INV-001` | B2B invoices from vendors. |
+| **`support_ticket`** | `status` (str)<br>`priority` (str)<br>`satisfaction_score` (int)<br>`created_at` (datetime)<br>`resolved_at` (datetime) | `support_ticket:TKT-001` | Customer support cases. |
+| **`call_transcript`** | `sentiment_overall` (str)<br>`duration_seconds` (int)<br>`quality_score` (float)<br>`transfers` (int)<br>`call_start` (datetime) | `call_transcript:CALL-001` | Voice call logs. |
+| **`agent`** | `name` (str) | `agent:AGT-001` | Support agents (derived). |
+
+### Edge Tables (14)
+
+All edge tables are `SCHEMAFULL` with typed `in` (source) and `out` (target) fields.
+
+#### Transactional & Core Relationships
+
+| Edge | Source → Target | Properties | Description |
+|------|-----------------|------------|-------------|
+| **`purchased`** | `customer` → `product` | `transaction_id` (str)<br>`quantity` (int)<br>`total_amount` (float)<br>`transaction_date` (date)<br>`order_status` (str)<br>`discount_percent` (float)<br>`tax_rate` (float) | Customer purchase history. Allows multiple edges per pair. |
+| **`supplies`** | `vendor` → `product` | — | Vendor supplies this product. |
+| **`billed`** | `vendor` → `invoice` | — | Vendor issued this invoice. |
+| **`invoice_item`** | `invoice` → `product` | `line_number` (int)<br>`quantity` (int)<br>`unit_cost` (float)<br>`line_total` (float) | Line items within an invoice. |
+| **`reviewed`** | `customer` → `product` | `review_id` (str)<br>`rating` (int)<br>`sentiment` (str)<br>`verified_purchase` (bool)<br>`response_text` (str) | Customer product reviews. |
+
+#### Structural Relationships
+
+| Edge | Source → Target | Description |
+|------|-----------------|-------------|
+| **`belongs_to`** | `product` → `category` | Product categorization. |
+| **`based_in`** | `vendor` → `region` | Vendor geographic location. |
+| **`located_in`** | `customer` → `region` | Customer geographic location. |
+| **`similar_to`** | `product` → `product` | Products in same category (ring topology). |
+
+#### Support Relationships
+
+| Edge | Source → Target | Description |
+|------|-----------------|-------------|
+| **`raised`** | `customer` → `support_ticket` | Customer opened a ticket. |
+| **`about`** | `support_ticket` → `product` | Ticket relates to a product. |
+| **`handled_by`** | `support_ticket` → `agent` | Agent assigned to ticket. |
+| **`includes_transcript`** | `support_ticket` → `call_transcript` | Call associated with ticket. |
+| **`conducted_by`** | `call_transcript` → `agent` | Agent who handled the call. |
 
 ## Design Decisions
 
