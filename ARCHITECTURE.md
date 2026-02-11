@@ -8,11 +8,11 @@ This pipeline implements the **Medallion Architecture** (Bronze → Silver → G
 
 ### Why Medallion Architecture?
 
-The medallion pattern provides clear separation of concerns:
-- **Bronze**: Raw data preserved as-is for auditability and reprocessing
-- **Silver**: Cleaned, validated, and standardized data as the single source of truth (Polars + Pydantic)
-- **Gold**: Pre-computed feature tables optimized for analytics and ML (DuckDB SQL)
-- **Graph**: Property graph for advanced relationship analysis (SurrealDB)
+The medallion pattern transforms data through validated states, ensuring **data quality** and **traceability**:
+
+1.  **Bronze (Raw Audit Trail)**: Stores data exactly as received. This is critical for debugging and **reprocessing**—if business logic changes, we can wipe Silver/Gold and rebuild from Bronze without re-ingesting.
+2.  **Silver (Single Source of Truth)**: Enforces schema and referential integrity. Downstream consumers (Gold/Graph) can trust that `silver/` data is clean, typed, and deduped.
+3.  **Gold (Business Value)**: Aggregates clean data into metrics (e.g., CLV, Product Velocity). This decoupling allows analytics to evolve independently of cleaning logic.
 
 This maps directly to the system's core requirements: Raw Ingestion, Standardization, and Advanced Analytics.
 
@@ -23,6 +23,7 @@ This maps directly to the system's core requirements: Raw Ingestion, Standardiza
 | Bronze | **Polars** | Native multi-format support (CSV, JSON, Parquet), lazy evaluation, zero-copy reads |
 | Silver | **Polars + Pydantic** | Polars for vectorized cleaning (fast), Pydantic for row-level schema validation (strict typing, clear errors) |
 | Gold | **DuckDB SQL** | SQL is the natural language for analytical aggregations, CTEs, window functions; persistent queryable database. Queries are externalized in `src/gold/sql/` for maintainability. |
+| Validation | **Pydantic** | Chosen over **Great Expectations** for lighter overhead, code-first schema definition, and tighter integration with the ingestion logic. |
 
 **Why Polars over Pandas?** Polars is ~5-10x faster for data manipulation, has a cleaner API for column expressions, and handles type inference better. It also avoids Pandas' common pitfalls (SettingWithCopyWarning, implicit type coercion).
 
