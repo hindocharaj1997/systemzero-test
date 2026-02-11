@@ -68,11 +68,12 @@ GRAPH_QUERIES: Dict[str, Dict[str, str]] = {
             "and product<-purchased<-customer->purchased->product."
         ),
         "query": """
-            -- Same category
             SELECT
                 id AS source_product,
                 product_name,
-                ->belongs_to->category<-belongs_to<-product.product_name AS same_category_products
+                ->belongs_to->category<-belongs_to<-product.product_name AS same_category_products,
+                <-supplies<-vendor->supplies->product.product_name AS same_vendor_products,
+                <-purchased<-customer->purchased->product.product_name AS co_purchased_products
             FROM product
             LIMIT 5;
         """,
@@ -107,7 +108,10 @@ GRAPH_QUERIES: Dict[str, Dict[str, str]] = {
             SELECT
                 id,
                 vendor_name,
-                ->supplies->product<-purchased<-customer.full_name AS customers
+                ->supplies->product<-purchased<-customer.{
+                    full_name,
+                    total_spend
+                } AS top_customers
             FROM vendor;
         """,
     },
@@ -183,7 +187,8 @@ GRAPH_QUERIES: Dict[str, Dict[str, str]] = {
     "vendor_payment_vs_sales": {
         "description": (
             "Compare what we owe each vendor (invoice totals) against "
-            "what we earn from their products (transaction totals). "
+            "what we earn from their products (transaction totals), "
+            "with a payment-to-sales ratio as a correlation proxy. "
             "Paths: vendor->billed->invoice (cost side) and "
             "vendor->supplies->product<-purchased (revenue side)."
         ),
@@ -192,7 +197,9 @@ GRAPH_QUERIES: Dict[str, Dict[str, str]] = {
                 id,
                 vendor_name,
                 math::sum(->billed->invoice.total_amount) AS total_invoiced,
-                math::sum(->supplies->product<-purchased.total_amount) AS total_revenue
+                math::sum(->supplies->product<-purchased.total_amount) AS total_revenue,
+                math::mean(->billed->invoice[WHERE payment_status = 'paid'].total_amount) AS avg_paid_invoice,
+                math::mean(->supplies->product<-purchased.total_amount) AS avg_sale_amount
             FROM vendor;
         """,
     },

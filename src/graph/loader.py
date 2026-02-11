@@ -768,10 +768,8 @@ class GraphLoader:
                 if agent_name:
                     agents[agent_id] = agent_name
                 elif agent_id not in agents:
-                    # Keep existing placeholder if we already found it in tickets w/o name
-                    pass
-                else: 
-                     agents[agent_id] = f"Agent {agent_id}"
+                    # Calls may have ID but no name; keep a stable placeholder.
+                    agents[agent_id] = f"Agent {agent_id}"
 
         for agent_id, name in agents.items():
             try:
