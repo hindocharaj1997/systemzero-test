@@ -516,7 +516,7 @@ class GraphLoader:
         # Check if address-derived columns exist
         sample = rows[0]
         region_col = None
-        for candidate in ["region", "address_region", "address_state", "address_country"]:
+        for candidate in ["region", "address_region", "address_state", "state", "address_country", "country"]:
             if candidate in sample:
                 region_col = candidate
                 break
@@ -528,19 +528,29 @@ class GraphLoader:
             )
             return result
 
-        # Build set of known region IDs from vendor regions
+        # Build country -> region map from vendors
         region_rows = self._read_csv("vendors.csv")
-        known_regions = set()
+        country_to_region = {}
         for r in region_rows:
+            country = self._safe_str(r.get("country"))
             region = self._safe_str(r.get("region"))
-            if region:
-                known_regions.add(region)
+            if country and region:
+                country_to_region[country] = region
 
         for row in rows:
             customer_id = self._safe_str(row.get("customer_id"))
-            region = self._safe_str(row.get(region_col))
-            if customer_id and region and region in known_regions:
-                region_id = region.replace(" ", "_").replace("&", "and")
+            # improved detection: check country first as it maps to region
+            country = self._safe_str(row.get("address_country")) or self._safe_str(row.get("country"))
+            
+            # Lookup region from country
+            region_name = country_to_region.get(country) if country else None
+            
+            # Fallback: if data already has region column (unlikely but possible)
+            if not region_name:
+                 region_name = self._safe_str(row.get("region"))
+
+            if customer_id and region_name:
+                region_id = region_name.replace(" ", "_").replace("&", "and")
                 ok = await self._relate(
                     "customer", customer_id, "located_in", "region", region_id
                 )
