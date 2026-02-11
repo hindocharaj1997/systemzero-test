@@ -53,9 +53,6 @@ Bronze CSV → Clean (Polars) → Dedup (PK) → FK Check → Validate (Pydantic
                                           Quarantine (JSON)
 ```
 
-**Dependency-ordered processing** ensures FK validation works correctly:
-1. Vendors (no deps) → 2. Products (FK: vendor) → 3. Customers (no deps) → 4. Transactions (FK: customer, product) → ...
-
 ### Quarantine Strategy
 
 Invalid records are quarantined to JSON files with:
