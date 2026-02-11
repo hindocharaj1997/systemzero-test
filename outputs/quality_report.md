@@ -1,6 +1,6 @@
 # Data Quality Report
 
-**Generated:** 2026-02-10 22:33:11
+**Generated:** 2026-02-11 07:15:01
 
 **Pipeline:** Medallion Architecture (Polars → DuckDB)
 

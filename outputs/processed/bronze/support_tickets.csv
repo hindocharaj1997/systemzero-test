@@ -23,7 +23,7 @@ Agent: You're welcome! Is there anything else I can help you with today?
 
 Customer: No, that's all. Thanks again.
 
-Agent: Have a great day!",Customer reported defective mechanical keyboard with non-responsive keys. Replacement initiated.,"[""defect"", ""replacement"", ""keyboard""]",replacement,support_tickets.json,2026-02-10T22:33:04.850936
+Agent: Have a great day!",Customer reported defective mechanical keyboard with non-responsive keys. Replacement initiated.,"[""defect"", ""replacement"", ""keyboard""]",replacement,support_tickets.json,2026-02-11T07:14:54.110402
 TKT-000002,CUS-00000015,,chat,billing,medium,resolved,2025-03-16T14:30:00,2025-03-16T14:52:33,AGT-003,5,"Customer: Hi, I was charged twice for my last order
 
 Agent: Hello! I apologize for the inconvenience. Let me look into this for you. Could you provide your email address?
@@ -42,7 +42,7 @@ Agent: You're welcome! I've also added a 10% discount code SORRY10 to your accou
 
 Customer: no thats all
 
-Agent: Have a great day!",Double charge issue resolved with refund and courtesy discount.,"[""billing"", ""refund"", ""duplicate_charge""]",refund,support_tickets.json,2026-02-10T22:33:04.850936
+Agent: Have a great day!",Double charge issue resolved with refund and courtesy discount.,"[""billing"", ""refund"", ""duplicate_charge""]",refund,support_tickets.json,2026-02-11T07:14:54.110402
 TKT-000003,CUS-00000023,PRD-000045,email,shipping,low,closed,2025-03-17T08:15:22,2025-03-18T11:30:00,AGT-001,3,"From: customer@example.com
 To: support@techstore.com
 Subject: Where is my order?
@@ -80,7 +80,7 @@ From: customer@example.com
 To: support@techstore.com
 Subject: RE: RE: Where is my order?
 
-Ok thanks for the update. I'll wait.",Shipping delay inquiry - weather-related delay at FedEx facility.,"[""shipping"", ""delay"", ""tracking""]",information_provided,support_tickets.json,2026-02-10T22:33:04.850936
+Ok thanks for the update. I'll wait.",Shipping delay inquiry - weather-related delay at FedEx facility.,"[""shipping"", ""delay"", ""tracking""]",information_provided,support_tickets.json,2026-02-11T07:14:54.110402
 TKT-000004,CUS-00000042,PRD-000089,phone,return,medium,resolved,2025-03-18T16:45:00,2025-03-18T17:12:45,AGT-007,,"Agent: TechStore support, this is David. How may I assist you?
 
 Customer: I need to return a product. It's not what I expected.
@@ -103,7 +103,7 @@ Customer: Thank you so much!
 
 Agent: You're welcome. Is there anything else?
 
-Customer: No, that's perfect.",Wrong language book shipped. Correct version sent free of charge.,"[""wrong_item"", ""book"", ""language""]",replacement,support_tickets.json,2026-02-10T22:33:04.850936
+Customer: No, that's perfect.",Wrong language book shipped. Correct version sent free of charge.,"[""wrong_item"", ""book"", ""language""]",replacement,support_tickets.json,2026-02-11T07:14:54.110402
 TKT-000005,CUS-00000008,PRD-000156,chat,product_inquiry,low,closed,2025-03-19T11:20:15,2025-03-19T11:35:42,AGT-002,5,"Customer: Is the Smart Fitness Watch waterproof?
 
 Agent: Hi! Great question. The Smart Fitness Watch has an IP68 rating, which means it's water-resistant up to 1.5 meters for 30 minutes. It's perfect for swimming and showering, but not recommended for diving or high-pressure water activities.
@@ -118,7 +118,7 @@ Agent: Absolutely! It's compatible with both iOS (iPhone 8 and newer) and Androi
 
 Customer: Perfect, I'll order one now. Thanks!
 
-Agent: Wonderful! Let me know if you have any other questions. Enjoy your new watch!",Pre-purchase inquiry about fitness watch waterproofing and compatibility.,"[""pre_sale"", ""fitness_watch"", ""compatibility""]",information_provided,support_tickets.json,2026-02-10T22:33:04.850936
+Agent: Wonderful! Let me know if you have any other questions. Enjoy your new watch!",Pre-purchase inquiry about fitness watch waterproofing and compatibility.,"[""pre_sale"", ""fitness_watch"", ""compatibility""]",information_provided,support_tickets.json,2026-02-11T07:14:54.110402
 TKT-000006,CUS-00000099,PRD-000023,phone,complaint,urgent,escalated,2025-03-20T09:00:00,,AGT-005,1,"Agent: Thank you for calling TechStore, my name is Sarah. How can I help?
 
 Customer: This is the third time I'm calling about the same issue! I've been waiting for my refund for over two weeks now!
@@ -141,7 +141,7 @@ Customer: Okay.
 
 Agent: Again, I apologize for this experience. Is there anything else?
 
-Customer: No. Just fix this.",Escalated complaint - refund delayed for 2+ weeks. Customer threatening chargeback. Requires supervisor callback.,"[""escalation"", ""refund"", ""complaint"", ""urgent""]",escalated,support_tickets.json,2026-02-10T22:33:04.850936
+Customer: No. Just fix this.",Escalated complaint - refund delayed for 2+ weeks. Customer threatening chargeback. Requires supervisor callback.,"[""escalation"", ""refund"", ""complaint"", ""urgent""]",escalated,support_tickets.json,2026-02-11T07:14:54.110402
 TKT-000007,CUS-00000156,PRD-000078,chat,technical_support,medium,resolved,2025-03-20T14:22:33,2025-03-20T14:58:17,AGT-004,4,"Customer: my bluetooth speaker wont connect to my phone
 
 Agent: Hi! I'd be happy to help you troubleshoot. What phone are you using?
@@ -170,7 +170,7 @@ Agent: Excellent! Sometimes Bluetooth connections can get corrupted and need to 
 
 Customer: thanks so much for your help
 
-Agent: You're welcome! Enjoy your music!",Bluetooth pairing issue resolved by forgetting and re-pairing device.,"[""bluetooth"", ""connectivity"", ""troubleshooting""]",technical_resolution,support_tickets.json,2026-02-10T22:33:04.850936
+Agent: You're welcome! Enjoy your music!",Bluetooth pairing issue resolved by forgetting and re-pairing device.,"[""bluetooth"", ""connectivity"", ""troubleshooting""]",technical_resolution,support_tickets.json,2026-02-11T07:14:54.110402
 TKT-000008,CUS-00000203,PRD-000234,email,warranty,medium,pending,2025-03-21T10:00:00,,AGT-006,,"From: warranty.claim@customer.com
 To: support@techstore.com
 Subject: Warranty Claim - Laptop Screen Issue
@@ -213,7 +213,7 @@ Please back up your data before shipping.
 
 Best regards,
 Maria
-Warranty Department",Warranty claim for laptop dead pixels - within warranty period. Awaiting customer shipment.,"[""warranty"", ""laptop"", ""screen"", ""dead_pixels""]",pending_repair,support_tickets.json,2026-02-10T22:33:04.850936
+Warranty Department",Warranty claim for laptop dead pixels - within warranty period. Awaiting customer shipment.,"[""warranty"", ""laptop"", ""screen"", ""dead_pixels""]",pending_repair,support_tickets.json,2026-02-11T07:14:54.110402
 TKT-000009,INVALID_ID,PRD-000001,phone,product_issue,HIGH,resolved,20-03-2025,2025-03-20T16:30:00,AGT-001,6,"Agent: TechStore support, how can I help?
 
 Customer: I bought a speaker but the battery only lasts 2 hours instead of the advertised 10 hours.
@@ -232,14 +232,14 @@ Customer: Yes please.
 
 Agent: Done. You'll get shipping info by email. Keep the defective unit until the new one arrives, then use the included label to return it.
 
-Customer: Great, thank you.",Battery defect in bluetooth speaker - replacement sent.,"[""battery"", ""defect"", ""speaker""]",replacement,support_tickets.json,2026-02-10T22:33:04.850936
+Customer: Great, thank you.",Battery defect in bluetooth speaker - replacement sent.,"[""battery"", ""defect"", ""speaker""]",replacement,support_tickets.json,2026-02-11T07:14:54.110402
 TKT-000010,CUS-00000321,PRD-000456,CHAT,order_status,low,Resolved,2025-03-22T08:45:00,2025-03-22T08:52:15,AGT-003,5,"Customer: Can you check if my order has shipped? ORD-2025-91456
 
 Agent: Of course! Let me look that up... Your order shipped yesterday and is currently in transit. Expected delivery is March 24th.
 
 Customer: Perfect, thanks!
 
-Agent: You're welcome! You can also track it using this link: [tracking link]. Have a great day!",Order status inquiry - confirmed shipped with delivery date.,"[""order_status"", ""shipping""]",information_provided,support_tickets.json,2026-02-10T22:33:04.850936
+Agent: You're welcome! You can also track it using this link: [tracking link]. Have a great day!",Order status inquiry - confirmed shipped with delivery date.,"[""order_status"", ""shipping""]",information_provided,support_tickets.json,2026-02-11T07:14:54.110402
 TKT-000011,CUS-00000045,PRD-000067,phone,return,medium,resolved,2025-03-22T11:30:00,2025-03-22T11:48:22,AGT-007,4,"Agent: TechStore support, David speaking.
 
 Customer: Hi, I'd like to return a pair of headphones. They're just not comfortable for me.
@@ -262,7 +262,7 @@ Customer: The EarPods Pro - they look smaller and might fit better.
 
 Agent: Great choice. They're actually $30 less, so you'll get that difference refunded too. I'll set up the exchange now.
 
-Customer: Wonderful, thank you!",Return/exchange for headphones due to comfort. Exchanged for different model.,"[""return"", ""exchange"", ""headphones"", ""comfort""]",exchange,support_tickets.json,2026-02-10T22:33:04.850936
+Customer: Wonderful, thank you!",Return/exchange for headphones due to comfort. Exchanged for different model.,"[""return"", ""exchange"", ""headphones"", ""comfort""]",exchange,support_tickets.json,2026-02-11T07:14:54.110402
 TKT-000012,CUS-00000178,,email,account,high,resolved,2025-03-23T07:15:00,2025-03-23T09:30:00,AGT-002,5,"From: locked.out@email.com
 To: support@techstore.com
 Subject: Cannot access my account - URGENT
@@ -295,7 +295,7 @@ Let me know if you have any issues.
 
 Best,
 Alex
-Account Security Team",Account access issue due to email typo. Corrected and 2FA enabled.,"[""account"", ""security"", ""password"", ""email""]",account_recovery,support_tickets.json,2026-02-10T22:33:04.850936
+Account Security Team",Account access issue due to email typo. Corrected and 2FA enabled.,"[""account"", ""security"", ""password"", ""email""]",account_recovery,support_tickets.json,2026-02-11T07:14:54.110402
 TKT-000013,CUS-00000089,PRD-000345,chat,price_match,low,resolved,2025-03-23T15:20:00,2025-03-23T15:35:18,AGT-004,5,"Customer: I bought the ProCam 5000 last week for $599 and now I see it's on sale for $499. Can I get the difference?
 
 Agent: Hi! Let me check our price protection policy for you. Can you provide your order number?
@@ -310,7 +310,7 @@ Agent: You're welcome! The refund will appear within 3-5 business days. Is there
 
 Customer: No, that's perfect. Great customer service!
 
-Agent: Thank you for the kind words! Enjoy your camera!",Price match request approved - $100 refund for recent price drop.,"[""price_match"", ""refund"", ""camera""]",price_adjustment,support_tickets.json,2026-02-10T22:33:04.850936
+Agent: Thank you for the kind words! Enjoy your camera!",Price match request approved - $100 refund for recent price drop.,"[""price_match"", ""refund"", ""camera""]",price_adjustment,support_tickets.json,2026-02-11T07:14:54.110402
 TKT-000014,CUS-00000234,PRD-000123,phone,technical_support,medium,resolved,2025-03-24T10:00:00,2025-03-24T10:42:00,AGT-005,4,"Agent: TechStore support, Sarah speaking. How can I help?
 
 Customer: Hi, I just set up my new smart TV but I can't connect it to WiFi.
@@ -335,7 +335,7 @@ Agent: Excellent! After the TV is connected, you can change your router password
 
 Customer: It worked! Thank you so much!
 
-Agent: You're welcome! Enjoy your new TV!",WiFi connection issue resolved - special character in password causing problems.,"[""technical"", ""wifi"", ""smart_tv"", ""connectivity""]",technical_resolution,support_tickets.json,2026-02-10T22:33:04.850936
+Agent: You're welcome! Enjoy your new TV!",WiFi connection issue resolved - special character in password causing problems.,"[""technical"", ""wifi"", ""smart_tv"", ""connectivity""]",technical_resolution,support_tickets.json,2026-02-11T07:14:54.110402
 TKT-000015,CUS-00000567,PRD-000789,email,feedback,low,closed,2025-03-24T16:00:00,2025-03-25T09:00:00,AGT-001,,"From: happy.customer@email.com
 To: support@techstore.com
 Subject: Amazing Experience!
@@ -369,7 +369,7 @@ Thank you for being a loyal customer!
 
 Warm regards,
 Tom
-Customer Experience Team",Positive feedback - customer praised delivery service and product quality.,"[""positive_feedback"", ""delivery"", ""standing_desk""]",feedback_acknowledged,support_tickets.json,2026-02-10T22:33:04.850936
+Customer Experience Team",Positive feedback - customer praised delivery service and product quality.,"[""positive_feedback"", ""delivery"", ""standing_desk""]",feedback_acknowledged,support_tickets.json,2026-02-11T07:14:54.110402
 TKT-000016,CUS-00000012,PRD-000234,phone,product_issue,urgent,resolved,2025-03-25T08:30:00,2025-03-25T09:15:00,AGT-007,3,"Agent: TechStore support, David speaking.
 
 Customer: My new laptop is making a burning smell! I just unplugged it. What should I do?
@@ -390,7 +390,7 @@ Agent: Perfect. Expect the courier between 2-6 PM today. You'll receive tracking
 
 Customer: Thank you for taking this seriously.
 
-Agent: Absolutely. Please don't hesitate to call if you notice anything else unusual.",URGENT: Laptop burning smell - safety issue. Immediate pickup arranged.,"[""safety"", ""urgent"", ""laptop"", ""overheating"", ""defect""]",urgent_replacement,support_tickets.json,2026-02-10T22:33:04.850936
+Agent: Absolutely. Please don't hesitate to call if you notice anything else unusual.",URGENT: Laptop burning smell - safety issue. Immediate pickup arranged.,"[""safety"", ""urgent"", ""laptop"", ""overheating"", ""defect""]",urgent_replacement,support_tickets.json,2026-02-11T07:14:54.110402
 "",CUS-00000333,PRD-000111,chat,order_modification,medium,resolved,2025-03-25T12:00:00,2025-03-25T12:18:45,AGT-003,5,"Customer: Hi, I need to change my shipping address for order ORD-2025-95678
 
 Agent: Hello! I can help with that. Let me check the order status first.
@@ -405,7 +405,7 @@ Agent: Got it. I've updated the shipping address to 456 Oak Avenue, Suite 200, C
 
 Customer: Thank you so much! You saved my day!
 
-Agent: Happy to help! Good luck with your move!",Shipping address changed before order shipped. Customer moving.,"[""address_change"", ""order_modification""]",order_modified,support_tickets.json,2026-02-10T22:33:04.850936
+Agent: Happy to help! Good luck with your move!",Shipping address changed before order shipped. Customer moving.,"[""address_change"", ""order_modification""]",order_modified,support_tickets.json,2026-02-11T07:14:54.110402
 TKT-000018,CUS-00000444,PRD-000555,phone,return,low,resolved,2025-03-26T09:30:00,2025-03-26T09:45:00,AGT-002,4,"Agent: TechStore support, Alex here.
 
 Customer: Hi, I want to return a gift I received. But I don't have the receipt.
@@ -428,7 +428,7 @@ Customer: gift.return@email.com
 
 Agent: Got it. The label will arrive within an hour. Is there anything else I can help with?
 
-Customer: No, thank you!",Gift return processed with gift receipt. Store credit issued.,"[""gift_return"", ""store_credit"", ""power_bank""]",store_credit,support_tickets.json,2026-02-10T22:33:04.850936
+Customer: No, thank you!",Gift return processed with gift receipt. Store credit issued.,"[""gift_return"", ""store_credit"", ""power_bank""]",store_credit,support_tickets.json,2026-02-11T07:14:54.110402
 TKT-000019,CUS-00000555,PRD-000666,email,complaint,high,resolved,2025-03-26T14:00:00,2025-03-27T10:00:00,AGT-006,2,"From: disappointed@email.com
 To: support@techstore.com
 Subject: False Advertising!!!
@@ -485,7 +485,7 @@ Perfect. Your replacement is shipping today via express (arrives in 2 days), and
 Thank you for your understanding.
 
 Best,
-Maria","Complaint about battery life advertising. Clarified specs, offered replacement + credit.","[""complaint"", ""advertising"", ""earbuds"", ""battery""]",replacement_with_credit,support_tickets.json,2026-02-10T22:33:04.850936
+Maria","Complaint about battery life advertising. Clarified specs, offered replacement + credit.","[""complaint"", ""advertising"", ""earbuds"", ""battery""]",replacement_with_credit,support_tickets.json,2026-02-11T07:14:54.110402
 TKT-000020,CUS-00000666,,chat,general_inquiry,low,closed,2025-03-27T11:00:00,2025-03-27T11:12:00,AGT-004,5,"Customer: What are your holiday return policies?
 
 Agent: Great question! For purchases made between November 15th and December 31st, we extend our return window to January 31st of the following year. This applies to all items except:
@@ -499,4 +499,4 @@ Agent: A receipt makes returns easier, but we can also look up purchases using y
 
 Customer: Perfect, thanks for the info!
 
-Agent: You're welcome! Happy shopping!",General inquiry about holiday return policy. Information provided.,"[""policy"", ""returns"", ""holiday""]",information_provided,support_tickets.json,2026-02-10T22:33:04.850936
+Agent: You're welcome! Happy shopping!",General inquiry about holiday return policy. Information provided.,"[""policy"", ""returns"", ""holiday""]",information_provided,support_tickets.json,2026-02-11T07:14:54.110402

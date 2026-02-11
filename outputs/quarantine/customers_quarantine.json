@@ -1,6 +1,6 @@
 [
   {
-    "row_index": 756,
+    "row_index": 593,
     "record": {
       "customer_id": "CUS-00000992",
       "first_name": "Yuki",
@@ -33,7 +33,7 @@
       "metadata_created_at": "2018-05-19",
       "metadata_updated_at": "2018-07-28",
       "_source_file": "customers.json",
-      "_loaded_at": "2026-02-10T22:33:04.850936"
+      "_loaded_at": "2026-02-11T07:14:54.110402"
     },
     "errors": [
       {

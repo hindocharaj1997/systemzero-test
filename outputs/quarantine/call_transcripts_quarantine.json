@@ -1,6 +1,6 @@
 [
   {
-    "row_index": 1,
+    "row_index": 0,
     "record": {
       "call_id": "CALL-000009",
       "ticket_id": null,
@@ -23,7 +23,7 @@
       "action_items": "[]",
       "quality_score": "91",
       "_source_file": "call_transcripts.json",
-      "_loaded_at": "2026-02-10T22:33:04.850936"
+      "_loaded_at": "2026-02-11T07:14:54.110402"
     },
     "errors": [
       {
@@ -36,7 +36,7 @@
     ]
   },
   {
-    "row_index": 4,
+    "row_index": 7,
     "record": {
       "call_id": "CALL-000010",
       "ticket_id": "TKT-000019",
@@ -59,7 +59,7 @@
       "action_items": "[\"Ship replacement earbuds\", \"Add $25 store credit\", \"Flag marketing for website update\"]",
       "quality_score": "95",
       "_source_file": "call_transcripts.json",
-      "_loaded_at": "2026-02-10T22:33:04.850936"
+      "_loaded_at": "2026-02-11T07:14:54.110402"
     },
     "errors": [
       {
@@ -72,7 +72,7 @@
     ]
   },
   {
-    "row_index": 6,
+    "row_index": 8,
     "record": {
       "call_id": "CALL-000005",
       "ticket_id": "TKT-000011",
@@ -95,7 +95,7 @@
       "action_items": "[\"Process exchange\", \"Send return label\", \"Ship EarPods Pro\", \"Refund difference\"]",
       "quality_score": "94",
       "_source_file": "call_transcripts.json",
-      "_loaded_at": "2026-02-10T22:33:04.850936"
+      "_loaded_at": "2026-02-11T07:14:54.110402"
     },
     "errors": [
       {

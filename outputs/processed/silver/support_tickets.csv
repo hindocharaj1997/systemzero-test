@@ -1,41 +1,168 @@
 ticket_id,customer_id,product_id,channel,priority,status,satisfaction_score,created_at,resolved_at,agent_id,transcript,summary,tags,resolution_type,source_file,loaded_at
-TKT-000006,CUS-00000099,PRD-000023,phone,urgent,escalated,1,2025-03-20,,AGT-005,"Agent: Thank you for calling TechStore, my name is Sarah. How can I help?
+TKT-000002,CUS-00000015,,chat,medium,resolved,5,2025-03-16,2025-03-16,AGT-003,"Customer: Hi, I was charged twice for my last order
 
-Customer: This is the third time I'm calling about the same issue! I've been waiting for my refund for over two weeks now!
+Agent: Hello! I apologize for the inconvenience. Let me look into this for you. Could you provide your email address?
 
-Agent: I sincerely apologize for the frustration. Let me pull up your account. Can you provide your email?
+Customer: sure, it's james.wilson@email.com
 
-Customer: It's angry.customer99@email.com. I've already explained this twice before!
+Agent: Thank you. I can see there was indeed a duplicate charge on March 14th. I'm initiating a refund for the duplicate amount of $156.99 right now.
 
-Agent: I understand, and I'm truly sorry you've had to repeat yourself. I see the notes from your previous calls... It looks like the refund was initiated but failed due to an issue with the payment processor. This should have been escalated.
+Customer: how long will it take?
 
-Customer: I've been told 'it's being processed' every single time. I want to speak to a manager.
+Agent: The refund will be processed within 3-5 business days and will appear on your original payment method.
 
-Agent: Absolutely, I completely understand. I'm going to escalate this to our finance team supervisor right now. They will call you back within 2 hours with a resolution. I'm also noting this as urgent priority.
+Customer: ok thanks
 
-Customer: Fine. But if I don't hear back, I'm disputing this with my credit card company.
+Agent: You're welcome! I've also added a 10% discount code SORRY10 to your account for the inconvenience. Is there anything else I can help with?
 
-Agent: That's completely within your rights. I've flagged this with the highest priority. You will receive a call from our supervisor, Jennifer, before 11 AM today.
+Customer: no thats all
 
-Customer: Okay.
+Agent: Have a great day!",Double charge issue resolved with refund and courtesy discount.,"[""billing"", ""refund"", ""duplicate_charge""]",refund,support_tickets.json,2026-02-11T07:14:54.110402
+TKT-000007,CUS-00000156,PRD-000078,chat,medium,resolved,4,2025-03-20,2025-03-20,AGT-004,"Customer: my bluetooth speaker wont connect to my phone
 
-Agent: Again, I apologize for this experience. Is there anything else?
+Agent: Hi! I'd be happy to help you troubleshoot. What phone are you using?
 
-Customer: No. Just fix this.",Escalated complaint - refund delayed for 2+ weeks. Customer threatening chargeback. Requires supervisor callback.,"[""escalation"", ""refund"", ""complaint"", ""urgent""]",escalated,support_tickets.json,2026-02-10T22:33:04.850936
-TKT-000020,CUS-00000666,,chat,low,closed,5,2025-03-27,2025-03-27,AGT-004,"Customer: What are your holiday return policies?
+Customer: iphone 14
 
-Agent: Great question! For purchases made between November 15th and December 31st, we extend our return window to January 31st of the following year. This applies to all items except:
-- Opened software
-- Downloadable products
-- Gift cards
+Agent: Great. Let's try a few things:
+1. First, turn off the speaker and turn it back on
+2. On your iPhone, go to Settings > Bluetooth and see if 'TechStore BT Speaker' appears
 
-Customer: Do I need to keep the receipt?
+Customer: it shows up but says ""not connected""
 
-Agent: A receipt makes returns easier, but we can also look up purchases using your email or phone number linked to your account.
+Agent: Okay, tap on the 'i' icon next to it and select 'Forget This Device'. Then let's re-pair it.
 
-Customer: Perfect, thanks for the info!
+Customer: done
 
-Agent: You're welcome! Happy shopping!",General inquiry about holiday return policy. Information provided.,"[""policy"", ""returns"", ""holiday""]",information_provided,support_tickets.json,2026-02-10T22:33:04.850936
+Agent: Now, put the speaker in pairing mode by holding the power button for 5 seconds until you hear a beep and the LED flashes blue.
+
+Customer: ok its flashing
+
+Agent: Go back to Bluetooth settings on your iPhone. Do you see 'TechStore BT Speaker' in the available devices?
+
+Customer: yes! its connecting now... it worked!
+
+Agent: Excellent! Sometimes Bluetooth connections can get corrupted and need to be reset. If this happens again, just repeat the 'Forget Device' process.
+
+Customer: thanks so much for your help
+
+Agent: You're welcome! Enjoy your music!",Bluetooth pairing issue resolved by forgetting and re-pairing device.,"[""bluetooth"", ""connectivity"", ""troubleshooting""]",technical_resolution,support_tickets.json,2026-02-11T07:14:54.110402
+TKT-000004,CUS-00000042,PRD-000089,phone,medium,resolved,,2025-03-18,2025-03-18,AGT-007,"Agent: TechStore support, this is David. How may I assist you?
+
+Customer: I need to return a product. It's not what I expected.
+
+Agent: Of course, I can help with that. May I have your order number?
+
+Customer: ORD-2025-82567
+
+Agent: Thank you. I see you ordered the Ultra Travel Guide. May I ask what wasn't as expected?
+
+Customer: The book is in German, but I ordered the English version.
+
+Agent: Oh, I apologize for that mistake. You're absolutely right - your order shows English but we shipped the German edition. I'll send you the correct English version right away at no additional cost, and you don't need to return the German one.
+
+Customer: Really? That's very kind.
+
+Agent: It's the least we can do for our mistake. You should receive the correct book within 3-4 business days.
+
+Customer: Thank you so much!
+
+Agent: You're welcome. Is there anything else?
+
+Customer: No, that's perfect.",Wrong language book shipped. Correct version sent free of charge.,"[""wrong_item"", ""book"", ""language""]",replacement,support_tickets.json,2026-02-11T07:14:54.110402
+TKT-000010,CUS-00000321,PRD-000456,chat,low,resolved,5,2025-03-22,2025-03-22,AGT-003,"Customer: Can you check if my order has shipped? ORD-2025-91456
+
+Agent: Of course! Let me look that up... Your order shipped yesterday and is currently in transit. Expected delivery is March 24th.
+
+Customer: Perfect, thanks!
+
+Agent: You're welcome! You can also track it using this link: [tracking link]. Have a great day!",Order status inquiry - confirmed shipped with delivery date.,"[""order_status"", ""shipping""]",information_provided,support_tickets.json,2026-02-11T07:14:54.110402
+TKT-000005,CUS-00000008,PRD-000156,chat,low,closed,5,2025-03-19,2025-03-19,AGT-002,"Customer: Is the Smart Fitness Watch waterproof?
+
+Agent: Hi! Great question. The Smart Fitness Watch has an IP68 rating, which means it's water-resistant up to 1.5 meters for 30 minutes. It's perfect for swimming and showering, but not recommended for diving or high-pressure water activities.
+
+Customer: Can I track swimming with it?
+
+Agent: Yes! It has a dedicated swim tracking mode that records laps, stroke type, and calories burned. It works in both pools and open water.
+
+Customer: That's exactly what I needed. One more question - does it work with iPhone?
+
+Agent: Absolutely! It's compatible with both iOS (iPhone 8 and newer) and Android devices. The companion app is available on both the App Store and Google Play.
+
+Customer: Perfect, I'll order one now. Thanks!
+
+Agent: Wonderful! Let me know if you have any other questions. Enjoy your new watch!",Pre-purchase inquiry about fitness watch waterproofing and compatibility.,"[""pre_sale"", ""fitness_watch"", ""compatibility""]",information_provided,support_tickets.json,2026-02-11T07:14:54.110402
+TKT-000003,CUS-00000023,PRD-000045,email,low,closed,3,2025-03-17,2025-03-18,AGT-001,"From: customer@example.com
+To: support@techstore.com
+Subject: Where is my order?
+
+Hi,
+
+I placed an order 5 days ago and still haven't received any shipping updates. Order number is ORD-2025-81234.
+
+Please advise.
+
+Thanks,
+Mike
+
+---
+
+From: support@techstore.com
+To: customer@example.com
+Subject: RE: Where is my order?
+
+Hi Mike,
+
+Thank you for reaching out. I checked your order and it shows it was shipped on March 15th via FedEx. The tracking number is 789456123012.
+
+According to the tracking, there was a delay at the regional sorting facility due to weather conditions. The estimated delivery is now March 19th.
+
+I apologize for the delay. Please let me know if you don't receive it by then.
+
+Best regards,
+Tom
+Customer Support
+
+---
+
+From: customer@example.com
+To: support@techstore.com
+Subject: RE: RE: Where is my order?
+
+Ok thanks for the update. I'll wait.",Shipping delay inquiry - weather-related delay at FedEx facility.,"[""shipping"", ""delay"", ""tracking""]",information_provided,support_tickets.json,2026-02-11T07:14:54.110402
+TKT-000012,CUS-00000178,,email,high,resolved,5,2025-03-23,2025-03-23,AGT-002,"From: locked.out@email.com
+To: support@techstore.com
+Subject: Cannot access my account - URGENT
+
+Help! I cannot log into my account. I've tried resetting my password multiple times but never receive the reset email.
+
+My email is locked.out@email.com and I have orders pending delivery that I need to track.
+
+Please help!
+
+---
+
+From: support@techstore.com
+To: locked.out@email.com
+Subject: RE: Cannot access my account - URGENT
+
+Hi,
+
+I've investigated your account and found that your email was incorrectly changed to 'locked.outt@email.com' (with two t's) - likely a typo during a previous update.
+
+I've corrected this and sent a password reset link to your correct email. Please check your inbox.
+
+As a security precaution, I've also enabled two-factor authentication on your account. You can manage this in Settings after logging in.
+
+Your pending orders are on track:
+- ORD-2025-93456: Arriving March 25th
+- ORD-2025-93789: Arriving March 26th
+
+Let me know if you have any issues.
+
+Best,
+Alex
+Account Security Team",Account access issue due to email typo. Corrected and 2FA enabled.,"[""account"", ""security"", ""password"", ""email""]",account_recovery,support_tickets.json,2026-02-11T07:14:54.110402
 TKT-000014,CUS-00000234,PRD-000123,phone,medium,resolved,4,2025-03-24,2025-03-24,AGT-005,"Agent: TechStore support, Sarah speaking. How can I help?
 
 Customer: Hi, I just set up my new smart TV but I can't connect it to WiFi.
@@ -60,30 +187,68 @@ Agent: Excellent! After the TV is connected, you can change your router password
 
 Customer: It worked! Thank you so much!
 
-Agent: You're welcome! Enjoy your new TV!",WiFi connection issue resolved - special character in password causing problems.,"[""technical"", ""wifi"", ""smart_tv"", ""connectivity""]",technical_resolution,support_tickets.json,2026-02-10T22:33:04.850936
-TKT-000004,CUS-00000042,PRD-000089,phone,medium,resolved,,2025-03-18,2025-03-18,AGT-007,"Agent: TechStore support, this is David. How may I assist you?
+Agent: You're welcome! Enjoy your new TV!",WiFi connection issue resolved - special character in password causing problems.,"[""technical"", ""wifi"", ""smart_tv"", ""connectivity""]",technical_resolution,support_tickets.json,2026-02-11T07:14:54.110402
+TKT-000016,CUS-00000012,PRD-000234,phone,urgent,resolved,3,2025-03-25,2025-03-25,AGT-007,"Agent: TechStore support, David speaking.
 
-Customer: I need to return a product. It's not what I expected.
+Customer: My new laptop is making a burning smell! I just unplugged it. What should I do?
 
-Agent: Of course, I can help with that. May I have your order number?
+Agent: That's very concerning and you did the right thing unplugging it immediately. Please don't turn it back on. Can you tell me if there's any visible damage or smoke?
 
-Customer: ORD-2025-82567
+Customer: No smoke, just that electrical burning smell. The bottom feels very hot.
 
-Agent: Thank you. I see you ordered the Ultra Travel Guide. May I ask what wasn't as expected?
+Agent: Okay, keep it in a safe place away from flammable materials and let it cool down. This is a serious safety issue. I'm going to arrange for an immediate pickup - a courier will come to your address today to collect it.
 
-Customer: The book is in German, but I ordered the English version.
+Customer: Today? That's impressive.
 
-Agent: Oh, I apologize for that mistake. You're absolutely right - your order shows English but we shipped the German edition. I'll send you the correct English version right away at no additional cost, and you don't need to return the German one.
+Agent: Yes, safety issues are our top priority. We'll have our technicians examine it, and you'll receive a replacement within 48 hours if it's confirmed defective. Can you confirm your address?
 
-Customer: Really? That's very kind.
+Customer: Yes, it's 123 Main Street, Apt 4B.
 
-Agent: It's the least we can do for our mistake. You should receive the correct book within 3-4 business days.
+Agent: Perfect. Expect the courier between 2-6 PM today. You'll receive tracking info shortly.
 
-Customer: Thank you so much!
+Customer: Thank you for taking this seriously.
 
-Agent: You're welcome. Is there anything else?
+Agent: Absolutely. Please don't hesitate to call if you notice anything else unusual.",URGENT: Laptop burning smell - safety issue. Immediate pickup arranged.,"[""safety"", ""urgent"", ""laptop"", ""overheating"", ""defect""]",urgent_replacement,support_tickets.json,2026-02-11T07:14:54.110402
+TKT-000013,CUS-00000089,PRD-000345,chat,low,resolved,5,2025-03-23,2025-03-23,AGT-004,"Customer: I bought the ProCam 5000 last week for $599 and now I see it's on sale for $499. Can I get the difference?
 
-Customer: No, that's perfect.",Wrong language book shipped. Correct version sent free of charge.,"[""wrong_item"", ""book"", ""language""]",replacement,support_tickets.json,2026-02-10T22:33:04.850936
+Agent: Hi! Let me check our price protection policy for you. Can you provide your order number?
+
+Customer: ORD-2025-88901
+
+Agent: Thank you. I can see your purchase from 6 days ago. Great news - our price protection covers purchases within 14 days! I'm processing a $100 refund to your original payment method now.
+
+Customer: That was easy! Thank you!
+
+Agent: You're welcome! The refund will appear within 3-5 business days. Is there anything else?
+
+Customer: No, that's perfect. Great customer service!
+
+Agent: Thank you for the kind words! Enjoy your camera!",Price match request approved - $100 refund for recent price drop.,"[""price_match"", ""refund"", ""camera""]",price_adjustment,support_tickets.json,2026-02-11T07:14:54.110402
+TKT-000001,CUS-00000001,PRD-000012,phone,high,resolved,4,2025-03-15,2025-03-15,AGT-005,"Agent: Thank you for calling TechStore support, my name is Sarah. How can I help you today?
+
+Customer: Hi Sarah, I purchased a mechanical keyboard last week and some of the keys are not working properly.
+
+Agent: I'm sorry to hear that. Can you please provide your order number?
+
+Customer: Yes, it's ORD-2025-78432.
+
+Agent: Thank you. I can see your order for the Modern Mechanical Keyboard. Which keys are giving you trouble?
+
+Customer: The 'A' and 'S' keys sometimes don't register when I press them.
+
+Agent: I understand how frustrating that must be. Since this is a defect, I can offer you a replacement or a full refund. Which would you prefer?
+
+Customer: A replacement would be great.
+
+Agent: Perfect. I've initiated a replacement order. You'll receive a shipping label via email within 24 hours to return the defective unit. The new keyboard will ship as soon as we receive the return.
+
+Customer: Thank you so much for the quick resolution!
+
+Agent: You're welcome! Is there anything else I can help you with today?
+
+Customer: No, that's all. Thanks again.
+
+Agent: Have a great day!",Customer reported defective mechanical keyboard with non-responsive keys. Replacement initiated.,"[""defect"", ""replacement"", ""keyboard""]",replacement,support_tickets.json,2026-02-11T07:14:54.110402
 TKT-000008,CUS-00000203,PRD-000234,email,medium,pending,,2025-03-21,,AGT-006,"From: warranty.claim@customer.com
 To: support@techstore.com
 Subject: Warranty Claim - Laptop Screen Issue
@@ -126,206 +291,41 @@ Please back up your data before shipping.
 
 Best regards,
 Maria
-Warranty Department",Warranty claim for laptop dead pixels - within warranty period. Awaiting customer shipment.,"[""warranty"", ""laptop"", ""screen"", ""dead_pixels""]",pending_repair,support_tickets.json,2026-02-10T22:33:04.850936
-TKT-000002,CUS-00000015,,chat,medium,resolved,5,2025-03-16,2025-03-16,AGT-003,"Customer: Hi, I was charged twice for my last order
+Warranty Department",Warranty claim for laptop dead pixels - within warranty period. Awaiting customer shipment.,"[""warranty"", ""laptop"", ""screen"", ""dead_pixels""]",pending_repair,support_tickets.json,2026-02-11T07:14:54.110402
+TKT-000020,CUS-00000666,,chat,low,closed,5,2025-03-27,2025-03-27,AGT-004,"Customer: What are your holiday return policies?
 
-Agent: Hello! I apologize for the inconvenience. Let me look into this for you. Could you provide your email address?
+Agent: Great question! For purchases made between November 15th and December 31st, we extend our return window to January 31st of the following year. This applies to all items except:
+- Opened software
+- Downloadable products
+- Gift cards
 
-Customer: sure, it's james.wilson@email.com
+Customer: Do I need to keep the receipt?
 
-Agent: Thank you. I can see there was indeed a duplicate charge on March 14th. I'm initiating a refund for the duplicate amount of $156.99 right now.
+Agent: A receipt makes returns easier, but we can also look up purchases using your email or phone number linked to your account.
 
-Customer: how long will it take?
+Customer: Perfect, thanks for the info!
 
-Agent: The refund will be processed within 3-5 business days and will appear on your original payment method.
+Agent: You're welcome! Happy shopping!",General inquiry about holiday return policy. Information provided.,"[""policy"", ""returns"", ""holiday""]",information_provided,support_tickets.json,2026-02-11T07:14:54.110402
+TKT-000006,CUS-00000099,PRD-000023,phone,urgent,escalated,1,2025-03-20,,AGT-005,"Agent: Thank you for calling TechStore, my name is Sarah. How can I help?
 
-Customer: ok thanks
+Customer: This is the third time I'm calling about the same issue! I've been waiting for my refund for over two weeks now!
 
-Agent: You're welcome! I've also added a 10% discount code SORRY10 to your account for the inconvenience. Is there anything else I can help with?
+Agent: I sincerely apologize for the frustration. Let me pull up your account. Can you provide your email?
 
-Customer: no thats all
+Customer: It's angry.customer99@email.com. I've already explained this twice before!
 
-Agent: Have a great day!",Double charge issue resolved with refund and courtesy discount.,"[""billing"", ""refund"", ""duplicate_charge""]",refund,support_tickets.json,2026-02-10T22:33:04.850936
-TKT-000003,CUS-00000023,PRD-000045,email,low,closed,3,2025-03-17,2025-03-18,AGT-001,"From: customer@example.com
-To: support@techstore.com
-Subject: Where is my order?
+Agent: I understand, and I'm truly sorry you've had to repeat yourself. I see the notes from your previous calls... It looks like the refund was initiated but failed due to an issue with the payment processor. This should have been escalated.
 
-Hi,
+Customer: I've been told 'it's being processed' every single time. I want to speak to a manager.
 
-I placed an order 5 days ago and still haven't received any shipping updates. Order number is ORD-2025-81234.
+Agent: Absolutely, I completely understand. I'm going to escalate this to our finance team supervisor right now. They will call you back within 2 hours with a resolution. I'm also noting this as urgent priority.
 
-Please advise.
+Customer: Fine. But if I don't hear back, I'm disputing this with my credit card company.
 
-Thanks,
-Mike
+Agent: That's completely within your rights. I've flagged this with the highest priority. You will receive a call from our supervisor, Jennifer, before 11 AM today.
 
----
+Customer: Okay.
 
-From: support@techstore.com
-To: customer@example.com
-Subject: RE: Where is my order?
+Agent: Again, I apologize for this experience. Is there anything else?
 
-Hi Mike,
-
-Thank you for reaching out. I checked your order and it shows it was shipped on March 15th via FedEx. The tracking number is 789456123012.
-
-According to the tracking, there was a delay at the regional sorting facility due to weather conditions. The estimated delivery is now March 19th.
-
-I apologize for the delay. Please let me know if you don't receive it by then.
-
-Best regards,
-Tom
-Customer Support
-
----
-
-From: customer@example.com
-To: support@techstore.com
-Subject: RE: RE: Where is my order?
-
-Ok thanks for the update. I'll wait.",Shipping delay inquiry - weather-related delay at FedEx facility.,"[""shipping"", ""delay"", ""tracking""]",information_provided,support_tickets.json,2026-02-10T22:33:04.850936
-TKT-000013,CUS-00000089,PRD-000345,chat,low,resolved,5,2025-03-23,2025-03-23,AGT-004,"Customer: I bought the ProCam 5000 last week for $599 and now I see it's on sale for $499. Can I get the difference?
-
-Agent: Hi! Let me check our price protection policy for you. Can you provide your order number?
-
-Customer: ORD-2025-88901
-
-Agent: Thank you. I can see your purchase from 6 days ago. Great news - our price protection covers purchases within 14 days! I'm processing a $100 refund to your original payment method now.
-
-Customer: That was easy! Thank you!
-
-Agent: You're welcome! The refund will appear within 3-5 business days. Is there anything else?
-
-Customer: No, that's perfect. Great customer service!
-
-Agent: Thank you for the kind words! Enjoy your camera!",Price match request approved - $100 refund for recent price drop.,"[""price_match"", ""refund"", ""camera""]",price_adjustment,support_tickets.json,2026-02-10T22:33:04.850936
-TKT-000012,CUS-00000178,,email,high,resolved,5,2025-03-23,2025-03-23,AGT-002,"From: locked.out@email.com
-To: support@techstore.com
-Subject: Cannot access my account - URGENT
-
-Help! I cannot log into my account. I've tried resetting my password multiple times but never receive the reset email.
-
-My email is locked.out@email.com and I have orders pending delivery that I need to track.
-
-Please help!
-
----
-
-From: support@techstore.com
-To: locked.out@email.com
-Subject: RE: Cannot access my account - URGENT
-
-Hi,
-
-I've investigated your account and found that your email was incorrectly changed to 'locked.outt@email.com' (with two t's) - likely a typo during a previous update.
-
-I've corrected this and sent a password reset link to your correct email. Please check your inbox.
-
-As a security precaution, I've also enabled two-factor authentication on your account. You can manage this in Settings after logging in.
-
-Your pending orders are on track:
-- ORD-2025-93456: Arriving March 25th
-- ORD-2025-93789: Arriving March 26th
-
-Let me know if you have any issues.
-
-Best,
-Alex
-Account Security Team",Account access issue due to email typo. Corrected and 2FA enabled.,"[""account"", ""security"", ""password"", ""email""]",account_recovery,support_tickets.json,2026-02-10T22:33:04.850936
-TKT-000010,CUS-00000321,PRD-000456,chat,low,resolved,5,2025-03-22,2025-03-22,AGT-003,"Customer: Can you check if my order has shipped? ORD-2025-91456
-
-Agent: Of course! Let me look that up... Your order shipped yesterday and is currently in transit. Expected delivery is March 24th.
-
-Customer: Perfect, thanks!
-
-Agent: You're welcome! You can also track it using this link: [tracking link]. Have a great day!",Order status inquiry - confirmed shipped with delivery date.,"[""order_status"", ""shipping""]",information_provided,support_tickets.json,2026-02-10T22:33:04.850936
-TKT-000001,CUS-00000001,PRD-000012,phone,high,resolved,4,2025-03-15,2025-03-15,AGT-005,"Agent: Thank you for calling TechStore support, my name is Sarah. How can I help you today?
-
-Customer: Hi Sarah, I purchased a mechanical keyboard last week and some of the keys are not working properly.
-
-Agent: I'm sorry to hear that. Can you please provide your order number?
-
-Customer: Yes, it's ORD-2025-78432.
-
-Agent: Thank you. I can see your order for the Modern Mechanical Keyboard. Which keys are giving you trouble?
-
-Customer: The 'A' and 'S' keys sometimes don't register when I press them.
-
-Agent: I understand how frustrating that must be. Since this is a defect, I can offer you a replacement or a full refund. Which would you prefer?
-
-Customer: A replacement would be great.
-
-Agent: Perfect. I've initiated a replacement order. You'll receive a shipping label via email within 24 hours to return the defective unit. The new keyboard will ship as soon as we receive the return.
-
-Customer: Thank you so much for the quick resolution!
-
-Agent: You're welcome! Is there anything else I can help you with today?
-
-Customer: No, that's all. Thanks again.
-
-Agent: Have a great day!",Customer reported defective mechanical keyboard with non-responsive keys. Replacement initiated.,"[""defect"", ""replacement"", ""keyboard""]",replacement,support_tickets.json,2026-02-10T22:33:04.850936
-TKT-000016,CUS-00000012,PRD-000234,phone,urgent,resolved,3,2025-03-25,2025-03-25,AGT-007,"Agent: TechStore support, David speaking.
-
-Customer: My new laptop is making a burning smell! I just unplugged it. What should I do?
-
-Agent: That's very concerning and you did the right thing unplugging it immediately. Please don't turn it back on. Can you tell me if there's any visible damage or smoke?
-
-Customer: No smoke, just that electrical burning smell. The bottom feels very hot.
-
-Agent: Okay, keep it in a safe place away from flammable materials and let it cool down. This is a serious safety issue. I'm going to arrange for an immediate pickup - a courier will come to your address today to collect it.
-
-Customer: Today? That's impressive.
-
-Agent: Yes, safety issues are our top priority. We'll have our technicians examine it, and you'll receive a replacement within 48 hours if it's confirmed defective. Can you confirm your address?
-
-Customer: Yes, it's 123 Main Street, Apt 4B.
-
-Agent: Perfect. Expect the courier between 2-6 PM today. You'll receive tracking info shortly.
-
-Customer: Thank you for taking this seriously.
-
-Agent: Absolutely. Please don't hesitate to call if you notice anything else unusual.",URGENT: Laptop burning smell - safety issue. Immediate pickup arranged.,"[""safety"", ""urgent"", ""laptop"", ""overheating"", ""defect""]",urgent_replacement,support_tickets.json,2026-02-10T22:33:04.850936
-TKT-000007,CUS-00000156,PRD-000078,chat,medium,resolved,4,2025-03-20,2025-03-20,AGT-004,"Customer: my bluetooth speaker wont connect to my phone
-
-Agent: Hi! I'd be happy to help you troubleshoot. What phone are you using?
-
-Customer: iphone 14
-
-Agent: Great. Let's try a few things:
-1. First, turn off the speaker and turn it back on
-2. On your iPhone, go to Settings > Bluetooth and see if 'TechStore BT Speaker' appears
-
-Customer: it shows up but says ""not connected""
-
-Agent: Okay, tap on the 'i' icon next to it and select 'Forget This Device'. Then let's re-pair it.
-
-Customer: done
-
-Agent: Now, put the speaker in pairing mode by holding the power button for 5 seconds until you hear a beep and the LED flashes blue.
-
-Customer: ok its flashing
-
-Agent: Go back to Bluetooth settings on your iPhone. Do you see 'TechStore BT Speaker' in the available devices?
-
-Customer: yes! its connecting now... it worked!
-
-Agent: Excellent! Sometimes Bluetooth connections can get corrupted and need to be reset. If this happens again, just repeat the 'Forget Device' process.
-
-Customer: thanks so much for your help
-
-Agent: You're welcome! Enjoy your music!",Bluetooth pairing issue resolved by forgetting and re-pairing device.,"[""bluetooth"", ""connectivity"", ""troubleshooting""]",technical_resolution,support_tickets.json,2026-02-10T22:33:04.850936
-TKT-000005,CUS-00000008,PRD-000156,chat,low,closed,5,2025-03-19,2025-03-19,AGT-002,"Customer: Is the Smart Fitness Watch waterproof?
-
-Agent: Hi! Great question. The Smart Fitness Watch has an IP68 rating, which means it's water-resistant up to 1.5 meters for 30 minutes. It's perfect for swimming and showering, but not recommended for diving or high-pressure water activities.
-
-Customer: Can I track swimming with it?
-
-Agent: Yes! It has a dedicated swim tracking mode that records laps, stroke type, and calories burned. It works in both pools and open water.
-
-Customer: That's exactly what I needed. One more question - does it work with iPhone?
-
-Agent: Absolutely! It's compatible with both iOS (iPhone 8 and newer) and Android devices. The companion app is available on both the App Store and Google Play.
-
-Customer: Perfect, I'll order one now. Thanks!
-
-Agent: Wonderful! Let me know if you have any other questions. Enjoy your new watch!",Pre-purchase inquiry about fitness watch waterproofing and compatibility.,"[""pre_sale"", ""fitness_watch"", ""compatibility""]",information_provided,support_tickets.json,2026-02-10T22:33:04.850936
+Customer: No. Just fix this.",Escalated complaint - refund delayed for 2+ weeks. Customer threatening chargeback. Requires supervisor callback.,"[""escalation"", ""refund"", ""complaint"", ""urgent""]",escalated,support_tickets.json,2026-02-11T07:14:54.110402

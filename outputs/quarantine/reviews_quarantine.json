@@ -1,192 +1,6 @@
 [
   {
-    "row_index": 2,
-    "record": {
-      "review_id": "REV-000025",
-      "product_id": "PRD-000001",
-      "customer_id": "CUS-00000555",
-      "rating": null,
-      "title": "Review pending",
-      "review_text": "Just received it yesterday, will update after testing...",
-      "helpful_votes": "2",
-      "verified_purchase": "True",
-      "review_date": "2025-03-25",
-      "sentiment": null,
-      "images": "[]",
-      "response_responder": null,
-      "response_response_text": null,
-      "response_response_date": null,
-      "response": null,
-      "_source_file": "product_reviews.json",
-      "_loaded_at": "2026-02-10T22:33:04.850936"
-    },
-    "errors": [
-      {
-        "field": "product_id",
-        "value": "PRD-000001",
-        "target": "product",
-        "type": "referential_integrity",
-        "msg": "No matching product record for product_id=PRD-000001"
-      }
-    ]
-  },
-  {
-    "row_index": 9,
-    "record": {
-      "review_id": "REV-000009",
-      "product_id": "PRD-000008",
-      "customer_id": "CUS-00000789",
-      "rating": "5",
-      "title": "My back thanks me",
-      "review_text": "Spent weeks researching ergonomic chairs and this one ticks all the boxes. Lumbar support is adjustable, arm rests move in every direction, and the mesh back keeps me cool. Assembly took about 45 minutes but instructions were clear. Expensive but you get what you pay for.",
-      "helpful_votes": "112",
-      "verified_purchase": "True",
-      "review_date": "2025-03-10",
-      "sentiment": "positive",
-      "images": "[\"chair_unbox.jpg\", \"chair_assembled.jpg\"]",
-      "response_responder": null,
-      "response_response_text": null,
-      "response_response_date": null,
-      "response": null,
-      "_source_file": "product_reviews.json",
-      "_loaded_at": "2026-02-10T22:33:04.850936"
-    },
-    "errors": [
-      {
-        "field": "product_id",
-        "value": "PRD-000008",
-        "target": "product",
-        "type": "referential_integrity",
-        "msg": "No matching product record for product_id=PRD-000008"
-      }
-    ]
-  },
-  {
-    "row_index": 12,
-    "record": {
-      "review_id": "REV-000016",
-      "product_id": "PRD-INVALID",
-      "customer_id": "CUS-00000567",
-      "rating": "5",
-      "title": "Exceeded expectations",
-      "review_text": "Ordered this on a whim and it turned out to be one of my best purchases. Quality is outstanding and it looks even better in person than in the photos. Fast shipping too!",
-      "helpful_votes": "31",
-      "verified_purchase": "True",
-      "review_date": "2025-03-18",
-      "sentiment": "positive",
-      "images": "[]",
-      "response_responder": null,
-      "response_response_text": null,
-      "response_response_date": null,
-      "response": null,
-      "_source_file": "product_reviews.json",
-      "_loaded_at": "2026-02-10T22:33:04.850936"
-    },
-    "errors": [
-      {
-        "field": "product_id",
-        "value": "PRD-INVALID",
-        "target": "product",
-        "type": "referential_integrity",
-        "msg": "No matching product record for product_id=PRD-INVALID"
-      }
-    ]
-  },
-  {
-    "row_index": 16,
-    "record": {
-      "review_id": "REV-000001",
-      "product_id": "PRD-000001",
-      "customer_id": "CUS-00000045",
-      "rating": "5",
-      "title": "Amazing sound quality!",
-      "review_text": "I've been using this bluetooth speaker for a month now and I'm blown away by the sound quality. The bass is deep and the highs are crystal clear. Battery life is exactly as advertised - I get a solid 10 hours on a single charge. Highly recommend!",
-      "helpful_votes": "45",
-      "verified_purchase": "True",
-      "review_date": "2025-02-15",
-      "sentiment": "positive",
-      "images": "[\"img_001.jpg\", \"img_002.jpg\"]",
-      "response_responder": "TechStore Team",
-      "response_response_text": "Thank you for your wonderful review! We're thrilled you're enjoying the sound quality. Rock on! \ud83c\udfb5",
-      "response_response_date": "2025-02-16",
-      "response": null,
-      "_source_file": "product_reviews.json",
-      "_loaded_at": "2026-02-10T22:33:04.850936"
-    },
-    "errors": [
-      {
-        "field": "product_id",
-        "value": "PRD-000001",
-        "target": "product",
-        "type": "referential_integrity",
-        "msg": "No matching product record for product_id=PRD-000001"
-      }
-    ]
-  },
-  {
-    "row_index": 18,
-    "record": {
-      "review_id": "REV-000003",
-      "product_id": "PRD-000001",
-      "customer_id": "CUS-00000123",
-      "rating": "2",
-      "title": "Disappointed with battery",
-      "review_text": "The sound is okay but the battery life is nowhere near 10 hours. I'm getting maybe 4-5 hours max. Either mine is defective or the specs are exaggerated. Considering returning it.",
-      "helpful_votes": "67",
-      "verified_purchase": "True",
-      "review_date": "2025-02-25",
-      "sentiment": "negative",
-      "images": "[]",
-      "response_responder": "TechStore Support",
-      "response_response_text": "We're sorry to hear about your experience. This doesn't sound right - you may have received a defective unit. Please contact our support team at support@techstore.com and we'll arrange a replacement. Your satisfaction is our priority!",
-      "response_response_date": "2025-02-26",
-      "response": null,
-      "_source_file": "product_reviews.json",
-      "_loaded_at": "2026-02-10T22:33:04.850936"
-    },
-    "errors": [
-      {
-        "field": "product_id",
-        "value": "PRD-000001",
-        "target": "product",
-        "type": "referential_integrity",
-        "msg": "No matching product record for product_id=PRD-000001"
-      }
-    ]
-  },
-  {
-    "row_index": 22,
-    "record": {
-      "review_id": "REV-000027",
-      "product_id": "PRD-000008",
-      "customer_id": "CUS-00000777",
-      "rating": "3",
-      "title": "Good chair, difficult assembly",
-      "review_text": "The chair itself is comfortable and well-built. BUT the assembly was a nightmare. Instructions were confusing, some screws were mislabeled, and it took 3 hours instead of the advertised 45 minutes. Had to watch YouTube videos to figure it out. Chair is great once assembled though.",
-      "helpful_votes": "156",
-      "verified_purchase": "True",
-      "review_date": "2025-02-22",
-      "sentiment": "neutral",
-      "images": "[]",
-      "response_responder": "TechStore Team",
-      "response_response_text": "Thank you for this feedback. We've heard similar comments and are working with the manufacturer to improve the instructions. We now also offer professional assembly for $49 - wish we could have offered that to you!",
-      "response_response_date": "2025-02-23",
-      "response": null,
-      "_source_file": "product_reviews.json",
-      "_loaded_at": "2026-02-10T22:33:04.850936"
-    },
-    "errors": [
-      {
-        "field": "product_id",
-        "value": "PRD-000008",
-        "target": "product",
-        "type": "referential_integrity",
-        "msg": "No matching product record for product_id=PRD-000008"
-      }
-    ]
-  },
-  {
-    "row_index": 23,
+    "row_index": 3,
     "record": {
       "review_id": "",
       "product_id": "PRD-000007",
@@ -204,7 +18,7 @@
       "response_response_date": null,
       "response": null,
       "_source_file": "product_reviews.json",
-      "_loaded_at": "2026-02-10T22:33:04.850936"
+      "_loaded_at": "2026-02-11T07:14:54.110402"
     },
     "errors": [
       {
@@ -215,7 +29,69 @@
     ]
   },
   {
-    "row_index": 24,
+    "row_index": 4,
+    "record": {
+      "review_id": "REV-000009",
+      "product_id": "PRD-000008",
+      "customer_id": "CUS-00000789",
+      "rating": "5",
+      "title": "My back thanks me",
+      "review_text": "Spent weeks researching ergonomic chairs and this one ticks all the boxes. Lumbar support is adjustable, arm rests move in every direction, and the mesh back keeps me cool. Assembly took about 45 minutes but instructions were clear. Expensive but you get what you pay for.",
+      "helpful_votes": "112",
+      "verified_purchase": "True",
+      "review_date": "2025-03-10",
+      "sentiment": "positive",
+      "images": "[\"chair_unbox.jpg\", \"chair_assembled.jpg\"]",
+      "response_responder": null,
+      "response_response_text": null,
+      "response_response_date": null,
+      "response": null,
+      "_source_file": "product_reviews.json",
+      "_loaded_at": "2026-02-11T07:14:54.110402"
+    },
+    "errors": [
+      {
+        "field": "product_id",
+        "value": "PRD-000008",
+        "target": "product",
+        "type": "referential_integrity",
+        "msg": "No matching product record for product_id=PRD-000008"
+      }
+    ]
+  },
+  {
+    "row_index": 5,
+    "record": {
+      "review_id": "REV-000001",
+      "product_id": "PRD-000001",
+      "customer_id": "CUS-00000045",
+      "rating": "5",
+      "title": "Amazing sound quality!",
+      "review_text": "I've been using this bluetooth speaker for a month now and I'm blown away by the sound quality. The bass is deep and the highs are crystal clear. Battery life is exactly as advertised - I get a solid 10 hours on a single charge. Highly recommend!",
+      "helpful_votes": "45",
+      "verified_purchase": "True",
+      "review_date": "2025-02-15",
+      "sentiment": "positive",
+      "images": "[\"img_001.jpg\", \"img_002.jpg\"]",
+      "response_responder": "TechStore Team",
+      "response_response_text": "Thank you for your wonderful review! We're thrilled you're enjoying the sound quality. Rock on! \ud83c\udfb5",
+      "response_response_date": "2025-02-16",
+      "response": null,
+      "_source_file": "product_reviews.json",
+      "_loaded_at": "2026-02-11T07:14:54.110402"
+    },
+    "errors": [
+      {
+        "field": "product_id",
+        "value": "PRD-000001",
+        "target": "product",
+        "type": "referential_integrity",
+        "msg": "No matching product record for product_id=PRD-000001"
+      }
+    ]
+  },
+  {
+    "row_index": 6,
     "record": {
       "review_id": "REV-000022",
       "product_id": "PRD-000004",
@@ -233,7 +109,7 @@
       "response_response_date": "2025-03-22",
       "response": null,
       "_source_file": "product_reviews.json",
-      "_loaded_at": "2026-02-10T22:33:04.850936"
+      "_loaded_at": "2026-02-11T07:14:54.110402"
     },
     "errors": [
       {
@@ -244,7 +120,100 @@
     ]
   },
   {
+    "row_index": 18,
+    "record": {
+      "review_id": "REV-000016",
+      "product_id": "PRD-INVALID",
+      "customer_id": "CUS-00000567",
+      "rating": "5",
+      "title": "Exceeded expectations",
+      "review_text": "Ordered this on a whim and it turned out to be one of my best purchases. Quality is outstanding and it looks even better in person than in the photos. Fast shipping too!",
+      "helpful_votes": "31",
+      "verified_purchase": "True",
+      "review_date": "2025-03-18",
+      "sentiment": "positive",
+      "images": "[]",
+      "response_responder": null,
+      "response_response_text": null,
+      "response_response_date": null,
+      "response": null,
+      "_source_file": "product_reviews.json",
+      "_loaded_at": "2026-02-11T07:14:54.110402"
+    },
+    "errors": [
+      {
+        "field": "product_id",
+        "value": "PRD-INVALID",
+        "target": "product",
+        "type": "referential_integrity",
+        "msg": "No matching product record for product_id=PRD-INVALID"
+      }
+    ]
+  },
+  {
+    "row_index": 24,
+    "record": {
+      "review_id": "REV-000003",
+      "product_id": "PRD-000001",
+      "customer_id": "CUS-00000123",
+      "rating": "2",
+      "title": "Disappointed with battery",
+      "review_text": "The sound is okay but the battery life is nowhere near 10 hours. I'm getting maybe 4-5 hours max. Either mine is defective or the specs are exaggerated. Considering returning it.",
+      "helpful_votes": "67",
+      "verified_purchase": "True",
+      "review_date": "2025-02-25",
+      "sentiment": "negative",
+      "images": "[]",
+      "response_responder": "TechStore Support",
+      "response_response_text": "We're sorry to hear about your experience. This doesn't sound right - you may have received a defective unit. Please contact our support team at support@techstore.com and we'll arrange a replacement. Your satisfaction is our priority!",
+      "response_response_date": "2025-02-26",
+      "response": null,
+      "_source_file": "product_reviews.json",
+      "_loaded_at": "2026-02-11T07:14:54.110402"
+    },
+    "errors": [
+      {
+        "field": "product_id",
+        "value": "PRD-000001",
+        "target": "product",
+        "type": "referential_integrity",
+        "msg": "No matching product record for product_id=PRD-000001"
+      }
+    ]
+  },
+  {
     "row_index": 26,
+    "record": {
+      "review_id": "REV-000025",
+      "product_id": "PRD-000001",
+      "customer_id": "CUS-00000555",
+      "rating": null,
+      "title": "Review pending",
+      "review_text": "Just received it yesterday, will update after testing...",
+      "helpful_votes": "2",
+      "verified_purchase": "True",
+      "review_date": "2025-03-25",
+      "sentiment": null,
+      "images": "[]",
+      "response_responder": null,
+      "response_response_text": null,
+      "response_response_date": null,
+      "response": null,
+      "_source_file": "product_reviews.json",
+      "_loaded_at": "2026-02-11T07:14:54.110402"
+    },
+    "errors": [
+      {
+        "field": "product_id",
+        "value": "PRD-000001",
+        "target": "product",
+        "type": "referential_integrity",
+        "msg": "No matching product record for product_id=PRD-000001"
+      }
+    ]
+  },
+  {
+    "row_index": 27,
     "record": {
       "review_id": "REV-000002",
       "product_id": "PRD-000001",
@@ -262,7 +231,7 @@
       "response_response_date": null,
       "response": null,
       "_source_file": "product_reviews.json",
-      "_loaded_at": "2026-02-10T22:33:04.850936"
+      "_loaded_at": "2026-02-11T07:14:54.110402"
     },
     "errors": [
       {
@@ -271,6 +240,37 @@
         "target": "product",
         "type": "referential_integrity",
         "msg": "No matching product record for product_id=PRD-000001"
+      }
+    ]
+  },
+  {
+    "row_index": 29,
+    "record": {
+      "review_id": "REV-000027",
+      "product_id": "PRD-000008",
+      "customer_id": "CUS-00000777",
+      "rating": "3",
+      "title": "Good chair, difficult assembly",
+      "review_text": "The chair itself is comfortable and well-built. BUT the assembly was a nightmare. Instructions were confusing, some screws were mislabeled, and it took 3 hours instead of the advertised 45 minutes. Had to watch YouTube videos to figure it out. Chair is great once assembled though.",
+      "helpful_votes": "156",
+      "verified_purchase": "True",
+      "review_date": "2025-02-22",
+      "sentiment": "neutral",
+      "images": "[]",
+      "response_responder": "TechStore Team",
+      "response_response_text": "Thank you for this feedback. We've heard similar comments and are working with the manufacturer to improve the instructions. We now also offer professional assembly for $49 - wish we could have offered that to you!",
+      "response_response_date": "2025-02-23",
+      "response": null,
+      "_source_file": "product_reviews.json",
+      "_loaded_at": "2026-02-11T07:14:54.110402"
+    },
+    "errors": [
+      {
+        "field": "product_id",
+        "value": "PRD-000008",
+        "target": "product",
+        "type": "referential_integrity",
+        "msg": "No matching product record for product_id=PRD-000008"
       }
     ]
   }
