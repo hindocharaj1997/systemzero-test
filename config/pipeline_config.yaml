@@ -1,0 +1,34 @@
+# Main Pipeline Configuration
+
+pipeline:
+  name: ecommerce_medallion
+  version: "1.0.0"
+
+paths:
+  input_dir: data/
+  output_dir: outputs/processed/
+  logs_dir: outputs/logs/
+
+
+duckdb:
+  persist: true
+  database_path: outputs/pipeline.duckdb
+  export_csv: true
+
+surrealdb:
+  url: "ws://localhost:8000/rpc"
+  namespace: "test"
+  database: "ecommerce"
+  username: "root"
+  password: "root"
+
+layers:
+  bronze: true
+  silver: true
+  gold: true
+  graph: true
+
+logging:
+  level: INFO
+  console: true
+  file: true

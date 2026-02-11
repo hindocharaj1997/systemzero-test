@@ -1,0 +1,55 @@
+# Source File Configurations
+
+sources:
+  products:
+    file: products.csv
+    format: csv
+    schema: product
+    description: Product catalog
+
+  customers:
+    file: customers.json
+    format: json
+    data_key: customers
+    schema: customer
+    description: Customer profiles
+
+  transactions:
+    file: sales_transactions.parquet
+    format: parquet
+    schema: transaction
+    description: B2C sales transactions
+
+  vendors:
+    file: vendors.json
+    format: json
+    data_key: vendors
+    schema: vendor
+    description: Vendor/supplier information
+
+  invoices:
+    file: invoices.csv
+    format: csv
+    schema: invoice
+    description: B2B invoices from vendors
+
+  support_tickets:
+    file: support_tickets.json
+    format: json
+    data_key: support_tickets
+    schema: support_ticket
+    description: Customer support tickets
+
+  reviews:
+    file: product_reviews.json
+    format: json
+    data_key: reviews
+    schema: review
+    description: Product reviews
+
+  call_transcripts:
+    file: call_transcripts.json
+    format: json
+    data_key: call_transcripts
+    schema: call_transcript
+    description: Phone call transcripts

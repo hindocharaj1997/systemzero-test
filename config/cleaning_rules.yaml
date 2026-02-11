@@ -1,0 +1,65 @@
+# Cleaning Rules Configuration
+
+cleaners:
+  date_iso:
+    description: Standardize dates to ISO format (YYYY-MM-DD)
+    type: date
+    output_format: "%Y-%m-%d"
+    input_formats:
+      - "%Y-%m-%d"
+      - "%m/%d/%Y"
+      - "%d/%m/%Y"
+      - "%d-%b-%Y"
+      - "%Y-%m-%dT%H:%M:%S"
+      - "%Y-%m-%dT%H:%M:%SZ"
+
+  boolean_normalize:
+    description: Normalize boolean values
+    type: boolean
+    true_values:
+      - true
+      - "true"
+      - "True"
+      - "TRUE"
+      - "yes"
+      - "Yes"
+      - "YES"
+      - "1"
+      - 1
+      - "Y"
+      - "y"
+    false_values:
+      - false
+      - "false"
+      - "False"
+      - "FALSE"
+      - "no"
+      - "No"
+      - "NO"
+      - "0"
+      - 0
+      - "N"
+      - "n"
+
+  phone_normalize:
+    description: Normalize phone numbers
+    type: phone
+    remove_chars: "()- .+"
+    output_format: digits_only
+
+  lowercase:
+    description: Convert to lowercase
+    type: case
+    case: lower
+
+  uppercase:
+    description: Convert to uppercase
+    type: case
+    case: upper
+
+  trim:
+    description: Trim whitespace
+    type: string
+    operations:
+      - trim
+      - normalize_whitespace

@@ -1,0 +1,526 @@
+# Simplified Schemas for Silver Layer
+# Fields: ERD + Gold features + cleaning targets
+
+schemas:
+  customer:
+    primary_key: customer_id
+    fields:
+      customer_id:
+        type: string
+        required: true
+        pattern: "^CUS-\\d+$"
+      full_name:
+        type: string
+        required: true
+      email:
+        type: string
+        clean: lowercase
+      phone:
+        type: string
+        clean: phone_normalize
+      first_name:
+        type: string
+      last_name:
+        type: string
+      gender:
+        type: string
+        clean: lowercase
+      age:
+        type: integer
+      date_of_birth:
+        type: date
+        clean: date_iso
+      address_street:
+        type: string
+      address_city:
+        type: string
+      address_state:
+        type: string
+      address_postal_code:
+        type: string
+      address_country:
+        type: string
+      email_verified:
+        type: boolean
+        clean: boolean_normalize
+      phone_verified:
+        type: boolean
+        clean: boolean_normalize
+      preferences_newsletter:
+        type: boolean
+        clean: boolean_normalize
+      preferences_sms_notifications:
+        type: boolean
+        clean: boolean_normalize
+      preferences_preferred_language:
+        type: string
+        clean: lowercase
+      preferences_preferred_currency:
+        type: string
+        clean: uppercase
+      metadata_source:
+        type: string
+      total_orders:
+        type: integer
+        min: 0
+      average_order_value:
+        type: float
+        min: 0
+      metadata_created_at:
+        type: datetime
+        clean: date_iso
+      metadata_created_at:
+        type: datetime
+        clean: date_iso
+      metadata_updated_at:
+        type: datetime
+        clean: date_iso
+      segment:
+        type: string
+      total_spend:
+        type: float
+        min: 0
+      registration_date:
+        type: date
+        clean: date_iso
+      last_purchase_date:
+        type: date
+        clean: date_iso
+      is_active:
+        type: boolean
+        clean: boolean_normalize
+      _source_file:
+        type: string
+      _loaded_at:
+        type: string
+
+  product:
+    primary_key: product_id
+    fields:
+      product_id:
+        type: string
+        required: true
+        pattern: "^PRD-\\d+$"
+      vendor_id:
+        type: string
+        required: true
+        foreign_key: vendor
+      sku:
+        type: string
+        required: true
+      product_name:
+        type: string
+        required: true
+      category:
+        type: string
+      price:
+        type: float
+        min: 0
+      cost:
+        type: float
+        min: 0
+      stock_quantity:
+        type: integer
+      rating:
+        type: float
+        min: 0
+        max: 5
+      is_active:
+        type: boolean
+        clean: boolean_normalize
+      description:
+        type: string
+      subcategory:
+        type: string
+      currency:
+        type: string
+        clean: uppercase
+      weight_kg:
+        type: float
+        min: 0
+      reorder_level:
+        type: integer
+        min: 0
+      review_count:
+        type: integer
+        min: 0
+      tags:
+        type: json
+      last_updated:
+        type: date
+        clean: date_iso
+      _source_file:
+        type: string
+      _loaded_at:
+        type: string
+
+  transaction:
+    primary_key: transaction_id
+    fields:
+      transaction_id:
+        type: string
+        required: true
+        pattern: "^TXN-[A-F0-9]+$"
+      customer_id:
+        type: string
+        required: true
+        foreign_key: customer
+      product_id:
+        type: string
+        required: true
+        foreign_key: product
+      transaction_date:
+        type: datetime
+        clean: date_iso
+      quantity:
+        type: integer
+      total_amount:
+        type: float
+      order_status:
+        type: string
+        clean: uppercase
+      is_return:
+        type: boolean
+        clean: boolean_normalize
+      transaction_timestamp:
+        type: datetime
+        clean: date_iso
+      order_id:
+        type: string
+        pattern: "^ORD-\\d+$"
+      unit_price:
+        type: float
+      subtotal:
+        type: float
+      tax_rate:
+        type: float
+      tax_amount:
+        type: float
+      shipping_cost:
+        type: float
+      discount_percent:
+        type: float
+      discount_amount:
+        type: float
+      is_gift:
+        type: boolean
+        clean: boolean_normalize
+      notes:
+        type: string
+      payment_status:
+        type: string
+        clean: lowercase
+      payment_method:
+        type: string
+        clean: lowercase
+      shipping_method:
+        type: string
+        clean: lowercase
+      channel:
+        type: string
+        clean: lowercase
+      region:
+        type: string
+      _source_file:
+        type: string
+      _loaded_at:
+        type: string
+
+  vendor:
+    primary_key: vendor_id
+    fields:
+      vendor_id:
+        type: string
+        required: true
+        pattern: "^VND-\\d+$"
+      vendor_name:
+        type: string
+        required: true
+      country:
+        type: string
+      country_code:
+        type: string
+        clean: uppercase
+      vendor_code:
+        type: string
+      lead_time_days:
+        type: integer
+        min: 0
+      payment_terms:
+        type: string
+      currency:
+        type: string
+        clean: uppercase
+      contact_primary_name:
+        type: string
+      contact_email:
+        type: string
+        clean: lowercase
+      contact_phone:
+        type: string
+        clean: phone_normalize
+      address_street:
+        type: string
+      address_city:
+        type: string
+      address_state:
+        type: string
+      address_postal_code:
+        type: string
+      address_country:
+        type: string
+      categories:
+        type: json
+      certifications:
+        type: json
+      created_at:
+        type: datetime
+        clean: date_iso
+      updated_at:
+        type: datetime
+        clean: date_iso
+      region:
+        type: string
+      reliability_score:
+        type: float
+        min: 0
+        max: 100
+      status:
+        type: string
+        clean: lowercase
+      _source_file:
+        type: string
+      _loaded_at:
+        type: string
+
+  invoice:
+    primary_key: invoice_id
+    fields:
+      invoice_id:
+        type: string
+        required: true
+        pattern: "^INV-[A-F0-9]+$"
+      vendor_id:
+        type: string
+        required: true
+        foreign_key: vendor
+      invoice_date:
+        type: date
+        clean: date_iso
+      due_date:
+        type: date
+        clean: date_iso
+      payment_date:
+        type: date
+        clean: date_iso
+      total_amount:
+        type: float
+      payment_status:
+        type: string
+        clean: lowercase
+      invoice_number:
+        type: string
+      po_number:
+        type: string
+      subtotal:
+        type: float
+      tax_rate:
+        type: float
+      tax_amount:
+        type: float
+      shipping_handling:
+        type: float
+      amount_paid:
+        type: float
+      balance_due:
+        type: float
+      payment_method:
+        type: string
+        clean: lowercase
+      vendor_name:
+        type: string
+      currency:
+        type: string
+        clean: uppercase
+      notes:
+        type: string
+      approved_by:
+        type: string
+      created_at:
+        type: datetime
+        clean: date_iso
+      updated_at:
+        type: datetime
+        clean: date_iso
+      _source_file:
+        type: string
+      _loaded_at:
+        type: string
+
+  review:
+    primary_key: review_id
+    fields:
+      review_id:
+        type: string
+        required: true
+      product_id:
+        type: string
+        required: true
+        foreign_key: product
+      customer_id:
+        type: string
+        required: true
+        foreign_key: customer
+      rating:
+        type: integer
+        min: 1
+        max: 5
+      sentiment:
+        type: string
+        clean: lowercase
+      verified_purchase:
+        type: boolean
+        clean: boolean_normalize
+      title:
+        type: string
+      review_text:
+        type: string
+      review_date:
+        type: date
+        clean: date_iso
+      helpful_votes:
+        type: integer
+        min: 0
+      images:
+        type: json
+      response:
+        type: string
+      response_responder:
+        type: string
+      response_response_text:
+        type: string
+      response_response_date:
+        type: datetime
+        clean: date_iso
+      _source_file:
+        type: string
+      _loaded_at:
+        type: string
+
+  support_ticket:
+    primary_key: ticket_id
+    fields:
+      ticket_id:
+        type: string
+        required: true
+        pattern: "^TKT-\\d+$"
+      customer_id:
+        type: string
+        required: true
+        foreign_key: customer
+      product_id:
+        type: string
+        foreign_key: product
+      channel:
+        type: string
+        clean: lowercase
+      priority:
+        type: string
+        clean: lowercase
+      status:
+        type: string
+        clean: lowercase
+      satisfaction_score:
+        type: integer
+        min: 1
+        max: 5
+      created_at:
+        type: datetime
+        clean: date_iso
+      resolved_at:
+        type: datetime
+        clean: date_iso
+      agent_id:
+        type: string
+      transcript:
+        type: string
+      summary:
+        type: string
+      tags:
+        type: json
+      resolution_type:
+        type: string
+        clean: lowercase
+      _source_file:
+        type: string
+      _loaded_at:
+        type: string
+
+  call_transcript:
+    primary_key: call_id
+    fields:
+      call_id:
+        type: string
+        required: true
+        pattern: "^CALL-\\d+$"
+      ticket_id:
+        type: string
+        foreign_key: support_ticket
+      customer_id:
+        type: string
+        required: true
+        foreign_key: customer
+      call_start:
+        type: datetime
+        clean: date_iso
+      duration_seconds:
+        type: integer
+        min: 0
+      sentiment_overall:
+        type: string
+        clean: lowercase
+      agent_id:
+        type: string
+      agent_name:
+        type: string
+      call_end:
+        type: datetime
+        clean: date_iso
+      call_type:
+        type: string
+        clean: lowercase
+      phone_number:
+        type: string
+        clean: phone_normalize
+      queue_wait_seconds:
+        type: integer
+        min: 0
+      hold_time_seconds:
+        type: integer
+        min: 0
+      transfers:
+        type: integer
+        min: 0
+      language:
+        type: string
+        clean: lowercase
+      quality_score:
+        type: float
+        min: 0
+        max: 100
+      resolution_achieved:
+        type: boolean
+        clean: boolean_normalize
+      resolution_achieved:
+        type: boolean
+        clean: boolean_normalize
+      utterances:
+        type: json
+      keywords_detected:
+        type: json
+      action_items:
+        type: json
+      _source_file:
+        type: string
+      _loaded_at:
+        type: string

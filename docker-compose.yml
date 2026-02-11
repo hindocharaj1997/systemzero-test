@@ -6,6 +6,7 @@ services:
   surrealdb:
     image: surrealdb/surrealdb:latest
     container_name: coding-test-surrealdb
+    user: root
     command: start --user root --pass root --log debug file:/data/database.db
     ports:
       - "8000:8000"
@@ -15,7 +16,7 @@ services:
       - SURREAL_USER=root
       - SURREAL_PASS=root
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      test: [ "CMD", "curl", "-f", "http://localhost:8000/health" ]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -29,7 +30,7 @@ services:
     volumes:
       - redis_data:/data
     healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
+      test: [ "CMD", "redis-cli", "ping" ]
       interval: 10s
       timeout: 5s
       retries: 5
