@@ -256,7 +256,7 @@ The optional Graph layer loads Silver data into SurrealDB as a property graph:
 - **Node tables** (9): vendor, product, customer, category, region, invoice, support_ticket, call_transcript, agent
 - **Edge tables** (13): supplies, belongs_to, purchased, located_in, based_in, billed, invoice_item, reviewed, raised, about, handled_by, includes_transcript, conducted_by
 - **Design**: Transactions modeled as edges with properties; categories/regions extracted as first-class nodes; Agents derived from interaction data
-- **Queries**: 11 sample graph traversal queries (reliable vendor products, co-purchase, influence scoring, agent performance, customer support journey, etc.)
+- **Queries**: 9 sample graph traversal queries (reliable vendor products, related/co-purchase, influence scoring, invoice reconciliation, overdue vendors, payment-vs-sales)
 - **Detail**: See `docs/GRAPH_DESIGN.md` for full schema design rationale
 
 ## Testing Strategy

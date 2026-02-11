@@ -117,16 +117,14 @@ graph LR
 
 ## Sample Queries
 
-See `src/graph/queries.py` for 11 documented graph traversal queries covering:
+See `src/graph/queries.py` for 9 documented graph traversal queries covering:
 
 1. **Reliable vendor products** — vendor reliability filtering
 2. **Customer purchase history** — multi-hop vendor resolution
-3. **Related products** — category/co-purchase similarity
-4. **Top customers by vendor** — revenue attribution
-5. **Vendor influence** — customer reach analysis
-6. **Invoice reconciliation** — line item mismatch detection
-7. **Overdue vendors** — supply chain risk
-8. **Payment vs sales** — vendor financial correlation
-9. **Support burden** — products with high ticket volume
-10. **Agent performance** — satisfaction & sentiment analysis
-11. **Support journey** — full customer interaction history
+3. **Related products** — same category, same vendor, and co-purchase neighborhoods
+4. **Co-purchased products** — items bought by overlapping customer sets
+5. **Top customers by vendor** — customer lists with spend context by vendor
+6. **Vendor influence** — customer reach analysis
+7. **Invoice reconciliation** — line item mismatch detection
+8. **Overdue vendors** — supply chain risk
+9. **Payment vs sales** — cost/revenue comparison with ratio-style correlation proxy
