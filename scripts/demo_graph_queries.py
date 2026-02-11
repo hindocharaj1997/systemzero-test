@@ -70,41 +70,7 @@ async def run_queries():
         except Exception as e:
             print(f"Query failed: {e}")
 
-    # Debug: Check ID formats
-    print("\n--- DEBUG: ID Format Check ---")
-    try:
-        # Check Node IDs
-        customers = await db.query("SELECT id FROM customer LIMIT 5")
-        print(f"DEBUG: Customers Response: {customers}")
-        
-        # Check Edge IDs and their in/out
-        # Use SELECT * to avoid issues with reserved keywords "in"/"out"
-        edges = await db.query("SELECT * FROM purchased LIMIT 5")
-        print(f"DEBUG: Edges Response: {edges}")
 
-        # Check Invoice Items
-        inv_items = await db.query("SELECT * FROM invoice_item LIMIT 5")
-        print(f"DEBUG: Invoice Items Response: {inv_items}")
-
-        if customers and isinstance(customers, list) and customers[0].get("result"):
-             print("Customer Nodes:", customers[0]["result"])
-             c_id = customers[0]["result"][0]["id"]
-             print(f"Node ID: {c_id} (type: {type(c_id)})")
-        else:
-             print("Failed to get customer results")
-
-        if edges and isinstance(edges, list) and edges[0].get("result"):
-             print("Purchased Edges:", edges[0]["result"])
-             e_in = edges[0]["result"][0]["in"]
-             print(f"Edge IN: {e_in} (type: {type(e_in)})")
-             
-             if 'c_id' in locals() and 'e_in' in locals():
-                print(f"Match? {str(c_id) == str(e_in)}")
-        else:
-             print("Failed to get edge results")
-        
-    except Exception as e:
-         print(f"Debug check failed: {e}")
 
     await loader.close()
 
