@@ -14,7 +14,7 @@ The medallion pattern provides clear separation of concerns:
 - **Gold**: Pre-computed feature tables optimized for analytics and ML (DuckDB SQL)
 - **Graph**: Property graph for advanced relationship analysis (SurrealDB)
 
-This maps directly to the assessment requirements: Tasks 1-2 (Bronze/Silver) and Task 3 (Gold).
+This maps directly to the system's core requirements: Raw Ingestion, Standardization, and Advanced Analytics.
 
 ### Technology Choices
 
@@ -66,18 +66,22 @@ This supports both debugging and audit requirements.
 
 ## Folder Structure
 
-```
-outputs/
-├── processed/
-│   ├── bronze/          # Raw data as CSV (1:1 with sources)
-│   ├── silver/          # Cleaned, validated data
-│   └── gold/            # Feature tables
-├── quarantine/          # Invalid records with error details
-├── logs/                # Pipeline execution logs
-├── quality_report.md    # Auto-generated quality report
-├── pipeline.duckdb      # Persistent analytical database
-└── scripts/             # Utility scripts (e.g., demo_graph_queries.py)
-```
+/
+├── src/                 # Source code
+│   ├── bronze/          # Raw data ingestion
+│   ├── silver/          # Cleaning & validation (Polars + Pydantic)
+│   ├── gold/            # Feature engineering (DuckDB SQL)
+│   ├── graph/           # Graph modeling (SurrealDB)
+│   └── utils/           # Shared utilities (config, logging)
+├── config/              # YAML configuration files
+├── docs/                # Detailed design documents
+├── tests/               # Unit and integration tests
+└── outputs/             # Generated artifacts
+    ├── processed/       # Parquet/CSV data layers
+    ├── quarantine/      # Rejected records (JSON)
+    ├── logs/            # Execution logs
+    ├── quality_report.md
+    └── pipeline.duckdb
 
 ## Data Quality & Error Handling
 
@@ -189,7 +193,16 @@ Deduplication is done on primary keys (e.g., `product_id`, `transaction_id`), ke
 
 Foreign key validation checks that referenced records exist in the parent table. Processing order ensures parent tables are processed first:
 
-1. `vendors` (no deps) → 2. `products` (FK: vendor) → 3. `customers` (no deps) → 4. `transactions` (FK: customer, product) → 5. `invoices` (FK: vendor) → 6. `reviews` (FK: product, customer) → 7. `support_tickets` (FK: customer) → 8. `call_transcripts` (FK: customer, ticket)
+Processing order ensures parent tables are processed first:
+
+1.  `vendors` (no deps)
+2.  `products` (FK: vendor)
+3.  `customers` (no deps)
+4.  `transactions` (FK: customer, product)
+5.  `invoices` (FK: vendor)
+6.  `reviews` (FK: product, customer)
+7.  `support_tickets` (FK: customer)
+8.  `call_transcripts` (FK: customer, ticket)
 
 ## Schema Validation
 
@@ -202,7 +215,9 @@ Pydantic models enforce:
 
 ## Feature Engineering
 
-All features are computed using DuckDB SQL with CTEs for clarity:
+> **Detailed Reference:** See [docs/feature_definitions.md](./docs/feature_definitions.md) for the complete list of formulas and logic.
+
+All features are computed using **DuckDB SQL** with Common Table Expressions (CTEs) for clarity:
 
 | Table | Key Features |
 |-------|-------------|
@@ -219,6 +234,8 @@ All features are computed using DuckDB SQL with CTEs for clarity:
 - `--fresh` flag for idempotent re-runs
 
 ## Graph Layer (SurrealDB)
+
+> **Detailed Reference:** See [docs/GRAPH_DESIGN.md](./docs/GRAPH_DESIGN.md) for schema diagrams and query patterns.
 
 The optional Graph layer loads Silver data into SurrealDB as a property graph:
 
