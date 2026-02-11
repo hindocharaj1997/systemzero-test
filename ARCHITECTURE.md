@@ -277,3 +277,30 @@ The optional Graph layer loads Silver data into SurrealDB as a property graph:
 | [docs/FEATURE_DEFINITIONS.md](./docs/FEATURE_DEFINITIONS.md) | **Reference**: Definitions and formulas for all Gold layer features. |
 | [docs/COVERAGE_REPORT.md](./docs/COVERAGE_REPORT.md) | **Metrics**: Detailed test coverage report showing >70% coverage. |
 | [outputs/quality_report.md](./outputs/quality_report.md) | **Generated Report**: Latest data quality metrics and validation results. |
+
+## Appendix: Pipeline Execution
+
+For reviewers evaluating this architecture, the full pipeline can be executed as follows:
+
+1.  **Environment Setup**:
+    ```bash
+    python -m venv venv
+    source venv/bin/activate
+    pip install -r requirements.txt
+    ```
+
+2.  **Start Graph Database** (Required for Layer 4):
+    ```bash
+    docker run --rm -p 8000:8000 surrealdb/surrealdb:latest start --user root --pass root
+    ```
+
+3.  **Run End-to-End Pipeline**:
+    ```bash
+    # Executes: Ingestion -> Cleaning -> Deduplication -> Feature Eng -> Graph Loading
+    python run_pipeline.py
+    ```
+
+4.  **Run Test Suite**:
+    ```bash
+    pytest tests/ -v
+    ```
