@@ -1,0 +1,658 @@
+[
+  {
+    "row_index": 10,
+    "record": {
+      "invoice_id": "INV-98B3B72A",
+      "invoice_number": "INV-BOOKWRLD-2024-00045",
+      "vendor_id": "VND-INVALID-415",
+      "vendor_name": "BookWorld Publishing",
+      "invoice_date": "2024-03-28",
+      "due_date": "2024-03-28",
+      "payment_terms": "NET15",
+      "po_number": "PO-636651",
+      "line_item_count": "5",
+      "line_items_json": "[{\"line_number\": 1, \"product_id\": \"PRD-000108\", \"description\": \"Bulk purchase - Line 1\", \"quantity\": 186, \"unit_cost\": 77.61, \"line_total\": 14435.46}, {\"line_number\": 2, \"product_id\": \"PRD-EXTERNAL-9792\", \"description\": \"Bulk purchase - Line 2\", \"quantity\": 23, \"unit_cost\": 190.71, \"line_total\": 4386.33}, {\"line_number\": 3, \"product_id\": \"PRD-000283\", \"description\": \"Bulk purchase - Line 3\", \"quantity\": 483, \"unit_cost\": 243.4, \"line_total\": 117562.2}, {\"line_number\": 4, \"product_id\": \"PRD-000427\", \"description\": \"Bulk purchase - Line 4\", \"quantity\": 140, \"unit_cost\": 341.63, \"line_total\": 47828.2}, {\"line_number\": 5, \"product_id\": \"PRD-000080\", \"description\": \"Bulk purchase - Line 5\", \"quantity\": 53, \"unit_cost\": 349.07, \"line_total\": 18500.71}]",
+      "subtotal": "202712.9",
+      "tax_rate": "0.1",
+      "tax_amount": "20271.29",
+      "shipping_handling": "365.34",
+      "total_amount": "223349.53",
+      "currency": "GBP",
+      "payment_status": "disputed",
+      "amount_paid": "72102.28",
+      "balance_due": "151247.25",
+      "payment_date": null,
+      "payment_method": "credit_card",
+      "approved_by": "jane.smith@company.com",
+      "notes": null,
+      "created_at": "2024-03-28",
+      "updated_at": "2024-04-17",
+      "_source_file": "invoices.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "vendor_id",
+        "value": "VND-INVALID-415",
+        "target": "vendor",
+        "type": "referential_integrity",
+        "msg": "No matching vendor record for vendor_id=VND-INVALID-415"
+      }
+    ]
+  },
+  {
+    "row_index": 85,
+    "record": {
+      "invoice_id": "INV-642447A2",
+      "invoice_number": "INV-TECHFLOW-2023-00309",
+      "vendor_id": "VND-INVALID-266",
+      "vendor_name": "TechFlow Electronics",
+      "invoice_date": "2024-08-11",
+      "due_date": "2024-08-11",
+      "payment_terms": "NET30",
+      "po_number": null,
+      "line_item_count": "5",
+      "line_items_json": "[{\"line_number\": 1, \"product_id\": \"PRD-000240\", \"description\": \"Bulk purchase - Line 1\", \"quantity\": 88, \"unit_cost\": 102.22, \"line_total\": 8995.36}, {\"line_number\": 2, \"product_id\": \"PRD-000201\", \"description\": \"Bulk purchase - Line 2\", \"quantity\": 425, \"unit_cost\": 498.19, \"line_total\": 211730.75}, {\"line_number\": 3, \"product_id\": \"PRD-000237\", \"description\": \"Bulk purchase - Line 3\", \"quantity\": 132, \"unit_cost\": 585.79, \"line_total\": 77324.28}, {\"line_number\": 4, \"product_id\": null, \"description\": \"Bulk purchase - Line 4\", \"quantity\": 366, \"unit_cost\": 29.71, \"line_total\": 10873.86}, {\"line_number\": 5, \"product_id\": null, \"description\": \"Bulk purchase - Line 5\", \"quantity\": 145, \"unit_cost\": 134.34, \"line_total\": 19479.3}]",
+      "subtotal": "328403.55",
+      "tax_rate": "0.05",
+      "tax_amount": "16420.18",
+      "shipping_handling": "158.64",
+      "total_amount": "344982.37",
+      "currency": "USD",
+      "payment_status": "partial",
+      "amount_paid": "258212.38",
+      "balance_due": "86769.99",
+      "payment_date": "2024-09-10",
+      "payment_method": null,
+      "approved_by": null,
+      "notes": null,
+      "created_at": "2024-08-11",
+      "updated_at": "2024-08-20",
+      "_source_file": "invoices.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "vendor_id",
+        "value": "VND-INVALID-266",
+        "target": "vendor",
+        "type": "referential_integrity",
+        "msg": "No matching vendor record for vendor_id=VND-INVALID-266"
+      }
+    ]
+  },
+  {
+    "row_index": 180,
+    "record": {
+      "invoice_id": "INV-71C96F99",
+      "invoice_number": "INV-NORDHOME-2022-00327",
+      "vendor_id": "VND-INVALID-774",
+      "vendor_name": "Nordic Home Essentials",
+      "invoice_date": "2022-01-11",
+      "due_date": "2022-11-01",
+      "payment_terms": "NET30",
+      "po_number": "PO-230438",
+      "line_item_count": "4",
+      "line_items_json": "[{\"line_number\": 1, \"product_id\": \"PRD-000029\", \"description\": \"Bulk purchase - Line 1\", \"quantity\": 459, \"unit_cost\": 51.75, \"line_total\": 23753.25}, {\"line_number\": 2, \"product_id\": \"PRD-000360\", \"description\": \"Bulk purchase - Line 2\", \"quantity\": 272, \"unit_cost\": 449.67, \"line_total\": 122310.24}, {\"line_number\": 3, \"product_id\": \"PRD-000125\", \"description\": \"Bulk purchase - Line 3\", \"quantity\": 432, \"unit_cost\": 551.73, \"line_total\": 238347.36}, {\"line_number\": 4, \"product_id\": \"PRD-000357\", \"description\": \"Bulk purchase - Line 4\", \"quantity\": 106, \"unit_cost\": 152.03, \"line_total\": 16115.18}]",
+      "subtotal": "400526.02999999997",
+      "tax_rate": "0.08",
+      "tax_amount": "32042.08",
+      "shipping_handling": "316.77",
+      "total_amount": "432884.88",
+      "currency": "EUR",
+      "payment_status": "paid",
+      "amount_paid": "432884.88",
+      "balance_due": "0.0",
+      "payment_date": "2022-03-04",
+      "payment_method": "credit_card",
+      "approved_by": null,
+      "notes": null,
+      "created_at": "2022-01-11",
+      "updated_at": "2022-01-17",
+      "_source_file": "invoices.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "vendor_id",
+        "value": "VND-INVALID-774",
+        "target": "vendor",
+        "type": "referential_integrity",
+        "msg": "No matching vendor record for vendor_id=VND-INVALID-774"
+      }
+    ]
+  },
+  {
+    "row_index": 181,
+    "record": {
+      "invoice_id": "INV-B7F119F8",
+      "invoice_number": "INV-TECHFLOW-2024-00496",
+      "vendor_id": "VND-INVALID-172",
+      "vendor_name": "TechFlow Electronics",
+      "invoice_date": "2023-05-23",
+      "due_date": "2023-05-23",
+      "payment_terms": "NET30",
+      "po_number": "PO-133356",
+      "line_item_count": "5",
+      "line_items_json": "[{\"line_number\": 1, \"product_id\": \"PRD-000166\", \"description\": \"Bulk purchase - Line 1\", \"quantity\": 157, \"unit_cost\": 397.33, \"line_total\": 62380.81}, {\"line_number\": 2, \"product_id\": \"PRD-000246\", \"description\": \"Bulk purchase - Line 2\", \"quantity\": 459, \"unit_cost\": 46.74, \"line_total\": 21453.66}, {\"line_number\": 3, \"product_id\": \"PRD-000293\", \"description\": \"Bulk purchase - Line 3\", \"quantity\": 40, \"unit_cost\": 323.73, \"line_total\": 12949.2}, {\"line_number\": 4, \"product_id\": \"PRD-000100\", \"description\": \"Bulk purchase - Line 4\", \"quantity\": 56, \"unit_cost\": 371.17, \"line_total\": 20785.52}, {\"line_number\": 5, \"product_id\": \"PRD-000291\", \"description\": \"Bulk purchase - Line 5\", \"quantity\": 319, \"unit_cost\": 184.37, \"line_total\": 58814.03}]",
+      "subtotal": "176383.22",
+      "tax_rate": "0.21",
+      "tax_amount": "37040.48",
+      "shipping_handling": "194.78",
+      "total_amount": "213618.48",
+      "currency": "USD",
+      "payment_status": "pending",
+      "amount_paid": "0.0",
+      "balance_due": "213618.48",
+      "payment_date": null,
+      "payment_method": "check",
+      "approved_by": "procurement@company.com",
+      "notes": "Rush order",
+      "created_at": "2023-05-23",
+      "updated_at": "2023-06-22",
+      "_source_file": "invoices.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "vendor_id",
+        "value": "VND-INVALID-172",
+        "target": "vendor",
+        "type": "referential_integrity",
+        "msg": "No matching vendor record for vendor_id=VND-INVALID-172"
+      }
+    ]
+  },
+  {
+    "row_index": 307,
+    "record": {
+      "invoice_id": "INV-D9499401",
+      "invoice_number": "INV-BOOKWRLD-2023-00457",
+      "vendor_id": "VND-INVALID-795",
+      "vendor_name": "BookWorld Publishing",
+      "invoice_date": "2023-07-09",
+      "due_date": "2023-07-09",
+      "payment_terms": "NET15",
+      "po_number": "PO-656753",
+      "line_item_count": "5",
+      "line_items_json": "[{\"line_number\": 1, \"product_id\": \"PRD-000433\", \"description\": \"Bulk purchase - Line 1\", \"quantity\": 436, \"unit_cost\": 86.85, \"line_total\": 37866.6}, {\"line_number\": 2, \"product_id\": \"PRD-000013\", \"description\": \"Bulk purchase - Line 2\", \"quantity\": 491, \"unit_cost\": 168.1, \"line_total\": 82537.1}, {\"line_number\": 3, \"product_id\": \"PRD-000415\", \"description\": \"Bulk purchase - Line 3\", \"quantity\": 177, \"unit_cost\": 124.11, \"line_total\": 21967.47}, {\"line_number\": 4, \"product_id\": \"PRD-000059\", \"description\": \"Bulk purchase - Line 4\", \"quantity\": 208, \"unit_cost\": 295.1, \"line_total\": 61380.8}, {\"line_number\": 5, \"product_id\": \"PRD-000247\", \"description\": \"Bulk purchase - Line 5\", \"quantity\": 264, \"unit_cost\": 217.01, \"line_total\": 57290.64}]",
+      "subtotal": "261042.61000000004",
+      "tax_rate": "0.21",
+      "tax_amount": "54818.95",
+      "shipping_handling": "164.33",
+      "total_amount": "316025.89",
+      "currency": "GBP",
+      "payment_status": "paid",
+      "amount_paid": "316025.89",
+      "balance_due": "0.0",
+      "payment_date": "2023-09-28",
+      "payment_method": "ach",
+      "approved_by": "jane.smith@company.com",
+      "notes": "Rush order",
+      "created_at": "2023-09-07",
+      "updated_at": "2023-10-31",
+      "_source_file": "invoices.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "vendor_id",
+        "value": "VND-INVALID-795",
+        "target": "vendor",
+        "type": "referential_integrity",
+        "msg": "No matching vendor record for vendor_id=VND-INVALID-795"
+      }
+    ]
+  },
+  {
+    "row_index": 324,
+    "record": {
+      "invoice_id": "INV-D02EEF73",
+      "invoice_number": "INV-FASHITA-2022-00450",
+      "vendor_id": "VND-INVALID-880",
+      "vendor_name": "FashionFirst Italia",
+      "invoice_date": "2024-10-30",
+      "due_date": "2024-10-30",
+      "payment_terms": "NET30",
+      "po_number": "PO-430387",
+      "line_item_count": "8",
+      "line_items_json": "[{\"line_number\": 1, \"product_id\": \"PRD-000063\", \"description\": \"Bulk purchase - Line 1\", \"quantity\": 195, \"unit_cost\": 37.05, \"line_total\": 7224.75}, {\"line_number\": 2, \"product_id\": \"PRD-000489\", \"description\": \"Bulk purchase - Line 2\", \"quantity\": 94, \"unit_cost\": 388.09, \"line_total\": 36480.46}, {\"line_number\": 3, \"product_id\": \"PRD-000232\", \"description\": \"Bulk purchase - Line 3\", \"quantity\": 225, \"unit_cost\": 335.57, \"line_total\": 75503.25}, {\"line_number\": 4, \"product_id\": \"PRD-000488\", \"description\": \"Bulk purchase - Line 4\", \"quantity\": 116, \"unit_cost\": 241.33, \"line_total\": 27994.28}, {\"line_number\": 5, \"product_id\": \"PRD-000430\", \"description\": \"Bulk purchase - Line 5\", \"quantity\": 280, \"unit_cost\": 443.84, \"line_total\": 124275.2}, {\"line_number\": 6, \"product_id\": null, \"description\": \"Bulk purchase - Line 6\", \"quantity\": -431, \"unit_cost\": 40.95, \"line_total\": -17649.45}, {\"line_number\": 7, \"product_id\": \"PRD-000202\", \"description\": \"Bulk purchase - Line 7\", \"quantity\": 231, \"unit_cost\": 321.85, \"line_total\": 74347.35}, {\"line_number\": 8, \"product_id\": \"PRD-000325\", \"description\": \"Bulk purchase - Line 8\", \"quantity\": 493, \"unit_cost\": 496.15, \"line_total\": 244601.95}]",
+      "subtotal": "572777.79",
+      "tax_rate": "0.21",
+      "tax_amount": "120283.34",
+      "shipping_handling": "105.4",
+      "total_amount": "700980.41",
+      "currency": "EUR",
+      "payment_status": "disputed",
+      "amount_paid": "658261.86",
+      "balance_due": "42718.55",
+      "payment_date": null,
+      "payment_method": "ach",
+      "approved_by": "john.doe@company.com",
+      "notes": null,
+      "created_at": "2024-10-30",
+      "updated_at": "2024-11-14",
+      "_source_file": "invoices.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "vendor_id",
+        "value": "VND-INVALID-880",
+        "target": "vendor",
+        "type": "referential_integrity",
+        "msg": "No matching vendor record for vendor_id=VND-INVALID-880"
+      }
+    ]
+  },
+  {
+    "row_index": 353,
+    "record": {
+      "invoice_id": "INV-74594B60",
+      "invoice_number": "INV-NORDHOME-2024-00544",
+      "vendor_id": "VND-INVALID-755",
+      "vendor_name": "Nordic Home Essentials",
+      "invoice_date": "2024-02-24",
+      "due_date": "2024-02-24",
+      "payment_terms": "NET30",
+      "po_number": "PO-718064",
+      "line_item_count": "6",
+      "line_items_json": "[{\"line_number\": 1, \"product_id\": \"PRD-000443\", \"description\": \"Bulk purchase - Line 1\", \"quantity\": 145, \"unit_cost\": 102.2, \"line_total\": 14819.0}, {\"line_number\": 2, \"product_id\": \"PRD-000197\", \"description\": \"Bulk purchase - Line 2\", \"quantity\": 140, \"unit_cost\": 358.57, \"line_total\": 50199.8}, {\"line_number\": 3, \"product_id\": \"PRD-000404\", \"description\": \"Bulk purchase - Line 3\", \"quantity\": 36, \"unit_cost\": 331.18, \"line_total\": 11922.48}, {\"line_number\": 4, \"product_id\": \"PRD-000258\", \"description\": \"Bulk purchase - Line 4\", \"quantity\": 54, \"unit_cost\": 15.76, \"line_total\": 851.04}, {\"line_number\": 5, \"product_id\": \"PRD-000410\", \"description\": \"Bulk purchase - Line 5\", \"quantity\": 56, \"unit_cost\": 371.21, \"line_total\": 20787.76}, {\"line_number\": 6, \"product_id\": \"PRD-000064\", \"description\": \"Bulk purchase - Line 6\", \"quantity\": 121, \"unit_cost\": 325.96, \"line_total\": 39441.16}]",
+      "subtotal": "138021.24",
+      "tax_rate": "0.08",
+      "tax_amount": "11041.7",
+      "shipping_handling": "349.43",
+      "total_amount": "149412.37",
+      "currency": "EUR",
+      "payment_status": "disputed",
+      "amount_paid": "39687.89",
+      "balance_due": "109724.48",
+      "payment_date": null,
+      "payment_method": null,
+      "approved_by": "john.doe@company.com",
+      "notes": null,
+      "created_at": "2024-02-24",
+      "updated_at": "2024-02-28",
+      "_source_file": "invoices.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "vendor_id",
+        "value": "VND-INVALID-755",
+        "target": "vendor",
+        "type": "referential_integrity",
+        "msg": "No matching vendor record for vendor_id=VND-INVALID-755"
+      }
+    ]
+  },
+  {
+    "row_index": 386,
+    "record": {
+      "invoice_id": "INV-D37477EF",
+      "invoice_number": "INV-BEAUTYBL-2022-00091",
+      "vendor_id": "VND-INVALID-358",
+      "vendor_name": "BeautyBliss Cosmetics",
+      "invoice_date": "2023-12-03",
+      "due_date": "2023-03-12",
+      "payment_terms": "NET30",
+      "po_number": "PO-654591",
+      "line_item_count": "8",
+      "line_items_json": "[{\"line_number\": 1, \"product_id\": \"PRD-000472\", \"description\": \"Bulk purchase - Line 1\", \"quantity\": 456, \"unit_cost\": 583.95, \"line_total\": 266281.2}, {\"line_number\": 2, \"product_id\": \"PRD-000189\", \"description\": \"Bulk purchase - Line 2\", \"quantity\": 216, \"unit_cost\": 198.23, \"line_total\": 42817.68}, {\"line_number\": 3, \"product_id\": \"PRD-000286\", \"description\": \"Bulk purchase - Line 3\", \"quantity\": 115, \"unit_cost\": 270.5, \"line_total\": 31107.5}, {\"line_number\": 4, \"product_id\": \"PRD-000061\", \"description\": \"Bulk purchase - Line 4\", \"quantity\": 108, \"unit_cost\": 28.82, \"line_total\": 3112.56}, {\"line_number\": 5, \"product_id\": \"PRD-000481\", \"description\": \"Bulk purchase - Line 5\", \"quantity\": 329, \"unit_cost\": 36.11, \"line_total\": 11880.19}, {\"line_number\": 6, \"product_id\": null, \"description\": \"Bulk purchase - Line 6\", \"quantity\": 310, \"unit_cost\": 69.2, \"line_total\": 21452.0}, {\"line_number\": 7, \"product_id\": null, \"description\": \"Bulk purchase - Line 7\", \"quantity\": 432, \"unit_cost\": 86.6, \"line_total\": 37411.2}, {\"line_number\": 8, \"product_id\": \"PRD-000417\", \"description\": \"Bulk purchase - Line 8\", \"quantity\": 253, \"unit_cost\": 162.37, \"line_total\": 41079.61}]",
+      "subtotal": "455141.94",
+      "tax_rate": "0.08",
+      "tax_amount": "36411.36",
+      "shipping_handling": "0.0",
+      "total_amount": "491553.3",
+      "currency": "EUR",
+      "payment_status": "paid",
+      "amount_paid": "491553.3",
+      "balance_due": "0.0",
+      "payment_date": "2024-01-29",
+      "payment_method": "check",
+      "approved_by": "jane.smith@company.com",
+      "notes": null,
+      "created_at": "2023-12-03",
+      "updated_at": "2023-12-07",
+      "_source_file": "invoices.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "vendor_id",
+        "value": "VND-INVALID-358",
+        "target": "vendor",
+        "type": "referential_integrity",
+        "msg": "No matching vendor record for vendor_id=VND-INVALID-358"
+      }
+    ]
+  },
+  {
+    "row_index": 428,
+    "record": {
+      "invoice_id": "INV-7D78775B",
+      "invoice_number": "INV-NORDHOME-2022-00042",
+      "vendor_id": "VND-INVALID-871",
+      "vendor_name": "Nordic Home Essentials",
+      "invoice_date": "2022-01-12",
+      "due_date": "2022-01-12",
+      "payment_terms": "NET30",
+      "po_number": null,
+      "line_item_count": "5",
+      "line_items_json": "[{\"line_number\": 1, \"product_id\": \"PRD-000161\", \"description\": \"Bulk purchase - Line 1\", \"quantity\": 94, \"unit_cost\": 40.22, \"line_total\": 3780.68}, {\"line_number\": 2, \"product_id\": \"PRD-000241\", \"description\": \"Bulk purchase - Line 2\", \"quantity\": 400, \"unit_cost\": 249.01, \"line_total\": 99604.0}, {\"line_number\": 3, \"product_id\": \"PRD-000391\", \"description\": \"Bulk purchase - Line 3\", \"quantity\": 144, \"unit_cost\": 30.55, \"line_total\": 4399.2}, {\"line_number\": 4, \"product_id\": null, \"description\": \"Bulk purchase - Line 4\", \"quantity\": 129, \"unit_cost\": 37.03, \"line_total\": 4776.87}, {\"line_number\": 5, \"product_id\": \"PRD-000170\", \"description\": \"Bulk purchase - Line 5\", \"quantity\": 227, \"unit_cost\": 127.48, \"line_total\": 28937.96}]",
+      "subtotal": "141498.71",
+      "tax_rate": "0.08",
+      "tax_amount": "11319.9",
+      "shipping_handling": "293.15",
+      "total_amount": "153111.76",
+      "currency": "EUR",
+      "payment_status": "paid",
+      "amount_paid": "153111.76",
+      "balance_due": "0.0",
+      "payment_date": "2022-03-12",
+      "payment_method": "ach",
+      "approved_by": "jane.smith@company.com",
+      "notes": null,
+      "created_at": "2022-01-12",
+      "updated_at": "2022-01-30",
+      "_source_file": "invoices.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "vendor_id",
+        "value": "VND-INVALID-871",
+        "target": "vendor",
+        "type": "referential_integrity",
+        "msg": "No matching vendor record for vendor_id=VND-INVALID-871"
+      }
+    ]
+  },
+  {
+    "row_index": 455,
+    "record": {
+      "invoice_id": "INV-7BD5FB4C",
+      "invoice_number": "INV-FASHITA-2023-00326",
+      "vendor_id": "VND-INVALID-172",
+      "vendor_name": "FashionFirst Italia",
+      "invoice_date": "2023-12-22",
+      "due_date": "2023-12-22",
+      "payment_terms": "NET30",
+      "po_number": null,
+      "line_item_count": "8",
+      "line_items_json": "[{\"line_number\": 1, \"product_id\": \"PRD-000121\", \"description\": \"Bulk purchase - Line 1\", \"quantity\": 277, \"unit_cost\": 423.84, \"line_total\": 117403.68}, {\"line_number\": 2, \"product_id\": \"PRD-000430\", \"description\": \"Bulk purchase - Line 2\", \"quantity\": 273, \"unit_cost\": 443.84, \"line_total\": 121168.32}, {\"line_number\": 3, \"product_id\": \"PRD-000403\", \"description\": \"Bulk purchase - Line 3\", \"quantity\": 374, \"unit_cost\": 526.96, \"line_total\": 197083.04}, {\"line_number\": 4, \"product_id\": \"PRD-000155\", \"description\": \"Bulk purchase - Line 4\", \"quantity\": 187, \"unit_cost\": 382.4, \"line_total\": 71508.8}, {\"line_number\": 5, \"product_id\": \"PRD-000114\", \"description\": \"Bulk purchase - Line 5\", \"quantity\": 189, \"unit_cost\": 49.47, \"line_total\": 9349.83}, {\"line_number\": 6, \"product_id\": \"PRD-000033\", \"description\": \"Bulk purchase - Line 6\", \"quantity\": 38, \"unit_cost\": 278.57, \"line_total\": 10585.66}, {\"line_number\": 7, \"product_id\": \"PRD-000480\", \"description\": \"Bulk purchase - Line 7\", \"quantity\": 413, \"unit_cost\": 158.74, \"line_total\": 65559.62}, {\"line_number\": 8, \"product_id\": \"PRD-000173\", \"description\": \"Bulk purchase - Line 8\", \"quantity\": -484, \"unit_cost\": 399.08, \"line_total\": -193154.72}]",
+      "subtotal": "399504.2300000001",
+      "tax_rate": "0.1",
+      "tax_amount": "39950.42",
+      "shipping_handling": "93.72",
+      "total_amount": "439548.37",
+      "currency": "EUR",
+      "payment_status": "paid",
+      "amount_paid": "439548.37",
+      "balance_due": "0.0",
+      "payment_date": "2023-12-06",
+      "payment_method": "ach",
+      "approved_by": "procurement@company.com",
+      "notes": null,
+      "created_at": "2023-12-22",
+      "updated_at": "2024-01-10",
+      "_source_file": "invoices.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "vendor_id",
+        "value": "VND-INVALID-172",
+        "target": "vendor",
+        "type": "referential_integrity",
+        "msg": "No matching vendor record for vendor_id=VND-INVALID-172"
+      }
+    ]
+  },
+  {
+    "row_index": 470,
+    "record": {
+      "invoice_id": "INV-FFBDB9AA",
+      "invoice_number": "INV-GLOBGAD-2022-00318",
+      "vendor_id": "VND-INVALID-708",
+      "vendor_name": "Global Gadgets Ltd",
+      "invoice_date": "2023-05-27",
+      "due_date": "2023-05-27",
+      "payment_terms": "NET45",
+      "po_number": "PO-878507",
+      "line_item_count": "6",
+      "line_items_json": "[{\"line_number\": 1, \"product_id\": \"PRD-000300\", \"description\": \"Bulk purchase - Line 1\", \"quantity\": 235, \"unit_cost\": 130.47, \"line_total\": 30660.45}, {\"line_number\": 2, \"product_id\": \"PRD-000300\", \"description\": \"Bulk purchase - Line 2\", \"quantity\": 51, \"unit_cost\": 130.47, \"line_total\": 6653.97}, {\"line_number\": 3, \"product_id\": \"PRD-000158\", \"description\": \"Bulk purchase - Line 3\", \"quantity\": 387, \"unit_cost\": 334.19, \"line_total\": 129331.53}, {\"line_number\": 4, \"product_id\": \"PRD-000420\", \"description\": \"Bulk purchase - Line 4\", \"quantity\": 113, \"unit_cost\": 476.23, \"line_total\": 53813.99}, {\"line_number\": 5, \"product_id\": \"PRD-000302\", \"description\": \"Bulk purchase - Line 5\", \"quantity\": 451, \"unit_cost\": 250.11, \"line_total\": 112799.61}, {\"line_number\": 6, \"product_id\": \"PRD-000131\", \"description\": \"Bulk purchase - Line 6\", \"quantity\": 425, \"unit_cost\": 33.3, \"line_total\": 14152.5}]",
+      "subtotal": "347412.05",
+      "tax_rate": "0.07",
+      "tax_amount": "24318.84",
+      "shipping_handling": "59.83",
+      "total_amount": "371790.72",
+      "currency": "USD",
+      "payment_status": "paid",
+      "amount_paid": "371790.72",
+      "balance_due": "0.0",
+      "payment_date": "2023-06-06",
+      "payment_method": "credit_card",
+      "approved_by": null,
+      "notes": "Recurring monthly order",
+      "created_at": "2023-05-27",
+      "updated_at": "2023-07-05",
+      "_source_file": "invoices.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "vendor_id",
+        "value": "VND-INVALID-708",
+        "target": "vendor",
+        "type": "referential_integrity",
+        "msg": "No matching vendor record for vendor_id=VND-INVALID-708"
+      }
+    ]
+  },
+  {
+    "row_index": 510,
+    "record": {
+      "invoice_id": "INV-7504776A",
+      "invoice_number": "INV-BEAUTYBL-2024-00588",
+      "vendor_id": "VND-INVALID-285",
+      "vendor_name": "BeautyBliss Cosmetics",
+      "invoice_date": "2023-05-11",
+      "due_date": "2023-11-05",
+      "payment_terms": "NET30",
+      "po_number": "PO-844993",
+      "line_item_count": "8",
+      "line_items_json": "[{\"line_number\": 1, \"product_id\": \"PRD-000036\", \"description\": \"Bulk purchase - Line 1\", \"quantity\": 138, \"unit_cost\": 296.43, \"line_total\": 40907.34}, {\"line_number\": 2, \"product_id\": null, \"description\": \"Bulk purchase - Line 2\", \"quantity\": 146, \"unit_cost\": 114.92, \"line_total\": 16778.32}, {\"line_number\": 3, \"product_id\": \"PRD-000151\", \"description\": \"Bulk purchase - Line 3\", \"quantity\": 385, \"unit_cost\": 182.27, \"line_total\": 70173.95}, {\"line_number\": 4, \"product_id\": \"PRD-000367\", \"description\": \"Bulk purchase - Line 4\", \"quantity\": 264, \"unit_cost\": 388.84, \"line_total\": 102653.76}, {\"line_number\": 5, \"product_id\": \"PRD-000407\", \"description\": \"Bulk purchase - Line 5\", \"quantity\": 200, \"unit_cost\": 615.63, \"line_total\": 123126.0}, {\"line_number\": 6, \"product_id\": \"PRD-000213\", \"description\": \"Bulk purchase - Line 6\", \"quantity\": 227, \"unit_cost\": 102.18, \"line_total\": 23194.86}, {\"line_number\": 7, \"product_id\": \"PRD-000276\", \"description\": \"Bulk purchase - Line 7\", \"quantity\": 406, \"unit_cost\": -387.84, \"line_total\": -157463.04}, {\"line_number\": 8, \"product_id\": \"PRD-000090\", \"description\": \"Bulk purchase - Line 8\", \"quantity\": 16, \"unit_cost\": 245.21, \"line_total\": 3923.36}]",
+      "subtotal": "223294.54999999996",
+      "tax_rate": "0.0",
+      "tax_amount": "0.0",
+      "shipping_handling": "165.69",
+      "total_amount": "223460.24",
+      "currency": "$",
+      "payment_status": "pending",
+      "amount_paid": "0.0",
+      "balance_due": "223460.24",
+      "payment_date": null,
+      "payment_method": "wire_transfer",
+      "approved_by": "john.doe@company.com",
+      "notes": null,
+      "created_at": "2023-05-11",
+      "updated_at": "2023-05-19",
+      "_source_file": "invoices.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "vendor_id",
+        "value": "VND-INVALID-285",
+        "target": "vendor",
+        "type": "referential_integrity",
+        "msg": "No matching vendor record for vendor_id=VND-INVALID-285"
+      }
+    ]
+  },
+  {
+    "row_index": 519,
+    "record": {
+      "invoice_id": "INV-B5952EC8",
+      "invoice_number": "INV-NORDHOME-2023-00278",
+      "vendor_id": "VND-INVALID-388",
+      "vendor_name": "FashionFirst Italia",
+      "invoice_date": "2022-07-30",
+      "due_date": "2022-07-30",
+      "payment_terms": "NET30",
+      "po_number": "PO-253974",
+      "line_item_count": "2",
+      "line_items_json": "[{\"line_number\": 1, \"product_id\": \"PRD-000027\", \"description\": \"Bulk purchase - Line 1\", \"quantity\": 229, \"unit_cost\": 309.82, \"line_total\": 70948.78}, {\"line_number\": 2, \"product_id\": \"PRD-000271\", \"description\": \"Bulk purchase - Line 2\", \"quantity\": 86, \"unit_cost\": 120.57, \"line_total\": 10369.02}]",
+      "subtotal": "81317.8",
+      "tax_rate": "0.21",
+      "tax_amount": "17076.74",
+      "shipping_handling": "19.95",
+      "total_amount": "98414.49",
+      "currency": "EUR",
+      "payment_status": "paid",
+      "amount_paid": "98414.49",
+      "balance_due": "0.0",
+      "payment_date": "2022-08-23",
+      "payment_method": "check",
+      "approved_by": "john.doe@company.com",
+      "notes": null,
+      "created_at": "2022-07-30",
+      "updated_at": "2022-08-18",
+      "_source_file": "invoices.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "vendor_id",
+        "value": "VND-INVALID-388",
+        "target": "vendor",
+        "type": "referential_integrity",
+        "msg": "No matching vendor record for vendor_id=VND-INVALID-388"
+      }
+    ]
+  },
+  {
+    "row_index": 600,
+    "record": {
+      "invoice_id": "INV-5204ECE5",
+      "invoice_number": "INV-NORDHOME-2024-00294",
+      "vendor_id": "VND-INVALID-881",
+      "vendor_name": "Nordic Home Essentials",
+      "invoice_date": "2023-02-25",
+      "due_date": "2023-02-25",
+      "payment_terms": "NET30",
+      "po_number": "PO-683149",
+      "line_item_count": "3",
+      "line_items_json": "[{\"line_number\": 1, \"product_id\": \"PRD-000463\", \"description\": \"Bulk purchase - Line 1\", \"quantity\": 215, \"unit_cost\": 44.97, \"line_total\": 9668.55}, {\"line_number\": 2, \"product_id\": \"PRD-000294\", \"description\": \"Bulk purchase - Line 2\", \"quantity\": 50, \"unit_cost\": 520.64, \"line_total\": 26032.0}, {\"line_number\": 3, \"product_id\": \"PRD-000113\", \"description\": \"Bulk purchase - Line 3\", \"quantity\": 412, \"unit_cost\": 533.38, \"line_total\": 219752.56}]",
+      "subtotal": "255453.11",
+      "tax_rate": "0.1",
+      "tax_amount": "25545.31",
+      "shipping_handling": "0.0",
+      "total_amount": "280998.42",
+      "currency": "EUR",
+      "payment_status": "paid",
+      "amount_paid": "280998.42",
+      "balance_due": "0.0",
+      "payment_date": "2023-03-17",
+      "payment_method": "credit_card",
+      "approved_by": null,
+      "notes": null,
+      "created_at": "2023-02-25",
+      "updated_at": "2023-04-15",
+      "_source_file": "invoices.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "vendor_id",
+        "value": "VND-INVALID-881",
+        "target": "vendor",
+        "type": "referential_integrity",
+        "msg": "No matching vendor record for vendor_id=VND-INVALID-881"
+      }
+    ]
+  },
+  {
+    "row_index": 703,
+    "record": {
+      "invoice_id": "INV-0EE84822",
+      "invoice_number": "INV-NORDHOME-2022-00680",
+      "vendor_id": "VND-INVALID-407",
+      "vendor_name": "Nordic Home Essentials",
+      "invoice_date": "2023-03-07",
+      "due_date": "2023-03-07",
+      "payment_terms": "NET30",
+      "po_number": "PO-949907",
+      "line_item_count": "1",
+      "line_items_json": "[{\"line_number\": 1, \"product_id\": \"PRD-000236\", \"description\": \"Bulk purchase - Line 1\", \"quantity\": 364, \"unit_cost\": 303.52, \"line_total\": 110481.28}]",
+      "subtotal": "110481.28",
+      "tax_rate": "0.21",
+      "tax_amount": "23201.07",
+      "shipping_handling": "256.93",
+      "total_amount": "133939.28",
+      "currency": "EUR",
+      "payment_status": "partial",
+      "amount_paid": "57584.77",
+      "balance_due": "76354.51",
+      "payment_date": "2023-04-11",
+      "payment_method": "ach",
+      "approved_by": "procurement@company.com",
+      "notes": "Quality inspection required",
+      "created_at": "2023-03-07",
+      "updated_at": "2023-04-22",
+      "_source_file": "invoices.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "vendor_id",
+        "value": "VND-INVALID-407",
+        "target": "vendor",
+        "type": "referential_integrity",
+        "msg": "No matching vendor record for vendor_id=VND-INVALID-407"
+      }
+    ]
+  },
+  {
+    "row_index": 761,
+    "record": {
+      "invoice_id": "INV-2269F88C",
+      "invoice_number": "INV-NORDHOME-2023-00449",
+      "vendor_id": "VND-INVALID-605",
+      "vendor_name": "Nordic Home Essentials",
+      "invoice_date": "2022-05-31",
+      "due_date": "2022-05-31",
+      "payment_terms": "NET30",
+      "po_number": "PO-936274",
+      "line_item_count": "2",
+      "line_items_json": "[{\"line_number\": 1, \"product_id\": \"PRD-000258\", \"description\": \"Bulk purchase - Line 1\", \"quantity\": 227, \"unit_cost\": 15.76, \"line_total\": 3577.52}, {\"line_number\": 2, \"product_id\": null, \"description\": \"Bulk purchase - Line 2\", \"quantity\": 165, \"unit_cost\": 119.16, \"line_total\": 19661.4}]",
+      "subtotal": "23238.920000000002",
+      "tax_rate": "0.21",
+      "tax_amount": "4880.17",
+      "shipping_handling": "0.0",
+      "total_amount": "28119.09",
+      "currency": "EUR",
+      "payment_status": "paid",
+      "amount_paid": "28119.09",
+      "balance_due": "0.0",
+      "payment_date": "2022-05-21",
+      "payment_method": "wire_transfer",
+      "approved_by": "procurement@company.com",
+      "notes": null,
+      "created_at": "2022-05-31",
+      "updated_at": "2022-07-05",
+      "_source_file": "invoices.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "vendor_id",
+        "value": "VND-INVALID-605",
+        "target": "vendor",
+        "type": "referential_integrity",
+        "msg": "No matching vendor record for vendor_id=VND-INVALID-605"
+      }
+    ]
+  }
+]

@@ -1,0 +1,107 @@
+2026-02-10 22:25:28 | INFO     | Pipeline | Cleaned: /Users/raj.hindocha/Work/systemzero/outputs/processed/bronze
+2026-02-10 22:25:28 | INFO     | Pipeline | Cleaned: /Users/raj.hindocha/Work/systemzero/outputs/processed/silver
+2026-02-10 22:25:28 | INFO     | Pipeline | Cleaned: /Users/raj.hindocha/Work/systemzero/outputs/processed/gold
+2026-02-10 22:25:28 | INFO     | Pipeline | Cleaned: /Users/raj.hindocha/Work/systemzero/outputs/quarantine
+2026-02-10 22:25:28 | INFO     | Pipeline | ======================================================================
+2026-02-10 22:25:28 | INFO     | Pipeline | MEDALLION PIPELINE
+2026-02-10 22:25:28 | INFO     | Pipeline | ======================================================================
+2026-02-10 22:25:28 | INFO     | Pipeline | Layers: bronze, silver, gold, graph
+2026-02-10 22:25:28 | INFO     | Pipeline | Tech: Polars (Bronze/Silver) → DuckDB SQL (Gold) → SurrealDB (Graph)
+2026-02-10 22:25:28 | INFO     | BronzeIngester | ============================================================
+2026-02-10 22:25:28 | INFO     | BronzeIngester | BRONZE LAYER: Ingesting raw data
+2026-02-10 22:25:28 | INFO     | BronzeIngester | ============================================================
+2026-02-10 22:25:28 | INFO     | BronzeIngester | ✓ products: 505 rows
+2026-02-10 22:25:28 | INFO     | BronzeIngester | ✓ customers: 1003 rows
+2026-02-10 22:25:28 | INFO     | BronzeIngester | ✓ transactions: 5010 rows
+2026-02-10 22:25:28 | INFO     | BronzeIngester | ✓ vendors: 10 rows
+2026-02-10 22:25:28 | INFO     | BronzeIngester | ✓ invoices: 805 rows
+2026-02-10 22:25:28 | INFO     | BronzeIngester | ✓ support_tickets: 20 rows
+2026-02-10 22:25:28 | INFO     | BronzeIngester | ✓ reviews: 30 rows
+2026-02-10 22:25:28 | INFO     | BronzeIngester | ✓ call_transcripts: 10 rows
+2026-02-10 22:25:28 | INFO     | BronzeIngester | Bronze complete: 8/8 sources, 7393 total rows
+2026-02-10 22:25:28 | INFO     | SilverProcessor | ============================================================
+2026-02-10 22:25:28 | INFO     | SilverProcessor | SILVER LAYER: Cleaning and validating (Polars + Pydantic)
+2026-02-10 22:25:28 | INFO     | SilverProcessor | ============================================================
+2026-02-10 22:25:28 | DEBUG    | SilverProcessor | Cached 10 valid keys for vendor
+2026-02-10 22:25:28 | INFO     | SilverProcessor | ✓ vendors: 10/10 valid (100.0%)
+2026-02-10 22:25:28 | DEBUG    | SilverProcessor | Cached 481 valid keys for product
+2026-02-10 22:25:28 | DEBUG    | SilverProcessor | Saved 19 quarantined → products_quarantine.json
+2026-02-10 22:25:28 | INFO     | SilverProcessor | ✓ products: 481/505 valid (95.2%) (5 deduped, 1 orphaned)
+2026-02-10 22:25:28 | DEBUG    | SilverProcessor | Cached 788 valid keys for customer
+2026-02-10 22:25:28 | DEBUG    | SilverProcessor | Saved 212 quarantined → customers_quarantine.json
+2026-02-10 22:25:28 | INFO     | SilverProcessor | ✓ customers: 788/1003 valid (78.6%) (3 deduped)
+2026-02-10 22:25:28 | DEBUG    | SilverProcessor | Cached 3748 valid keys for transaction
+2026-02-10 22:25:28 | DEBUG    | SilverProcessor | Saved 1252 quarantined → transactions_quarantine.json
+2026-02-10 22:25:28 | INFO     | SilverProcessor | ✓ transactions: 3748/5010 valid (74.8%) (10 deduped, 1252 orphaned)
+2026-02-10 22:25:28 | DEBUG    | SilverProcessor | Cached 784 valid keys for invoice
+2026-02-10 22:25:28 | DEBUG    | SilverProcessor | Saved 16 quarantined → invoices_quarantine.json
+2026-02-10 22:25:28 | INFO     | SilverProcessor | ✓ invoices: 784/805 valid (97.4%) (5 deduped, 16 orphaned)
+2026-02-10 22:25:28 | DEBUG    | SilverProcessor | Cached 17 valid keys for review
+2026-02-10 22:25:28 | DEBUG    | SilverProcessor | Saved 13 quarantined → reviews_quarantine.json
+2026-02-10 22:25:28 | INFO     | SilverProcessor | ✓ reviews: 17/30 valid (56.7%) (11 orphaned)
+2026-02-10 22:25:28 | DEBUG    | SilverProcessor | Cached 12 valid keys for support_ticket
+2026-02-10 22:25:28 | DEBUG    | SilverProcessor | Saved 8 quarantined → support_tickets_quarantine.json
+2026-02-10 22:25:28 | INFO     | SilverProcessor | ✓ support_tickets: 12/20 valid (60.0%) (7 orphaned)
+2026-02-10 22:25:28 | DEBUG    | SilverProcessor | Cached 6 valid keys for call_transcript
+2026-02-10 22:25:28 | DEBUG    | SilverProcessor | Saved 4 quarantined → call_transcripts_quarantine.json
+2026-02-10 22:25:28 | INFO     | SilverProcessor | ✓ call_transcripts: 6/10 valid (60.0%) (4 orphaned)
+2026-02-10 22:25:28 | INFO     | SilverProcessor | ✓ invoice_line_items: 3537 valid line items (0 quarantined)
+2026-02-10 22:25:28 | INFO     | SilverProcessor | Silver complete: 5846 valid, 1524 quarantined, 23 deduped, 1291 orphaned, 52 fields cleaned
+2026-02-10 22:25:28 | INFO     | GoldProcessor | DuckDB: outputs/pipeline.duckdb
+2026-02-10 22:25:28 | INFO     | GoldProcessor | ============================================================
+2026-02-10 22:25:28 | INFO     | GoldProcessor | GOLD LAYER: Computing features (DuckDB SQL)
+2026-02-10 22:25:28 | INFO     | GoldProcessor | ============================================================
+2026-02-10 22:25:28 | DEBUG    | GoldProcessor | Loaded view: invoices
+2026-02-10 22:25:28 | DEBUG    | GoldProcessor | Loaded view: customers
+2026-02-10 22:25:28 | DEBUG    | GoldProcessor | Loaded view: products
+2026-02-10 22:25:28 | DEBUG    | GoldProcessor | Loaded view: reviews
+2026-02-10 22:25:28 | DEBUG    | GoldProcessor | Loaded view: call_transcripts
+2026-02-10 22:25:28 | DEBUG    | GoldProcessor | Loaded view: vendors
+2026-02-10 22:25:28 | DEBUG    | GoldProcessor | Loaded view: invoice_line_items
+2026-02-10 22:25:28 | DEBUG    | GoldProcessor | Loaded view: transactions
+2026-02-10 22:25:28 | DEBUG    | GoldProcessor | Loaded view: support_tickets
+2026-02-10 22:25:28 | INFO     | GoldProcessor | Computing customer_features...
+2026-02-10 22:25:29 | INFO     | GoldProcessor | ✓ customer_features: 788 rows, 20 columns
+2026-02-10 22:25:29 | INFO     | GoldProcessor | Computing product_features...
+2026-02-10 22:25:29 | INFO     | GoldProcessor | ✓ product_features: 481 rows, 18 columns
+2026-02-10 22:25:29 | INFO     | GoldProcessor | Computing vendor_features...
+2026-02-10 22:25:29 | INFO     | GoldProcessor | ✓ vendor_features: 10 rows, 16 columns
+2026-02-10 22:25:29 | INFO     | GoldProcessor | Computing invoice_features...
+2026-02-10 22:25:29 | INFO     | GoldProcessor | ✓ invoice_features: 784 rows, 15 columns
+2026-02-10 22:25:29 | INFO     | GoldProcessor | Gold complete: 4 tables, 69 features
+2026-02-10 22:25:29 | DEBUG    | GoldProcessor | DuckDB connection closed
+2026-02-10 22:25:29 | INFO     | GraphLoader | ============================================================
+2026-02-10 22:25:29 | INFO     | GraphLoader | GRAPH LAYER: Loading into SurrealDB
+2026-02-10 22:25:29 | INFO     | GraphLoader | ============================================================
+2026-02-10 22:25:29 | INFO     | GraphLoader | Connected to SurrealDB: ws://localhost:8000/rpc (test/ecommerce)
+2026-02-10 22:25:29 | INFO     | GraphLoader | Applying schema: 123 statements
+2026-02-10 22:25:29 | INFO     | GraphLoader | Schema applied successfully
+2026-02-10 22:25:29 | INFO     | GraphLoader | ✓ category: 8 nodes (derived)
+2026-02-10 22:25:29 | INFO     | GraphLoader | ✓ region: 3 nodes (derived)
+2026-02-10 22:25:29 | INFO     | GraphLoader | ✓ agent: 7 nodes (derived)
+2026-02-10 22:25:29 | INFO     | GraphLoader | ✓ vendor: 10 nodes
+2026-02-10 22:25:30 | INFO     | GraphLoader | ✓ customer: 788 nodes
+2026-02-10 22:25:30 | INFO     | GraphLoader | ✓ product: 481 nodes
+2026-02-10 22:25:30 | INFO     | GraphLoader | ✓ invoice: 784 nodes
+2026-02-10 22:25:30 | INFO     | GraphLoader | ✓ support_ticket: 12 nodes
+2026-02-10 22:25:30 | INFO     | GraphLoader | ✓ call_transcript: 6 nodes
+2026-02-10 22:25:30 | INFO     | GraphLoader | ✓ supplies: 481 edges
+2026-02-10 22:25:31 | INFO     | GraphLoader | ✓ belongs_to: 468 edges
+2026-02-10 22:25:31 | INFO     | GraphLoader | ✓ based_in: 10 edges
+2026-02-10 22:25:31 | INFO     | GraphLoader | ✓ located_in: 0 edges
+2026-02-10 22:25:32 | INFO     | GraphLoader | ✓ purchased: 3748 edges
+2026-02-10 22:25:32 | INFO     | GraphLoader | ✓ billed: 784 edges
+2026-02-10 22:25:33 | INFO     | GraphLoader | ✓ invoice_item: 3051 edges
+2026-02-10 22:25:33 | INFO     | GraphLoader | ✓ reviewed: 17 edges
+2026-02-10 22:25:34 | INFO     | GraphLoader | ✓ similar_to: 1404 edges
+2026-02-10 22:25:34 | INFO     | GraphLoader | ✓ raised: 12 edges
+2026-02-10 22:25:34 | INFO     | GraphLoader | ✓ about: 10 edges
+2026-02-10 22:25:34 | INFO     | GraphLoader | ✓ handled_by: 12 edges
+2026-02-10 22:25:34 | INFO     | GraphLoader | ✓ includes_transcript: 4 edges
+2026-02-10 22:25:34 | INFO     | GraphLoader | ✓ conducted_by: 6 edges
+2026-02-10 22:25:34 | INFO     | GraphLoader | Graph complete: 2099 nodes, 10007 edges
+2026-02-10 22:25:34 | DEBUG    | GraphLoader | SurrealDB connection closed
+2026-02-10 22:25:34 | INFO     | QualityReport | Quality report → /Users/raj.hindocha/Work/systemzero/outputs/quality_report.md
+2026-02-10 22:25:34 | INFO     | Pipeline | ======================================================================
+2026-02-10 22:25:34 | INFO     | Pipeline | PIPELINE COMPLETE
+2026-02-10 22:25:34 | INFO     | Pipeline | ======================================================================

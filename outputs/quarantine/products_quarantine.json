@@ -1,0 +1,631 @@
+[
+  {
+    "row_index": 10,
+    "record": {
+      "product_id": "PRD-000264",
+      "sku": "SKU-79784",
+      "product_name": "Professional Swimming Goggles",
+      "description": "High-quality professional swimming goggles perfect for everyday use. - Special: \u00fcber",
+      "category": "Sports & Outdoors",
+      "subcategory": "Team Sports",
+      "vendor_id": "VND-004",
+      "price": "-454.36",
+      "cost": null,
+      "currency": "USD",
+      "weight_kg": "5.72",
+      "stock_quantity": "469",
+      "reorder_level": "26",
+      "rating": "4.2",
+      "review_count": "2024",
+      "is_active": "False",
+      "created_date": "12-02-2020",
+      "last_updated": "2021-01-26",
+      "tags": "sports-outdoors,team-sports,new-arrival,sale",
+      "_source_file": "products.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "price",
+        "type": "greater_than_equal",
+        "msg": "Input should be greater than or equal to 0"
+      }
+    ]
+  },
+  {
+    "row_index": 19,
+    "record": {
+      "product_id": "PRD-000494",
+      "sku": "SKU-34485",
+      "product_name": "Modern Webcam HD",
+      "description": "Our Modern Webcam HD combines style and functionality.",
+      "category": "Electronics",
+      "subcategory": "Laptops",
+      "vendor_id": "VND-010",
+      "price": "-253.18",
+      "cost": null,
+      "currency": "USD",
+      "weight_kg": "22.38",
+      "stock_quantity": "240",
+      "reorder_level": "17",
+      "rating": "2.1",
+      "review_count": "2033",
+      "is_active": "True",
+      "created_date": "27/09/2020",
+      "last_updated": "2020-12-18",
+      "tags": "electronics,laptops,eco-friendly,bestseller,premium",
+      "_source_file": "products.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "price",
+        "type": "greater_than_equal",
+        "msg": "Input should be greater than or equal to 0"
+      }
+    ]
+  },
+  {
+    "row_index": 47,
+    "record": {
+      "product_id": "PRD-000455",
+      "sku": "SKU-72505",
+      "product_name": "Advanced Power Bank",
+      "description": "High-quality advanced power bank perfect for everyday use.",
+      "category": "Electronics",
+      "subcategory": "Headphones",
+      "vendor_id": "VND-001",
+      "price": "-178.74",
+      "cost": null,
+      "currency": "USD",
+      "weight_kg": "22.36",
+      "stock_quantity": "290",
+      "reorder_level": "17",
+      "rating": "3.5",
+      "review_count": "1614",
+      "is_active": "True",
+      "created_date": "2021-11-26",
+      "last_updated": "2022-10-16",
+      "tags": "electronics,headphones,sale,premium",
+      "_source_file": "products.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "price",
+        "type": "greater_than_equal",
+        "msg": "Input should be greater than or equal to 0"
+      }
+    ]
+  },
+  {
+    "row_index": 77,
+    "record": {
+      "product_id": "PRD-000008",
+      "sku": "SKU-70637",
+      "product_name": "Compact Shampoo Formula",
+      "description": "Premium compact shampoo formula designed for maximum performance.",
+      "category": "Beauty & Personal Care",
+      "subcategory": "Fragrances",
+      "vendor_id": "VND-008",
+      "price": "257.3",
+      "cost": "172.55",
+      "currency": "USD",
+      "weight_kg": "20.92",
+      "stock_quantity": "434",
+      "reorder_level": "39",
+      "rating": "-1.0",
+      "review_count": "2336",
+      "is_active": "True",
+      "created_date": "2022/04/12",
+      "last_updated": "2022-11-14",
+      "tags": "beauty-personal-care,fragrances,premium,eco-friendly,trending",
+      "_source_file": "products.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "rating",
+        "type": "greater_than_equal",
+        "msg": "Input should be greater than or equal to 0"
+      }
+    ]
+  },
+  {
+    "row_index": 176,
+    "record": {
+      "product_id": "PRD-000196",
+      "sku": "SKU-82085",
+      "product_name": "Professional Knife Set",
+      "description": "High-quality professional knife set perfect for everyday use.",
+      "category": "Home & Kitchen",
+      "subcategory": "Bedding",
+      "vendor_id": "VND-003",
+      "price": "-833.36",
+      "cost": null,
+      "currency": "USD",
+      "weight_kg": null,
+      "stock_quantity": "317",
+      "reorder_level": "34",
+      "rating": "1.5",
+      "review_count": "4637",
+      "is_active": "True",
+      "created_date": "01/05/2023",
+      "last_updated": "2023-08-03",
+      "tags": "home-kitchen,bedding,premium",
+      "_source_file": "products.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "price",
+        "type": "greater_than_equal",
+        "msg": "Input should be greater than or equal to 0"
+      }
+    ]
+  },
+  {
+    "row_index": 204,
+    "record": {
+      "product_id": "PRD-000145",
+      "sku": "SKU-59969",
+      "product_name": "Smart Board Game Classic",
+      "description": "High-quality smart board game classic perfect for everyday use.",
+      "category": "Toys & Games",
+      "subcategory": "Outdoor Toys",
+      "vendor_id": "VND-007",
+      "price": "357.0",
+      "cost": "205.31",
+      "currency": "USD",
+      "weight_kg": "19.17",
+      "stock_quantity": "306",
+      "reorder_level": "30",
+      "rating": "N/A",
+      "review_count": "3349",
+      "is_active": "False",
+      "created_date": "04-16-2022",
+      "last_updated": "2022-10-18",
+      "tags": "toys-games,outdoor-toys,new-arrival",
+      "_source_file": "products.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "rating",
+        "type": "float_parsing",
+        "msg": "Input should be a valid number, unable to parse string as a number"
+      }
+    ]
+  },
+  {
+    "row_index": 224,
+    "record": {
+      "product_id": "PRD-000142",
+      "sku": "SKU-73191",
+      "product_name": "Deluxe Remote Control Car",
+      "description": "Our Deluxe Remote Control Car combines style and functionality.",
+      "category": "Toys & Games",
+      "subcategory": "Educational Toys",
+      "vendor_id": "VND-007",
+      "price": "-888.29",
+      "cost": null,
+      "currency": "USD",
+      "weight_kg": "7.09",
+      "stock_quantity": "308",
+      "reorder_level": "47",
+      "rating": "2.9",
+      "review_count": "1320",
+      "is_active": "False",
+      "created_date": "30/08/2020",
+      "last_updated": "2021-07-27",
+      "tags": "toys-games,educational-toys,bestseller,new-arrival",
+      "_source_file": "products.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "price",
+        "type": "greater_than_equal",
+        "msg": "Input should be greater than or equal to 0"
+      }
+    ]
+  },
+  {
+    "row_index": 258,
+    "record": {
+      "product_id": "PRD-000406",
+      "sku": "SKU-33281",
+      "product_name": "Deluxe Winter Jacket",
+      "description": "Discover the ultimate deluxe winter jacket for your needs.",
+      "category": "Clothing",
+      "subcategory": "Women's Wear",
+      "vendor_id": "VND-005",
+      "price": "-406.04",
+      "cost": null,
+      "currency": "USD",
+      "weight_kg": "14.55",
+      "stock_quantity": "96",
+      "reorder_level": "11",
+      "rating": "1.3",
+      "review_count": "2662",
+      "is_active": "True",
+      "created_date": "21/06/2023",
+      "last_updated": "2024-04-28",
+      "tags": "clothing,women's-wear,new-arrival",
+      "_source_file": "products.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "price",
+        "type": "greater_than_equal",
+        "msg": "Input should be greater than or equal to 0"
+      }
+    ]
+  },
+  {
+    "row_index": 281,
+    "record": {
+      "product_id": "PRD-000281",
+      "sku": "SKU-41265",
+      "product_name": "Premium Mechanical Keyboard",
+      "description": "High-quality premium mechanical keyboard perfect for everyday use.",
+      "category": null,
+      "subcategory": null,
+      "vendor_id": "VND-007",
+      "price": "-207.98",
+      "cost": null,
+      "currency": "US DOLLAR",
+      "weight_kg": "1.67",
+      "stock_quantity": "427",
+      "reorder_level": "23",
+      "rating": "2.3",
+      "review_count": "4437",
+      "is_active": "False",
+      "created_date": "09/12/2020",
+      "last_updated": "2021-06-29",
+      "tags": "bestseller,new-arrival",
+      "_source_file": "products.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "price",
+        "type": "greater_than_equal",
+        "msg": "Input should be greater than or equal to 0"
+      }
+    ]
+  },
+  {
+    "row_index": 294,
+    "record": {
+      "product_id": "PRD-000347",
+      "sku": "SKU-36683",
+      "product_name": "Premium Denim Jeans",
+      "description": "Our Premium Denim Jeans combines style and functionality.",
+      "category": "Clothing",
+      "subcategory": "Women's Wear",
+      "vendor_id": "VND-005",
+      "price": "354.15",
+      "cost": "153.57",
+      "currency": "USD",
+      "weight_kg": "15.59",
+      "stock_quantity": "352",
+      "reorder_level": "21",
+      "rating": "-1.0",
+      "review_count": "2161",
+      "is_active": "True",
+      "created_date": "2021-10-07",
+      "last_updated": "2021-11-15",
+      "tags": "clothing,women's-wear,premium",
+      "_source_file": "products.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "rating",
+        "type": "greater_than_equal",
+        "msg": "Input should be greater than or equal to 0"
+      }
+    ]
+  },
+  {
+    "row_index": 315,
+    "record": {
+      "product_id": "PRD-000067",
+      "sku": "SKU-47941",
+      "product_name": "Professional Stuffed Animal",
+      "description": "Our Professional Stuffed Animal combines style and functionality.",
+      "category": "Toys & Games",
+      "subcategory": "Action Figures",
+      "vendor_id": "VND-007",
+      "price": "-877.97",
+      "cost": null,
+      "currency": "USD",
+      "weight_kg": "13.63",
+      "stock_quantity": "435",
+      "reorder_level": "10",
+      "rating": "2.8",
+      "review_count": "2761",
+      "is_active": "True",
+      "created_date": "12/07/2021",
+      "last_updated": "2021-12-10",
+      "tags": "toys-games,action-figures,premium,new-arrival,budget-friendly",
+      "_source_file": "products.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "price",
+        "type": "greater_than_equal",
+        "msg": "Input should be greater than or equal to 0"
+      }
+    ]
+  },
+  {
+    "row_index": 347,
+    "record": {
+      "product_id": "PRD-000391",
+      "sku": "SKU-25653",
+      "product_name": "Professional Water Filter",
+      "description": "Discover the ultimate professional water filter for your needs.",
+      "category": "Home & Kitchen",
+      "subcategory": "Appliances",
+      "vendor_id": "VND-003",
+      "price": "65.48",
+      "cost": "30.55",
+      "currency": "USD",
+      "weight_kg": "16.41",
+      "stock_quantity": "344",
+      "reorder_level": "13",
+      "rating": "N/A",
+      "review_count": "532",
+      "is_active": "True",
+      "created_date": "10/10/2021",
+      "last_updated": "2022-01-16",
+      "tags": "home-kitchen,appliances,new-arrival,premium,sale",
+      "_source_file": "products.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "rating",
+        "type": "float_parsing",
+        "msg": "Input should be a valid number, unable to parse string as a number"
+      }
+    ]
+  },
+  {
+    "row_index": 377,
+    "record": {
+      "product_id": "PRD-000051",
+      "sku": "SKU-71487",
+      "product_name": "Modern Running Shorts",
+      "description": "Discover the ultimate modern running shorts for your needs.",
+      "category": "Clothing",
+      "subcategory": "Women's Wear",
+      "vendor_id": "VND-005",
+      "price": "-454.11",
+      "cost": null,
+      "currency": "USD",
+      "weight_kg": "18.21",
+      "stock_quantity": "147",
+      "reorder_level": "44",
+      "rating": "1.4",
+      "review_count": "134",
+      "is_active": "False",
+      "created_date": "2020-09-06",
+      "last_updated": "2021-07-26",
+      "tags": "clothing,women's-wear,eco-friendly,new-arrival,premium",
+      "_source_file": "products.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "price",
+        "type": "greater_than_equal",
+        "msg": "Input should be greater than or equal to 0"
+      }
+    ]
+  },
+  {
+    "row_index": 378,
+    "record": {
+      "product_id": "PRD-000137",
+      "sku": "SKU-28530",
+      "product_name": "Compact History Book",
+      "description": "Experience the best in books & media with our Compact History Book.",
+      "category": "Books & Media",
+      "subcategory": "Magazines",
+      "vendor_id": "VND-006",
+      "price": "-131.99",
+      "cost": null,
+      "currency": "USD",
+      "weight_kg": "18.73",
+      "stock_quantity": "211",
+      "reorder_level": "46",
+      "rating": "4.3",
+      "review_count": "445",
+      "is_active": "True",
+      "created_date": "09-Oct-2024",
+      "last_updated": "2025-07-17",
+      "tags": "books-media,magazines,premium,eco-friendly",
+      "_source_file": "products.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "price",
+        "type": "greater_than_equal",
+        "msg": "Input should be greater than or equal to 0"
+      }
+    ]
+  },
+  {
+    "row_index": 389,
+    "record": {
+      "product_id": "PRD-000322",
+      "sku": "SKU-20353",
+      "product_name": "Essential Coffee Maker",
+      "description": "High-quality essential coffee maker perfect for everyday use.",
+      "category": "Home & Kitchen",
+      "subcategory": "Appliances",
+      "vendor_id": "VND-003",
+      "price": "-252.59",
+      "cost": null,
+      "currency": "USD",
+      "weight_kg": "3.59",
+      "stock_quantity": "240",
+      "reorder_level": "48",
+      "rating": "1.6",
+      "review_count": "1421",
+      "is_active": "True",
+      "created_date": "2021/11/21",
+      "last_updated": "2022-08-05",
+      "tags": "home-kitchen,appliances,bestseller",
+      "_source_file": "products.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "price",
+        "type": "greater_than_equal",
+        "msg": "Input should be greater than or equal to 0"
+      }
+    ]
+  },
+  {
+    "row_index": 406,
+    "record": {
+      "product_id": "PRD-000261",
+      "sku": "SKU-27527",
+      "product_name": "Premium Lipstick Collection",
+      "description": "Premium premium lipstick collection designed for maximum performance.",
+      "category": "Beauty & Personal Care",
+      "subcategory": "Skincare",
+      "vendor_id": "VND-008",
+      "price": "-649.97",
+      "cost": null,
+      "currency": "USD",
+      "weight_kg": "17.61",
+      "stock_quantity": "403",
+      "reorder_level": "32",
+      "rating": "2.4",
+      "review_count": "3168",
+      "is_active": "False",
+      "created_date": "2023-08-26",
+      "last_updated": "2023-11-24",
+      "tags": "beauty-personal-care,skincare,bestseller,budget-friendly,trending",
+      "_source_file": "products.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "price",
+        "type": "greater_than_equal",
+        "msg": "Input should be greater than or equal to 0"
+      }
+    ]
+  },
+  {
+    "row_index": 470,
+    "record": {
+      "product_id": "PRD-000491",
+      "sku": "SKU-58884",
+      "product_name": "Essential Smart Watch",
+      "description": "High-quality essential smart watch perfect for everyday use.",
+      "category": "Electronics",
+      "subcategory": "Headphones",
+      "vendor_id": "VND-INVALID",
+      "price": "153.06",
+      "cost": "73.61",
+      "currency": "USD",
+      "weight_kg": "7.92",
+      "stock_quantity": "148",
+      "reorder_level": "11",
+      "rating": "3.3",
+      "review_count": "3185",
+      "is_active": "False",
+      "created_date": "16-Feb-2022",
+      "last_updated": "2022-12-05",
+      "tags": "electronics,headphones,sale,trending",
+      "_source_file": "products.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "vendor_id",
+        "value": "VND-INVALID",
+        "target": "vendor",
+        "type": "referential_integrity",
+        "msg": "No matching vendor record for vendor_id=VND-INVALID"
+      }
+    ]
+  },
+  {
+    "row_index": 478,
+    "record": {
+      "product_id": "PRD-000001",
+      "sku": "SKU-39256",
+      "product_name": "compact bluetooth speaker",
+      "description": "Premium compact bluetooth speaker designed for maximum performance.",
+      "category": "Electronics",
+      "subcategory": "Smartwatches",
+      "vendor_id": "VND-002",
+      "price": "148.13",
+      "cost": "64.6",
+      "currency": "USD",
+      "weight_kg": "2.43",
+      "stock_quantity": "287",
+      "reorder_level": "19",
+      "rating": "5.5",
+      "review_count": "1763",
+      "is_active": "True",
+      "created_date": "23-Aug-2023",
+      "last_updated": "2024-02-11",
+      "tags": "electronics,smartwatches,bestseller",
+      "_source_file": "products.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "rating",
+        "type": "less_than_equal",
+        "msg": "Input should be less than or equal to 5"
+      }
+    ]
+  },
+  {
+    "row_index": 487,
+    "record": {
+      "product_id": "PRD-000191",
+      "sku": "SKU-34352",
+      "product_name": "Classic Dollhouse",
+      "description": "Premium classic dollhouse designed for maximum performance.",
+      "category": "Toys & Games",
+      "subcategory": "Outdoor Toys",
+      "vendor_id": "VND-007",
+      "price": "-430.51",
+      "cost": null,
+      "currency": "USD",
+      "weight_kg": null,
+      "stock_quantity": "19",
+      "reorder_level": "27",
+      "rating": "1.3",
+      "review_count": "3808",
+      "is_active": "True",
+      "created_date": "12-14-2023",
+      "last_updated": "2024-09-03",
+      "tags": "toys-games,outdoor-toys,eco-friendly",
+      "_source_file": "products.csv",
+      "_loaded_at": "2026-02-10T22:25:28.068809"
+    },
+    "errors": [
+      {
+        "field": "price",
+        "type": "greater_than_equal",
+        "msg": "Input should be greater than or equal to 0"
+      }
+    ]
+  }
+]
