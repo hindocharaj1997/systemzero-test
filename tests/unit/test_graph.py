@@ -230,3 +230,34 @@ class TestGraphLoaderTransforms:
         from src.graph.loader import GraphLoader
         assert GraphLoader._sanitize_id("VND-001\x00") == "VND-001"
         assert GraphLoader._sanitize_id("VND-001\x01\x02") == "VND-001"
+
+    @pytest.mark.asyncio
+    async def test_load_agents_creates_placeholder_for_unnamed_call_agent(self, tmp_path):
+        from src.graph.loader import GraphLoader
+
+        class DummyDB:
+            async def query(self, query, params=None):
+                return []
+
+        loader = GraphLoader(
+            silver_dir=tmp_path,
+            config={
+                "url": "ws://localhost:8000/rpc",
+                "namespace": "test",
+                "database": "test",
+                "username": "root",
+                "password": "root",
+            },
+        )
+        loader.db = DummyDB()
+
+        def _mock_read_csv(filename: str):
+            if filename == "support_tickets.csv":
+                return []
+            if filename == "call_transcripts.csv":
+                return [{"agent_id": "AGT-777", "agent_name": ""}]
+            return []
+
+        loader._read_csv = _mock_read_csv
+        result = await loader._load_agents()
+        assert result.records_loaded == 1

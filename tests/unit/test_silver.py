@@ -570,6 +570,87 @@ class TestLineItemValidation:
         assert len(li_df) == 1
         assert li_df["invoice_id"][0] == "INV-A1B2C3D4"
 
+    def test_line_item_product_fk_enforced(self, tmp_path):
+        """Line items with unknown product_id should be quarantined."""
+        bronze_dir = tmp_path / "bronze"
+        bronze_dir.mkdir()
+        output_dir = tmp_path / "outputs"
+        output_dir.mkdir()
+
+        line_items = [
+            {"line_number": 1, "product_id": "PRD-001", "description": "Known", "quantity": 1, "unit_cost": 10.0, "line_total": 10.0},
+            {"line_number": 2, "product_id": "PRD-UNKNOWN", "description": "Unknown", "quantity": 1, "unit_cost": 20.0, "line_total": 20.0},
+        ]
+
+        invoices_df = pl.DataFrame({
+            "invoice_id": ["INV-A1B2C3D4"],
+            "vendor_id": ["VND-001"],
+            "invoice_date": ["2025-01-01"],
+            "due_date": ["2025-02-01"],
+            "payment_date": [None],
+            "total_amount": ["30.0"],
+            "payment_status": ["pending"],
+            "line_items_json": [json.dumps(line_items)],
+        })
+        invoices_df.write_csv(bronze_dir / "invoices.csv")
+
+        vendors_df = pl.DataFrame({
+            "vendor_id": ["VND-001"],
+            "vendor_name": ["Test Vendor"],
+            "status": ["active"],
+        })
+        vendors_df.write_csv(bronze_dir / "vendors.csv")
+
+        products_df = pl.DataFrame({
+            "product_id": ["PRD-001"],
+            "vendor_id": ["VND-001"],
+            "sku": ["SKU-1"],
+            "product_name": ["Known Product"],
+            "price": [10.0],
+            "is_active": [True],
+        })
+        products_df.write_csv(bronze_dir / "products.csv")
+
+        processor = SilverProcessor(
+            sources_config={"sources": {
+                "vendors": {"file": "vendors.csv", "format": "csv", "schema": "vendor"},
+                "products": {"file": "products.csv", "format": "csv", "schema": "product"},
+                "invoices": {"file": "invoices.csv", "format": "csv", "schema": "invoice"},
+            }},
+            schemas_config={"schemas": {
+                "vendor": {"primary_key": "vendor_id", "fields": {
+                    "vendor_id": {"type": "string", "required": True},
+                }},
+                "product": {"primary_key": "product_id", "fields": {
+                    "product_id": {"type": "string", "required": True},
+                    "vendor_id": {"type": "string", "required": True, "foreign_key": "vendor"},
+                    "sku": {"type": "string", "required": True},
+                    "product_name": {"type": "string", "required": True},
+                }},
+                "invoice": {"primary_key": "invoice_id", "fields": {
+                    "invoice_id": {"type": "string", "required": True},
+                    "vendor_id": {"type": "string", "required": True, "foreign_key": "vendor"},
+                }},
+            }},
+            cleaning_rules={"cleaners": {}},
+            bronze_dir=bronze_dir,
+            output_dir=output_dir,
+        )
+        processor.process_all()
+
+        line_items_path = output_dir / "silver" / "invoice_line_items.csv"
+        assert line_items_path.exists()
+        li_df = pl.read_csv(line_items_path)
+        assert len(li_df) == 1
+        assert li_df["product_id"][0] == "PRD-001"
+
+        quarantine_path = output_dir.parent / "quarantine" / "invoice_line_items_quarantine.json"
+        assert quarantine_path.exists()
+        with open(quarantine_path) as f:
+            quarantined = json.load(f)
+        assert len(quarantined) == 1
+        assert quarantined[0]["errors"][0]["type"] == "referential_integrity"
+
 
 class TestEmailValidation:
     """Tests for email format validation in CustomerSchema."""

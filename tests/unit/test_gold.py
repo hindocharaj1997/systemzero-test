@@ -95,7 +95,7 @@ class TestGoldProcessor:
             "vendor_id": ["VND-001", "VND-001", "VND-002"],
             "invoice_date": ["2025-01-01", "2025-02-01", "2025-01-15"],
             "due_date": ["2025-02-01", "2025-03-01", "2025-02-15"],
-            "payment_date": ["2025-01-25", None, "2025-02-10"],
+            "payment_date": ["2025-01-25", None, "2025-02-20"],
             "total_amount": [5000.0, 3000.0, 2000.0],
             "payment_status": ["paid", "pending", "paid"],
             "payment_terms": ["NET30", "NET30", "NET30"],
@@ -137,6 +137,7 @@ class TestGoldProcessor:
         assert "customer_segment_score" in cf.columns
         assert "customer_lifetime_value" in cf.columns
         assert "purchase_frequency" in cf.columns
+        assert "average_order_value" in cf.columns
         assert "days_since_last_purchase" in cf.columns
         assert "recency_score" in cf.columns
         assert "frequency_score" in cf.columns
@@ -212,7 +213,24 @@ class TestGoldProcessor:
         
         vnd002 = df.filter(pl.col("vendor_id") == "VND-002")
         assert vnd002["total_outstanding_balance"][0] == 0.0
-        
+
+        gold_processor.close()
+
+    def test_vendor_payment_rate_paid_on_time(self, gold_processor):
+        """Payment rate should count only invoices paid on or before due date."""
+        gold_processor.process_all()
+
+        gold_dir = gold_processor.output_dir
+        df = pl.read_csv(gold_dir / "vendor_features.csv")
+
+        # VND-001: one on-time paid + one pending => 1/2 = 0.5
+        vnd001 = df.filter(pl.col("vendor_id") == "VND-001")
+        assert vnd001["invoice_payment_rate"][0] == pytest.approx(0.5, abs=0.001)
+
+        # VND-002: one paid but late => 0/1 = 0.0
+        vnd002 = df.filter(pl.col("vendor_id") == "VND-002")
+        assert vnd002["invoice_payment_rate"][0] == pytest.approx(0.0, abs=0.001)
+
         gold_processor.close()
 
 
