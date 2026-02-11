@@ -79,74 +79,99 @@ outputs/
 └── scripts/             # Utility scripts (e.g., demo_graph_queries.py)
 ```
 
-## Data Quality Issue Categorization
+## Data Quality & Error Handling
 
-A key design decision is distinguishing **legitimate business edge cases** from **genuinely bad data**. Blindly quarantining everything that deviates from a norm would lose valuable business information (e.g., return transactions). The table below documents each known issue and how the pipeline handles it.
+A key design decision is distinguishing **legitimate business edge cases** (which should be flagged but kept) from **genuinely bad data** (which must be quarantined). The pipeline implements a strict **Medallion Architecture**:
+- **Bronze**: Raw ingestion
+- **Silver**: Type validation, cleaning, and referential integrity checks
+- **Gold**: Advanced business logic validation
 
-### ✅ Legitimate Business Data (Keep & Flag)
+### Detailed Analysis by Source
 
-These are valid business events that look unusual but should be preserved in Silver:
+#### 1. Products (`products.csv`)
+| Known Issue | Requirement | Implementation | Status |
+| :--- | :--- | :--- | :--- |
+| **Duplicate SKUs** | Identify & Handle | `Unique key` deduplication in `SilverProcessor` | ✅ **Deduplicated** |
+| **Negative prices** | Handle | `ProductSchema`: `price >= 0` validator | ✅ **Quarantined** |
+| **Missing categories** | Handle | `ProductSchema`: `category: Optional[str]` | ✅ **Kept (Null)** |
+| **Invalid vendor refs** | Handle | FK Check: `vendor_id` vs `vendors.csv` keys | ✅ **Quarantined** (`VND-INVALID`) |
+| **Inconsistent booleans** | Standardize | `SilverCleaner`: `boolean_normalize` | ✅ **Cleaned** |
+| **Mixed case naming** | Standardize | `SilverCleaner`: `lowercase`/`uppercase` | ✅ **Cleaned** |
+| **Encoding issues** | Handle | UTF-8 parsing in Polars | ✅ **Handled** |
+| **Inconsistent dates** | Standardize | `SilverCleaner`: `date_iso` | ✅ **Cleaned** |
 
-| Issue | Source | Rationale | How Handled |
-|-------|--------|-----------|-------------|
-| Negative quantities | Transactions | Returns/refunds are standard e-commerce events. README says *(returns/refunds)* | **Kept.** Schema allows negative. Gold layer can filter or flag via `is_return` logic |
-| Zero quantities | Transactions | Cancelled or placeholder orders | **Kept.** No minimum constraint on quantity |
-| Negative total_spend | Customers | Customer returned more than purchased — net refund balance | **Kept.** No `ge=0` constraint on total_spend |
-| Negative quantities in invoices | Invoices | Credit notes / return adjustments are standard in AP | **Kept.** No minimum constraint on invoice amounts |
-| Inactive vendor status | Vendors | Legitimate business state — vendor went inactive, products remain in catalog | **Kept.** All status values accepted |
-| Pending approval status | Vendors | Pre-activation state in vendor onboarding | **Kept.** All status values accepted |
-| Missing categories | Products | Not all products are categorized yet, nullable field | **Kept.** Category is Optional |
-| Missing contact info | Vendors | Partial vendor records during onboarding | **Kept.** All non-ID fields are Optional |
-| Payment dates before invoice dates | Invoices | Prepayments or advance deposits | **Kept.** Flagged in Gold via `reconciliation_flag` |
-| Missing ticket references in calls | Call Transcripts | Not all inbound calls are related to a ticket | **Kept.** `ticket_id` is Optional |
-| Null satisfaction scores | Support Tickets | Survey not yet completed | **Kept.** `satisfaction_score` is Optional |
-| Missing sentiment | Reviews | NLP sentiment not yet computed | **Kept.** `sentiment` is Optional |
-| Inconsistent currency codes | Transactions/Invoices | Multi-currency is valid for international e-commerce | **Kept.** Preserved as-is in Silver |
+#### 2. Customers (`customers.csv`)
+| Known Issue | Requirement | Implementation | Status |
+| :--- | :--- | :--- | :--- |
+| **Duplicate emails** | Handle | `Unique key` (customer_id) deduplication | ✅ **Deduplicated** |
+| **Invalid emails** | Handle | `CustomerSchema.validate_email_format` | ✅ **Set to Null** (Record kept) |
+| **Inconsistent phone** | Standardize | `SilverCleaner`: `phone_normalize` (digits only) | ✅ **Cleaned** |
+| **Future dates** | Identify & Handle | `CustomerSchema.date_not_in_future` | ✅ **Set to Null** (Record kept) |
+| **Invalid age values** | Handle | `CustomerSchema`: `age: Optional[int]` | ✅ **Quarantined** (Type Error) |
+| **Missing required fields** | Handle | `CustomerSchema`: `full_name: str` (required) | ✅ **Quarantined** |
+| **Mixed date formats** | Standardize | `SilverCleaner`: `date_iso` | ✅ **Cleaned** |
 
-### ❌ Data Quality Errors (Quarantine or Clean)
+#### 3. Sales Transactions (`transactions.csv`)
+| Known Issue | Requirement | Implementation | Status |
+| :--- | :--- | :--- | :--- |
+| **Negative quantities** | Handle (Returns) | `TransactionSchema`: `quantity` allows negative | ✅ **Kept** (Valid Return) |
+| **Zero quantities** | Handle | `TransactionSchema`: No minimum constraint | ✅ **Kept** (Cancelled/Placeholder) |
+| **Invalid Customer Refs** | Handle | FK Check: `customer_id` | ✅ **Quarantined** |
+| **Invalid Product Refs** | Handle | FK Check: `product_id` | ✅ **Quarantined** |
+| **Duplicate transactions** | Deduplicate | `Unique key` deduplication | ✅ **Deduplicated** |
+| **Inconsistent currency** | Standardize | Preserved as-is (valid multi-currency) | ✅ **Kept** |
 
-These represent genuinely corrupted, impossible, or invalid data:
+#### 4. Vendors (`vendors.csv`)
+| Known Issue | Requirement | Implementation | Status |
+| :--- | :--- | :--- | :--- |
+| **Inactive vendors** | Handle | `VendorSchema`: `status` field allows "inactive" | ✅ **Kept** (Valid State) |
+| **Missing contact info** | Handle | `VendorSchema`: `contact_email` is Optional | ✅ **Kept (Null)** |
+| **Pending approval** | Handle | `VendorSchema`: `status` allows "pending" | ✅ **Kept** |
 
-| Issue | Source | Rationale | How Handled |
-|-------|--------|-----------|-------------|
-| **Duplicate SKUs (Records)** | Products | Same product entered twice (same ID, same SKU) | **Deduplication** on `product_id` |
-| **SKU Collisions** | Products | Distinct products share same SKU. See [Deep Dive](docs/product_sku_collision_analysis.md) | **Kept.** Deduplicating by SKU would delete valid active products. Flagged in Quality Report. |
-| **Negative prices** | Products | A product cannot cost < $0 — pricing data corruption | **Quarantined.** Pydantic: `price >= 0` |
-| **Invalid vendor references** | Products | `VND-INVALID` — no matching vendor exists | **Quarantined.** FK validation against vendor table |
-| **Invalid customer/product refs** | Transactions | Orphaned FK — references non-existent entities | **Quarantined.** FK validation via dependency-ordered processing |
-| **Duplicate transactions** | Transactions | Same transaction recorded twice | **Deduplication** on `transaction_id` |
-| **Duplicate invoice numbers** | Invoices | Same invoice recorded twice | **Deduplication** on `invoice_id` |
-| **Invalid vendor refs in invoices** | Invoices | FK to non-existent vendor | **Quarantined.** FK validation |
-| **Calculation mismatches** | Invoices | Totals don't match line items | **Flagged** in Gold via `reconciliation_flag` (MISMATCH/OK/NO_REFERENCE) |
-| **Duplicate/invalid emails** | Customers | Data entry errors | **Cleaned** (lowercase normalization) + Pydantic type validation |
-| **Future registration dates** | Customers | Physically impossible — clock error or data corruption | **Quarantined** via validation (could add explicit date range check) |
-| **Inconsistent phone formats** | Customers | `(555) 123-4567` vs `555.987.6543` | **Cleaned.** `phone_normalize` strips all formatting → `5551234567` |
-| **Mixed boolean representations** | Products, Transactions | `true/True/1/yes/YES` → inconsistent | **Cleaned.** `boolean_normalize` standardizes to `True`/`False` |
-| **Mixed case naming** | Vendors, Customers | `ACTIVE` vs `active` vs `Active` | **Cleaned.** `lowercase`/`uppercase` cleaning rules |
-| **Inconsistent channel/status case** | Support Tickets | `email` vs `EMAIL` | **Cleaned.** Case normalization in Silver |
-| **Invalid date formats** | Tickets, Reviews | `20-03-2025` vs ISO `2025-03-20` | **Cleaned.** `date_iso` normalization rule |
-| **Satisfaction scores > 5** | Support Tickets | Out of range (max is 5) — data entry error | **Quarantined.** Pydantic: `ge=1, le=5` |
-| **Negative ratings** | Reviews | Impossible — minimum is 1 | **Quarantined.** Pydantic: `ge=1, le=5` |
-| **Empty review_ids** | Reviews | Missing required identifier | **Quarantined.** Custom Pydantic validator rejects empty strings |
-| **Empty ticket_ids** | Support Tickets | Missing required identifier | **Quarantined.** Custom Pydantic validator rejects empty strings |
-| **Invalid product refs** (`PRD-INVALID`) | Reviews | FK to non-existent product | **Quarantined.** FK validation |
-| **Invalid customer refs** (`INVALID_ID`) | Tickets, Calls | FK to non-existent customer | **Quarantined.** FK validation |
-| **Negative duration** | Call Transcripts | Impossible measurement | **Quarantined.** Pydantic: `ge=0` |
-| **Encoding issues** | Products | Special characters in names | **Kept.** UTF-8 handling preserves special chars |
-| **Invalid quality_score** | Call Transcripts | Score outside 0-100 range | **Quarantined.** Pydantic: `ge=0, le=100` |
-| **Negative transfers** | Call Transcripts | Transfer count cannot be negative | **Quarantined.** Pydantic: `ge=0` |
-| **Invalid tax_rate** | Invoices | Tax rate must be 0.0-1.0 | **Quarantined.** Pydantic: `ge=0.0, le=1.0` |
-| **Invalid discount_percent** | Transactions | Discount must be 0-100% | **Quarantined.** Pydantic: `ge=0.0, le=100.0` |
+#### 5. Invoices (`invoices.csv`)
+| Known Issue | Requirement | Implementation | Status |
+| :--- | :--- | :--- | :--- |
+| **Duplicate numbers** | Deduplicate | `Unique key` deduplication | ✅ **Deduplicated** |
+| **Invalid vendor refs** | Handle | FK Check: `vendor_id` | ✅ **Quarantined** |
+| **Calculation mismatches** | Identify | `Gold` layer: `reconciliation_flag` | ✅ **Flagged in Gold** |
+| **Negative quantities** | Handle (Credit) | `InvoiceSchema`: `subtotal`/`quantity` allow negative | ✅ **Kept** (Credit Note) |
+| **Payment before invoice** | Identify | `Gold` layer check | ✅ **Flagged in Gold** |
+| **Nested JSON** | Parse | `SilverProcessor`: Parses `line_items_json` to table | ✅ **Parsed & Normalized** |
 
-### Summary Table
+#### 6. Support Tickets (`support_tickets.json`)
+| Known Issue | Requirement | Implementation | Status |
+| :--- | :--- | :--- | :--- |
+| **Invalid Customer Refs** | Handle | FK Check: `customer_id` | ✅ **Quarantined** (`INVALID_ID`) |
+| **Missing Ticket IDs** | Handle | `SupportTicketSchema`: empty check | ✅ **Quarantined** |
+| **Scores out of range** | Validate | `SupportTicketSchema`: `ge=1, le=5` | ✅ **Quarantined** |
+| **Inconsistent channel** | Standardize | `SilverCleaner`: `lowercase` | ✅ **Cleaned** |
+| **Future dates** | Handle | `SilverCleaner`: `date_iso` (format only) | ✅ **Format Cleaned** (Logic in Gold) |
 
-| Strategy | Count | Examples |
-|----------|-------|---------|
-| **Keep as-is** | 13 issues | Negative quantities (returns), inactive vendors, null optionals |
-| **Clean/Normalize** | 5 issues | Phone format, boolean values, case, dates |
-| **Deduplicate** | 3 issues | Duplicate products, transactions, invoices |
-| **Quarantine** | 11 issues | Negative prices, invalid FKs, out-of-range scores, empty IDs |
-| **Flag in Gold** | 2 issues | Calculation mismatches, payment-before-invoice |
+#### 7. Product Reviews (`product_reviews.json`)
+| Known Issue | Requirement | Implementation | Status |
+| :--- | :--- | :--- | :--- |
+| **Invalid Product Refs** | Handle | FK Check: `product_id` | ✅ **Quarantined** (`PRD-INVALID`) |
+| **Missing Review IDs** | Handle | `ReviewSchema`: empty check | ✅ **Quarantined** |
+| **Invalid ratings** | Validate | `ReviewSchema`: `ge=1, le=5` | ✅ **Quarantined** (Caught `-1`) |
+| **Verified mismatch** | Identify | Cross-check with Transactions | ➡️ **Deferred to Gold Layer** |
+| **Inconsistent dates** | Standardize | `SilverCleaner`: `date_iso` | ✅ **Cleaned** |
+
+#### 8. Call Transcripts (`call_transcripts.json`)
+| Known Issue | Requirement | Implementation | Status |
+| :--- | :--- | :--- | :--- |
+| **Missing Ticket Refs** | Handle | `CallTranscriptSchema`: `ticket_id` is Optional | ✅ **Kept** (Valid) |
+| **Invalid Customer Refs** | Handle | FK Check: `customer_id` | ✅ **Quarantined** (`INVALID`) |
+| **Negative duration** | Validate | `CallTranscriptSchema`: `ge=0` | ✅ **Quarantined** |
+| **Missing agent info** | Handle | `CallTranscriptSchema`: `agent_id` is Optional | ✅ **Kept** |
+| **Quality score range** | Validate | `CallTranscriptSchema`: `ge=0, le=100` | ✅ **Quarantined** |
+
+### Future Roadmap: Advanced Data Quality
+
+The current pipeline enforces strict schema and referential integrity. The following advanced validation rules are planned for the **Gold Layer**, where cross-table joins are more efficient:
+
+1.  **Verified Purchase Verification**: Joining `Reviews` with `Transactions` to flag reviews from users who haven't purchased the item.
+2.  **Transcript Timestamp Ordering**: Parsing the `utterances` JSON array to strictly validate that timestamps are sequential.
+3.  **Strict Email DNS Check**: Enhancing the Silver layer email format check with a domain existence verification.
 
 ## Cleaning Rules
 
