@@ -10,7 +10,7 @@ from pathlib import Path
 
 from src.graph.schema import (
     get_schema_statements,
-    SCHEMA_DDL,
+    SCHEMA_PATH,
     NODE_TABLES,
     EDGE_TABLES,
 )
@@ -22,7 +22,10 @@ class TestGraphSchema:
 
     def test_schema_ddl_not_empty(self):
         """Schema DDL string should not be empty."""
-        assert len(SCHEMA_DDL.strip()) > 0
+        assert SCHEMA_PATH.exists()
+        with open(SCHEMA_PATH, "r") as f:
+            ddl = f.read()
+        assert len(ddl.strip()) > 0
 
     def test_get_schema_statements_returns_list(self):
         """get_schema_statements should return a list of strings."""
