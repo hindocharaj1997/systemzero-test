@@ -77,7 +77,7 @@ SELECT
     total_revenue,
     gross_revenue,
     return_amount,
-    avg_order_value,
+    avg_order_value AS average_order_value,
     first_purchase,
     last_purchase,
     days_since_last_purchase,

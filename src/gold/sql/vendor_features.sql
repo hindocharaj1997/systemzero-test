@@ -14,7 +14,13 @@ invoice_stats AS (
         COUNT(*) as total_invoices,
         SUM(TRY_CAST(total_amount AS DOUBLE)) as total_invoice_amount,
         AVG(TRY_CAST(total_amount AS DOUBLE)) as average_invoice_value,
-        COUNT(CASE WHEN payment_status = 'paid' THEN 1 END) as paid_invoices,
+        COUNT(CASE
+            WHEN payment_status = 'paid'
+                AND TRY_CAST(payment_date AS DATE) IS NOT NULL
+                AND TRY_CAST(due_date AS DATE) IS NOT NULL
+                AND TRY_CAST(payment_date AS DATE) <= TRY_CAST(due_date AS DATE)
+            THEN 1
+        END) as paid_on_time_invoices,
         SUM(CASE 
             WHEN payment_status != 'paid' 
             THEN COALESCE(TRY_CAST(total_amount AS DOUBLE), 0) 
@@ -49,7 +55,7 @@ SELECT
     -- invoice_payment_rate
     CASE 
         WHEN COALESCE(i.total_invoices, 0) > 0 
-        THEN ROUND((COALESCE(i.paid_invoices, 0)::FLOAT / i.total_invoices)::NUMERIC, 3)
+        THEN ROUND((COALESCE(i.paid_on_time_invoices, 0)::FLOAT / i.total_invoices)::NUMERIC, 3)
         ELSE 0 
     END as invoice_payment_rate,
     -- revenue per product
