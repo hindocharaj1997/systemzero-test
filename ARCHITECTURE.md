@@ -66,6 +66,12 @@ This supports both debugging and audit requirements.
 
 ## Folder Structure
 
+> **Note on Structure:** This project adopts the **Medallion Architecture** pattern for robustness and scalability. This maps to the original requirements as follows:
+> *   `src/ingestion` + `src/cleaning` + `src/validation` → **`src/bronze`** & **`src/silver`** (Combined efficient Polars pipeline)
+> *   `src/features` → **`src/gold`** (SQL-based feature engineering)
+> *   `src/graph` → **`src/graph`** (SurrealDB modeling)
+
+```text
 /
 ├── src/                 # Source code
 │   ├── bronze/          # Raw data ingestion
@@ -82,6 +88,7 @@ This supports both debugging and audit requirements.
     ├── logs/            # Execution logs
     ├── quality_report.md
     └── pipeline.duckdb
+```
 
 ## Data Quality & Error Handling
 
@@ -93,6 +100,12 @@ A key design decision is distinguishing **legitimate business edge cases** (whic
 ### Detailed Analysis by Source
 
 #### 1. Products (`products.csv`)
+
+> **Design Decision: Product Identification**
+> Analysis revealed that `sku` is **not unique** across different products (SKU Collisions). For example, `SKU-86765` is used by both "Smart Smart Watch" and "Compact Fitness Tracker".
+>
+> **Strategy:** The pipeline deduplicates strictly on `product_id` (the true primary key). Deduplicating by `sku` would incorrectly delete valid products.
+
 | Known Issue | Requirement | Implementation | Status |
 | :--- | :--- | :--- | :--- |
 | **Duplicate SKUs** | Identify & Handle | `Unique key` deduplication in `SilverProcessor` | ✅ **Deduplicated** |
@@ -215,7 +228,7 @@ Pydantic models enforce:
 
 ## Feature Engineering
 
-> **Detailed Reference:** See [docs/feature_definitions.md](./docs/feature_definitions.md) for the complete list of formulas and logic.
+> **Detailed Reference:** See [docs/FEATURE_DEFINITIONS.md](./docs/FEATURE_DEFINITIONS.md) for the complete list of formulas and logic.
 
 All features are computed using **DuckDB SQL** with Common Table Expressions (CTEs) for clarity:
 
@@ -253,6 +266,7 @@ The optional Graph layer loads Silver data into SurrealDB as a property graph:
 - **Integration test**: End-to-end pipeline run with real data
 - **Fixtures**: Shared test data in `conftest.py`
 - **Framework**: `pytest` with coverage reporting
+- **Coverage**: See [docs/COVERAGE_REPORT.md](./docs/COVERAGE_REPORT.md) for detailed metrics (>70% on core logic).
 
 ## Documentation Index
 
@@ -261,6 +275,6 @@ The optional Graph layer loads Silver data into SurrealDB as a property graph:
 | [README.md](./README.md) | Project entry point, requirements, and setup instructions. |
 | [ARCHITECTURE.md](./ARCHITECTURE.md) | High-level system design, technology choices, and data quality strategy. |
 | [docs/GRAPH_DESIGN.md](./docs/GRAPH_DESIGN.md) | **Detailed Reference**: Graph schema (nodes/edges), design decisions, and query patterns. |
-| [docs/product_sku_collision_analysis.md](./docs/product_sku_collision_analysis.md) | **Deep Dive**: Analysis of product SKU duplication findings. |
-| [docs/feature_definitions.md](./docs/feature_definitions.md) | **Reference**: Definitions and formulas for all Gold layer features. |
+| [docs/FEATURE_DEFINITIONS.md](./docs/FEATURE_DEFINITIONS.md) | **Reference**: Definitions and formulas for all Gold layer features. |
+| [docs/COVERAGE_REPORT.md](./docs/COVERAGE_REPORT.md) | **Metrics**: Detailed test coverage report showing >70% coverage. |
 | [outputs/quality_report.md](./outputs/quality_report.md) | **Generated Report**: Latest data quality metrics and validation results. |
