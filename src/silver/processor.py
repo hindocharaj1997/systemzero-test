@@ -8,13 +8,11 @@ schema validation.
 
 from pathlib import Path
 from typing import Dict, Any, List, Optional, Set
-from datetime import datetime
 from dataclasses import dataclass, field
 import json
 
 import polars as pl
 import yaml
-from dateutil import parser as date_parser
 from pydantic import ValidationError
 from loguru import logger
 
@@ -285,92 +283,21 @@ class SilverProcessor:
         df: pl.DataFrame,
         fields: Dict[str, Any],
     ) -> tuple[pl.DataFrame, Dict[str, int]]:
-        """Apply Polars-based cleaning transformations."""
+        """Apply cleaning transformations via SilverCleaner (Polars vectorized)."""
         stats = {}
-        
+
         for field_name, field_def in fields.items():
             if field_name not in df.columns:
                 continue
-            
-            clean_rule = field_def.get("clean")
-            if not clean_rule:
+
+            rule_name = field_def.get("clean")
+            if not rule_name:
                 continue
-            
-            try:
-                if clean_rule == "lowercase":
-                    if df[field_name].dtype in (pl.String, pl.Utf8):
-                        df = df.with_columns(
-                            pl.col(field_name).str.to_lowercase().alias(field_name)
-                        )
-                        stats[field_name] = stats.get(field_name, 0) + 1
-                    
-                elif clean_rule == "uppercase":
-                    if df[field_name].dtype in (pl.String, pl.Utf8):
-                        df = df.with_columns(
-                            pl.col(field_name).str.to_uppercase().alias(field_name)
-                        )
-                        stats[field_name] = stats.get(field_name, 0) + 1
-                    
-                elif clean_rule == "phone_normalize":
-                    if df[field_name].dtype in (pl.String, pl.Utf8):
-                        df = df.with_columns(
-                            pl.col(field_name)
-                            .str.replace_all(r"[\(\)\-\s\.\+]", "")
-                            .alias(field_name)
-                        )
-                        stats[field_name] = stats.get(field_name, 0) + 1
-                    
-                elif clean_rule == "boolean_normalize":
-                    if df[field_name].dtype in (pl.String, pl.Utf8):
-                        df = df.with_columns(
-                            pl.when(pl.col(field_name).str.to_lowercase().is_in(
-                                ["true", "yes", "1", "y"]
-                            ))
-                            .then(pl.lit(True))
-                            .when(pl.col(field_name).str.to_lowercase().is_in(
-                                ["false", "no", "0", "n"]
-                            ))
-                            .then(pl.lit(False))
-                            .otherwise(pl.lit(None))
-                            .alias(field_name)
-                        )
-                        stats[field_name] = stats.get(field_name, 0) + 1
-                    
-                elif clean_rule == "date_iso":
-                    if df[field_name].dtype in (pl.String, pl.Utf8):
-                        def _normalize_date(val):
-                            if val is None or val == "":
-                                return val
-                            
-                            # Try parsing as Unix timestamp
-                            try:
-                                # excessive years (e.g. 1611183600) are likely timestamps
-                                # check if purely numeric
-                                if str(val).replace('.', '', 1).isdigit():
-                                    ts = float(val)
-                                    # Simple sanity check: is it a reasonable seconds timestamp?
-                                    # 1970-01-01 = 0, 2100-01-01 = 4102444800
-                                    if 0 <= ts <= 4102444800:
-                                        return datetime.fromtimestamp(ts).strftime("%Y-%m-%d")
-                            except (ValueError, TypeError):
-                                pass
 
-                            try:
-                                parsed = date_parser.parse(str(val), dayfirst=False, fuzzy=False)
-                                return parsed.strftime("%Y-%m-%d")
-                            except (ValueError, TypeError, OverflowError):
-                                return val  # Leave unparseable dates for Pydantic to catch
+            df, changed = self.cleaner.clean_column(df, field_name, rule_name)
+            if changed:
+                stats[field_name] = stats.get(field_name, 0) + 1
 
-                        df = df.with_columns(
-                            pl.col(field_name)
-                            .map_elements(_normalize_date, return_dtype=pl.String)
-                            .alias(field_name)
-                        )
-                        stats[field_name] = stats.get(field_name, 0) + 1
-                    
-            except Exception as e:
-                self.logger.warning(f"Cleaning {field_name} with {clean_rule} failed: {e}")
-        
         return df, stats
     
     def _save_quarantine(

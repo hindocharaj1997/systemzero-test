@@ -14,58 +14,58 @@ from src.bronze.ingester import BronzeIngester
 
 
 class TestSilverCleaner:
-    """Tests for the SilverCleaner utility."""
-    
+    """Tests for SilverCleaner.clean_column() — the sole cleaning interface."""
+
     @pytest.fixture
     def cleaner(self, sample_cleaning_rules):
         return SilverCleaner(sample_cleaning_rules)
-    
-    def test_clean_case_lowercase(self, cleaner):
-        """Test lowercase normalization."""
-        val, changed, _ = cleaner.clean_value("HELLO", "lowercase")
-        assert val == "hello"
+
+    def test_clean_column_lowercase(self, cleaner):
+        """Test lowercase normalization on a column."""
+        df = pl.DataFrame({"name": ["HELLO", "World", "already"]})
+        result, changed = cleaner.clean_column(df, "name", "lowercase")
         assert changed is True
-    
-    def test_clean_case_no_change(self, cleaner):
-        """Test no change when already lowercase."""
-        val, changed, _ = cleaner.clean_value("hello", "lowercase")
-        assert val == "hello"
-        assert changed is False
-    
-    def test_clean_phone(self, cleaner):
-        """Test phone number normalization."""
-        val, changed, _ = cleaner.clean_value("(555) 123-4567", "phone_normalize")
-        assert val == "5551234567"
+        assert result["name"].to_list() == ["hello", "world", "already"]
+
+    def test_clean_column_phone(self, cleaner):
+        """Test phone number normalization on a column."""
+        df = pl.DataFrame({"phone": ["(555) 123-4567", "5551234567"]})
+        result, changed = cleaner.clean_column(df, "phone", "phone_normalize")
         assert changed is True
-    
-    def test_clean_boolean_true(self, cleaner):
+        assert result["phone"].to_list() == ["5551234567", "5551234567"]
+
+    def test_clean_column_boolean_true(self, cleaner):
         """Test boolean normalization for true values."""
-        for truthy in ["true", "True", "1", 1, "yes"]:
-            val, changed, _ = cleaner.clean_value(truthy, "boolean_normalize")
-            assert val is True
-    
-    def test_clean_boolean_false(self, cleaner):
+        df = pl.DataFrame({"flag": ["true", "True", "1", "yes"]})
+        result, changed = cleaner.clean_column(df, "flag", "boolean_normalize")
+        assert changed is True
+        assert result["flag"].to_list() == [True, True, True, True]
+
+    def test_clean_column_boolean_false(self, cleaner):
         """Test boolean normalization for false values."""
-        for falsy in ["false", "False", "0", 0, "no"]:
-            val, changed, _ = cleaner.clean_value(falsy, "boolean_normalize")
-            assert val is False
-    
-    def test_clean_none_value(self, cleaner):
-        """Test that None passes through unchanged."""
-        val, changed, _ = cleaner.clean_value(None, "lowercase")
-        assert val is None
+        df = pl.DataFrame({"flag": ["false", "False", "0", "no"]})
+        result, changed = cleaner.clean_column(df, "flag", "boolean_normalize")
+        assert changed is True
+        assert result["flag"].to_list() == [False, False, False, False]
+
+    def test_clean_column_unknown_rule(self, cleaner):
+        """Test unknown rule returns DataFrame unchanged."""
+        df = pl.DataFrame({"col": ["test"]})
+        result, changed = cleaner.clean_column(df, "col", "nonexistent_rule")
         assert changed is False
-    
-    def test_clean_unknown_rule(self, cleaner):
-        """Test unknown rule returns value unchanged."""
-        val, changed, _ = cleaner.clean_value("test", "nonexistent_rule")
-        assert val == "test"
+        assert result["col"].to_list() == ["test"]
+
+    def test_clean_column_non_string_skipped(self, cleaner):
+        """Test that non-string columns are skipped gracefully."""
+        df = pl.DataFrame({"num": [1, 2, 3]})
+        result, changed = cleaner.clean_column(df, "num", "lowercase")
         assert changed is False
+        assert result["num"].to_list() == [1, 2, 3]
 
 
 class TestSilverProcessor:
     """Tests for Silver processor with dedup and FK checks."""
-    
+
     def _run_bronze_then_silver(
         self, sample_sources_config, sample_schemas_config,
         sample_cleaning_rules, sample_input_dir, tmp_path,
@@ -74,9 +74,9 @@ class TestSilverProcessor:
         """Helper: run Bronze to create CSVs, then Silver to process them."""
         output_dir = tmp_path / "outputs" / "processed"
         output_dir.mkdir(parents=True)
-        
+
         config = sources_override or sample_sources_config
-        
+
         # Run Bronze first
         ingester = BronzeIngester(
             sources_config=config,
@@ -84,7 +84,7 @@ class TestSilverProcessor:
             output_dir=output_dir,
         )
         ingester.ingest_all()
-        
+
         # Run Silver
         processor = SilverProcessor(
             sources_config=config,
@@ -94,7 +94,7 @@ class TestSilverProcessor:
             output_dir=output_dir,
         )
         return processor.process_all()
-    
+
     def test_deduplication(
         self, sample_sources_config, sample_schemas_config,
         sample_cleaning_rules, sample_input_dir, tmp_path,
@@ -104,11 +104,9 @@ class TestSilverProcessor:
             sample_sources_config, sample_schemas_config,
             sample_cleaning_rules, sample_input_dir, tmp_path,
         )
-        
-        # Customers had 3 records with CUS-001 duplicated → 1 removed
         assert results["customers"].duplicates_removed == 1
         assert results["customers"].valid_records == 2
-    
+
     def test_referential_integrity(
         self, sample_sources_config, sample_schemas_config,
         sample_cleaning_rules, sample_input_dir, tmp_path,
@@ -118,10 +116,8 @@ class TestSilverProcessor:
             sample_sources_config, sample_schemas_config,
             sample_cleaning_rules, sample_input_dir, tmp_path,
         )
-        
-        # Products: PRD-004 has VND-999 which doesn't exist → 1 orphaned
         assert results["products"].orphaned_records == 1
-    
+
     def test_cleaning_applied(
         self, sample_sources_config, sample_schemas_config,
         sample_cleaning_rules, sample_input_dir, tmp_path,
@@ -131,10 +127,8 @@ class TestSilverProcessor:
             sample_sources_config, sample_schemas_config,
             sample_cleaning_rules, sample_input_dir, tmp_path,
         )
-        
-        # Vendor status has 'lowercase' clean rule → should be applied
         assert "status" in results["vendors"].fields_cleaned
-    
+
     def test_quarantine_file_created(
         self, sample_sources_config, sample_schemas_config,
         sample_cleaning_rules, sample_input_dir, tmp_path,
@@ -144,12 +138,10 @@ class TestSilverProcessor:
             sample_sources_config, sample_schemas_config,
             sample_cleaning_rules, sample_input_dir, tmp_path,
         )
-        
         quarantine_dir = tmp_path / "outputs" / "quarantine"
         quarantine_files = list(quarantine_dir.glob("*.json"))
-        # Products should have quarantine (orphaned FK)
         assert len(quarantine_files) > 0
-    
+
     def test_quarantine_has_error_details(
         self, sample_sources_config, sample_schemas_config,
         sample_cleaning_rules, sample_input_dir, tmp_path,
@@ -159,7 +151,6 @@ class TestSilverProcessor:
             sample_sources_config, sample_schemas_config,
             sample_cleaning_rules, sample_input_dir, tmp_path,
         )
-        
         quarantine_dir = tmp_path / "outputs" / "quarantine"
         for qf in quarantine_dir.glob("*.json"):
             with open(qf) as f:
@@ -168,7 +159,7 @@ class TestSilverProcessor:
                 assert "row_index" in record
                 assert "errors" in record
                 assert len(record["errors"]) > 0
-    
+
     def test_pass_rate(
         self, sample_sources_config, sample_schemas_config,
         sample_cleaning_rules, sample_input_dir, tmp_path,
@@ -178,11 +169,10 @@ class TestSilverProcessor:
             sample_sources_config, sample_schemas_config,
             sample_cleaning_rules, sample_input_dir, tmp_path,
         )
-        
         for result in results.values():
             if result.total_records > 0:
                 assert 0 <= result.pass_rate <= 1.0
-    
+
     def test_silver_csv_output(
         self, sample_sources_config, sample_schemas_config,
         sample_cleaning_rules, sample_input_dir, tmp_path,
@@ -192,16 +182,14 @@ class TestSilverProcessor:
             sample_sources_config, sample_schemas_config,
             sample_cleaning_rules, sample_input_dir, tmp_path,
         )
-        
         silver_dir = tmp_path / "outputs" / "processed" / "silver"
         silver_files = list(silver_dir.glob("*.csv"))
-        # All three sources should produce Silver CSVs
         assert len(silver_files) == 3
 
 
 class TestSilverCleanerExtended:
     """Additional cleaner tests for edge cases and coverage."""
-    
+
     @pytest.fixture
     def full_cleaner(self):
         """Cleaner with all rule types."""
@@ -239,54 +227,48 @@ class TestSilverCleanerExtended:
             }
         }
         return SilverCleaner(rules)
-    
-    def test_clean_date_iso(self, full_cleaner):
+
+    def test_clean_column_date_iso(self, full_cleaner):
         """Test date normalization to ISO format."""
-        val, changed, desc = full_cleaner.clean_value("25/03/2025", "date_iso")
-        assert val == "2025-03-25"
+        df = pl.DataFrame({"date": ["03/25/2024", "2024-01-15"]})
+        result, changed = full_cleaner.clean_column(df, "date", "date_iso")
         assert changed is True
-    
-    def test_clean_date_already_iso(self, full_cleaner):
-        """Test date already in ISO format."""
-        val, changed, _ = full_cleaner.clean_value("2025-03-25", "date_iso")
-        assert val == "2025-03-25"
-        assert changed is False
-    
-    def test_clean_date_invalid(self, full_cleaner):
+        assert result["date"].to_list() == ["2024-03-25", "2024-01-15"]
+
+    def test_clean_column_date_invalid(self, full_cleaner):
         """Test invalid date returns unchanged."""
-        val, changed, _ = full_cleaner.clean_value("not-a-date", "date_iso")
-        assert val == "not-a-date"
-        assert changed is False
-    
-    def test_clean_case_uppercase(self, full_cleaner):
+        df = pl.DataFrame({"date": ["not-a-date"]})
+        result, changed = full_cleaner.clean_column(df, "date", "date_iso")
+        assert changed is True  # column was processed
+        assert result["date"].to_list() == ["not-a-date"]  # value unchanged
+
+    def test_clean_column_uppercase(self, full_cleaner):
         """Test uppercase normalization."""
-        val, changed, _ = full_cleaner.clean_value("hello", "uppercase")
-        assert val == "HELLO"
+        df = pl.DataFrame({"val": ["hello"]})
+        result, changed = full_cleaner.clean_column(df, "val", "uppercase")
         assert changed is True
-    
-    def test_clean_case_title(self, full_cleaner):
+        assert result["val"].to_list() == ["HELLO"]
+
+    def test_clean_column_titlecase(self, full_cleaner):
         """Test titlecase normalization."""
-        val, changed, _ = full_cleaner.clean_value("hello world", "titlecase")
-        assert val == "Hello World"
+        df = pl.DataFrame({"val": ["hello world"]})
+        result, changed = full_cleaner.clean_column(df, "val", "titlecase")
         assert changed is True
-    
-    def test_clean_string_trim_whitespace(self, full_cleaner):
+        assert result["val"].to_list() == ["Hello World"]
+
+    def test_clean_column_string_trim_whitespace(self, full_cleaner):
         """Test string trim and whitespace normalization."""
-        val, changed, _ = full_cleaner.clean_value("  hello   world  ", "string_clean")
-        assert val == "hello world"
+        df = pl.DataFrame({"val": ["  hello   world  "]})
+        result, changed = full_cleaner.clean_column(df, "val", "string_clean")
         assert changed is True
-    
-    def test_clean_empty_string(self, full_cleaner):
-        """Test empty string passes through."""
-        val, changed, _ = full_cleaner.clean_value("", "lowercase")
-        assert val == ""
-        assert changed is False
-    
-    def test_clean_boolean_already_bool(self, full_cleaner):
-        """Test True stays True without marking as changed."""
-        val, changed, _ = full_cleaner.clean_value(True, "boolean_normalize")
-        assert val is True
-        assert changed is False
+        assert result["val"].to_list() == ["hello world"]
+
+    def test_clean_column_empty_string(self, full_cleaner):
+        """Test column with empty strings."""
+        df = pl.DataFrame({"val": ["", "hello"]})
+        result, changed = full_cleaner.clean_column(df, "val", "lowercase")
+        assert changed is True
+        assert result["val"].to_list() == ["", "hello"]
 
 
 class TestLineItemsParsing:
